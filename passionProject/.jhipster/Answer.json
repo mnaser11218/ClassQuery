@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20240820161444"
+  },
+  "applications": ["zipcodeoverflow"],
+  "fields": [
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Answer",
+  "relationships": [
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "answers",
+      "relationshipName": "questions",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

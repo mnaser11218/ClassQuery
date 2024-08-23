@@ -1,0 +1,45 @@
+{
+  "annotations": {
+    "changelogDate": "20240820161443"
+  },
+  "applications": ["zipcodeoverflow"],
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Question",
+  "relationships": [
+    {
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "tags",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "answer",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "answers",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "userProfile",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "userProfile",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

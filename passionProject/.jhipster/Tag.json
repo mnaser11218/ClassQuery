@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20240820161445"
+  },
+  "applications": ["zipcodeoverflow"],
+  "fields": [
+    {
+      "fieldName": "tagName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "labName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "labTopic",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Tag",
+  "relationships": [
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "questions",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
