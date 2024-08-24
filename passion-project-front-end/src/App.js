@@ -1,15 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
   const runfetch = () => {
     const API_URL = `http://localhost:8080`;
-  fetch('http://localhost:8080/api/questions?eagerload=true', {
+  fetch(`http://localhost:8080/api/questions?eagerload=true`
+    , {
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNDU0MDQzMiwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI0NDU0MDMyfQ.HVL-VznJQZ0mc2O2pX8N-uwfjNIX_IG8aXeCi6_DAkMycwda-62gtLxTq7Vy3xh55myd-K7Y5LkHIwQZ-H8CEw`
+      Authorization: 'Bearer ' + `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNDU4NTgwNywiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI0NDk5NDA3fQ.UcohAYsrVnIrN58gCYciwbBqbMwM5cmhJaA6U0ykHq-FYJGe_uFL9paFjg4gG8AA8eAmv8cmCIfKJblWlJTkkA`
     }})
     .then(res => {
+      console.log("inside fetch method")
       //console.log("res is ", Object.prototype.toString.call(res));
       return res.json();
     })
@@ -26,24 +27,21 @@ function App() {
   }
 
   return (
-   
-    <div className="App">
-       {runfetch()}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    
+    <div>
+      {/* <button onClick={runfetch}></button> */}
+ <header>
+  <a href="" className="logo">StudentExchangeFlowLogo</a>
+  <form action="" className="search">
+
+  <input type="text" placeholder="Search... " />
+  </form>
+  <a href="" className="profile">Mohammed</a>
+  
+ </header>
     </div>
+    </>
   );
 }
 
