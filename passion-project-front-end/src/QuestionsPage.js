@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
 const StyledHeader = styled.a`
 color: black;
@@ -18,7 +19,7 @@ padding: 15px;
 border-radius: 5px;
 border: 0;
 cursor: pointer;
-`
+`  
 
 
 
@@ -27,7 +28,11 @@ cursor: pointer;
 
 function QuestionPage(){   
     const [questions, setQuestions] = useState([])
- 
+    let navigate = useNavigate(); 
+    const routeChange = ()=> {
+        let path = `/askpage`; 
+        navigate(path);
+    }
     useEffect(()=> {
         fetch(`http://localhost:8080/api/questions?eagerload=true`)
         .then(res => {
@@ -52,11 +57,8 @@ function QuestionPage(){
         <main>
             <HeaderRow>
 <StyledHeader>Questions</StyledHeader>
-<BlueButton>Ask&nbsp;Question</BlueButton>
+<BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
-<QuestionRow question="this is a sample title"/>
-
-{console.log("questions" + questions.length)}
 {questions.map(row=> {
     console.log("inside row")
    return <QuestionRow question={row.question} title={row.title} createdDate ={row.createdDate} tags={row.tags} id={row.id}/>
