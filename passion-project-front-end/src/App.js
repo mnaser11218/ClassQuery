@@ -1,4 +1,15 @@
-
+import { Reset } from 'styled-reset'
+import styled, {createGlobalStyle} from 'styled-components';
+import Header from './Header';
+import QuestionPage from './QuestionsPage';
+const GlobalStyles = createGlobalStyle`
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;700&display=swap');
+  body{
+    background: #2d2d2d;
+    color:#fff;
+    font-family: Roboto, sans-serif;
+  }
+`;
 
 function App() {
   const runfetch = () => {
@@ -30,16 +41,12 @@ function App() {
     <>
     
     <div>
+      <Reset/>
+      <GlobalStyles />
+      <Header />
+      <QuestionPage/>
       {/* <button onClick={runfetch}></button> */}
- <header>
-  <a href="" className="logo">StudentExchangeFlowLogo</a>
-  <form action="" className="search">
 
-  <input type="text" placeholder="Search... " />
-  </form>
-  <a href="" className="profile">Mohammed</a>
-  
- </header>
     </div>
     </>
   );
