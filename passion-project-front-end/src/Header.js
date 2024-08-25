@@ -62,7 +62,7 @@ function Header (){
   
     <StyledInput type="text" placeholder="Search... " />
     </form>
- <ProfileLink href="" className="profile">Username</ProfileLink>
+ <ProfileLink href="" className="profile" onClick={()=> console.log("called username")}>Username</ProfileLink>
     
    </StyledHeader>
     )
