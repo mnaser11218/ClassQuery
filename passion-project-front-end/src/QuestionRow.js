@@ -87,7 +87,7 @@ const runfetch = () => {
   }
 
 function QuestionRow(props){
-const {question, title, createdDate, tags} = props;
+const {question, title, createdDate, tags, id} = props;
 function handleQuestions(event){
     event.preventDefault()
     console.log("called handle questions method")

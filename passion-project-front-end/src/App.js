@@ -2,6 +2,10 @@ import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
 import QuestionPage from './QuestionsPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+
 const GlobalStyles = createGlobalStyle`
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;700&display=swap');
   body{
@@ -39,15 +43,21 @@ function App() {
 
   return (
     <>
-    
+    <Router>
     <div>
       <Reset/>
       <GlobalStyles />
       <Header />
-      <QuestionPage/>
+
+      <Routes >
+      <Route path="/questions" element={ <QuestionPage/>} />
+     
+      </Routes>
+
       {/* <button onClick={runfetch}></button> */}
 
     </div>
+    </Router>
     </>
   );
 }
