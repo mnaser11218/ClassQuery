@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     background: #2d2d2d;
     color:#fff;
-    font-family: Roboto, sans-serif;
+    font-family: Roboto, arial, sans-serif;
   }
 `;
 

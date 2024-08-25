@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow} from '@fortawesome/fontawesome-free-brands'
 
 const StyledHeader = styled.header`
+border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
 background-color:#393939;
 box-shadow: 0px 3px 3px rgba(0,0,0, .2);
