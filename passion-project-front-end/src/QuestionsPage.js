@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import styled from "styled-components"
 import QuestionRow from "./QuestionRow"
-const StyledHeader = styled.h1`
-color: white;
+const StyledHeader = styled.a`
+color: black;
 font-size: 1.8rem;
+cursor: pointer;
 `
 const HeaderRow = styled.div`
 padding: 30px 20px;
@@ -18,18 +20,65 @@ border: 0;
 cursor: pointer;
 `
 
-const arr = [];
 
 
 
-function QuestionPage(){    
+
+
+function QuestionPage(){   
+    const [questions, setQuestions] = useState([])
+    // let arr=[];
+    // const handleQuestions = ()=>{
+    //     fetch(`http://localhost:8080/api/questions?eagerload=true`)
+    //     .then(res => {
+    //       console.log("inside fetch method")
+    //       //console.log("res is ", Object.prototype.toString.call(res));
+    //       return res.json();
+    //     })
+    //     .then(data => {
+    //       console.log("data fetched")
+    //       console.log(data)
+    //       arr = data;
+    //     })
+    //     .catch(error => {
+    //       console.log(`Error Fetching data : ${error}`);
+    //      // document.getElementById('posts').innerHTML = 'Error Loading Data';
+    //     });
+    // }
+
+    useEffect(()=> {
+        fetch(`http://localhost:8080/api/questions?eagerload=true`)
+        .then(res => {
+          console.log("inside fetch method")
+          //console.log("res is ", Object.prototype.toString.call(res));
+          return res.json();
+        })
+        .then(data => {
+          console.log("data fetched")
+          console.log(data)
+          setQuestions(data);
+          //arr = data;
+        })
+        .catch(error => {
+          console.log(`Error Fetching data : ${error}`);
+         // document.getElementById('posts').innerHTML = 'Error Loading Data';
+        });
+    }, [])
+ 
+   // handleQuestions();
     return(
         <main>
             <HeaderRow>
 <StyledHeader>Questions</StyledHeader>
 <BlueButton>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
-{arr.map(row=> row)}
+<QuestionRow question="this is a sample title"/>
+
+{console.log("questions" + questions.length)}
+{questions.map(row=> {
+    console.log("inside row")
+   return <QuestionRow question={row.question} title={row.title} createdDate ={row.createdDate} tags={row.tags}/>
+})}
 
 
 

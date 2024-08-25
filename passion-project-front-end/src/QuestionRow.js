@@ -36,7 +36,8 @@ cursor: pointer;
 font-size: 0.9rem;
 `
 const StyledQuestionRow = styled.div`
-background-color: rgba(255,255,255,.1);
+// background-color: rgba(255,255,255,.1);
+background: #808080;
 padding: 10px 15px 10px;
 display: grid;
 grid-template-columns:  100px 100px 1fr;
@@ -53,6 +54,13 @@ color: rgb(27, 117, 208);
 font-size: 0.7rem;
 float: right;
 padding: 10px 0;
+`
+
+const QuestionTag = styled.div`
+display: block;
+margin: 5px;
+padding:10px;
+
 `
 const runfetch = () => {
 
@@ -79,7 +87,7 @@ const runfetch = () => {
   }
 
 function QuestionRow(props){
-const {question} = props;
+const {question, title, createdDate, tags} = props;
 function handleQuestions(event){
     event.preventDefault()
     console.log("called handle questions method")
@@ -91,12 +99,17 @@ function handleQuestions(event){
     <QuestionStat>0<span>Votes</span></QuestionStat>
     <QuestionStat>0<span>Answers</span></QuestionStat>
     <QuestionTitleArea>
-        <QuestionLink href="" onClick={handleQuestions}>{question}</QuestionLink>
-        <User>Mohammed <WhoAndWhen>asked 5/3/2004</WhoAndWhen></User>
-        <Tag>Java</Tag>
-        <Tag>Spring</Tag>
-        <Tag>MySql</Tag>
+        <QuestionLink href="" onClick={handleQuestions}>{title}</QuestionLink>
+        <QuestionTag>{question}</QuestionTag>
+
+
+        <User>Mohammed <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
+
+        {tags!= null && tags.map(tag=> <Tag>{tag.tagName}</Tag>)}
         
+        {/* <Tag>Spring</Tag>
+        <Tag>MySql</Tag>
+         */}
     </QuestionTitleArea>
     </StyledQuestionRow>
             </>
