@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = zipcode.config.\
+    SqlTestContainersSpringContextCustomizerFactory,rocks.zipcode.config.\
+    SqlTestContainersSpringContextCustomizerFactory

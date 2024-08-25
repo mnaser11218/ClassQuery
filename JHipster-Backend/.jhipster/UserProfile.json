@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240824010137"
+  },
+  "applications": ["zipcodeoverflow"],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "emailAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aboutMe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "UserProfile",
+  "relationships": [
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "userProfile",
+      "relationshipName": "questions",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

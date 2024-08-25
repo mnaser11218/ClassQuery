@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Question.
+    -->
+    <changeSet id="20240824010139-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="question_id"
+                                 baseTableName="rel_question__tags"
+                                 constraintName="fk_rel_question__tags__question_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="question"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="tags_id"
+                                 baseTableName="rel_question__tags"
+                                 constraintName="fk_rel_question__tags__tags_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="user_profile_id"
+                                 baseTableName="question"
+                                 constraintName="fk_question__user_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_profile"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="assignment_id"
+                                 baseTableName="question"
+                                 constraintName="fk_question__assignment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assignment"
+                                 />
+    </changeSet>
+</databaseChangeLog>
