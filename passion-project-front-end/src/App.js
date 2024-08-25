@@ -2,6 +2,7 @@ import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
 import QuestionPage from './QuestionsPage';
+import Home from './Home'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
@@ -51,7 +52,8 @@ function App() {
 
       <Routes >
       <Route path="/questions" element={ <QuestionPage/>} />
-     
+      <Route path="/" element={ <Home/>} />
+
       </Routes>
 
       {/* <button onClick={runfetch}></button> */}
