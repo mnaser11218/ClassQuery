@@ -52,7 +52,7 @@ border: 1px solid #777;
 function Header (){
     return (
         <StyledHeader>
-        <LogoLink href="" className="logo">
+        <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon icon={faStackOverflow} size="2x"/>
         <span>
     stack<b>overflow </b>

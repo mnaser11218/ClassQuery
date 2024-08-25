@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom";
+
 
 const QuestionStat = styled.div`
 margin-top:15px;
@@ -57,50 +59,27 @@ padding: 10px 0;
 `
 
 const QuestionTag = styled.div`
+
 display: block;
 margin: 5px;
 padding:10px;
-
 `
-const runfetch = () => {
-
-    // {
-    //     method: 'GET',
-    //     headers: {
-    //       Authorization: 'Bearer ' + `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNDY4MDQwMCwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI0NTk0MDAwfQ.7-XRt5cho__tX8MnnZeGSkPlDoXo1aVLwF85PszxktzIJZxgd9rlTmWCLZRZAHksh6_RFYNqiL--oNMPlomSsg`
-    //     }}
-    const API_URL = `http://localhost:8080`;
-  fetch(`http://localhost:8080/api/questions?eagerload=true`)
-    .then(res => {
-      console.log("inside fetch method")
-      //console.log("res is ", Object.prototype.toString.call(res));
-      return res.json();
-    })
-    .then(data => {
-      console.log("data fetched")
-      console.log(data)
-    })
-    .catch(error => {
-      console.log(`Error Fetching data : ${error}`);
-     // document.getElementById('posts').innerHTML = 'Error Loading Data';
-    });
-  }
 
 function QuestionRow(props){
 const {question, title, createdDate, tags, id} = props;
-function handleQuestions(event){
-    event.preventDefault()
-    console.log("called handle questions method")
-    runfetch();
-}
+// let navigate = useNavigate(); 
+//     const routeChange = ()=> {
+//         let path = `/answerspage`; 
+//         navigate(path);
+//     }
     return(
             <>
     <StyledQuestionRow>
     <QuestionStat>0<span>Votes</span></QuestionStat>
     <QuestionStat>0<span>Answers</span></QuestionStat>
     <QuestionTitleArea>
-        <QuestionLink href="" onClick={handleQuestions}>{title}</QuestionLink>
-        <QuestionTag>{question}</QuestionTag>
+        <QuestionLink href="/answerspage" >{title}</QuestionLink>
+        <QuestionTag>{question} </QuestionTag>
 
 
         <User>Mohammed <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
@@ -116,3 +95,29 @@ function handleQuestions(event){
     )
 }
 export default QuestionRow;
+
+
+
+// const runfetch = () => {
+
+//     // {
+//     //     method: 'GET',
+//     //     headers: {
+//     //       Authorization: 'Bearer ' + `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNDY4MDQwMCwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI0NTk0MDAwfQ.7-XRt5cho__tX8MnnZeGSkPlDoXo1aVLwF85PszxktzIJZxgd9rlTmWCLZRZAHksh6_RFYNqiL--oNMPlomSsg`
+//     //     }}
+//     const API_URL = `http://localhost:8080`;
+//   fetch(`http://localhost:8080/api/questions?eagerload=true`)
+//     .then(res => {
+//       console.log("inside fetch method")
+//       //console.log("res is ", Object.prototype.toString.call(res));
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log("data fetched")
+//       console.log(data)
+//     })
+//     .catch(error => {
+//       console.log(`Error Fetching data : ${error}`);
+//      // document.getElementById('posts').innerHTML = 'Error Loading Data';
+//     });
+//   }
