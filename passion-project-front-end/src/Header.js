@@ -55,7 +55,7 @@ function Header (){
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon icon={faStackOverflow} size="2x"/>
         <span>
-    student<b>Q&Aflow </b>
+    class<b>Query</b>
     </span>
     </LogoLink>
     

@@ -75,9 +75,16 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
+   
         <H1Tag>Ask A Question</H1Tag>
     <TitleInput placeholder="Title of your Question" onChange={handleTopicChange}></TitleInput>
     <TextAreaTag placeholder="Enter Question here" onChange={handleQuestionChange}></TextAreaTag>
+    <select class="custom-select" size="3">
+  <option selected>Open this select menu</option>
+  <option value="1">Java</option>
+  <option value="2">MySql</option>
+  <option value="3">React</option>
+</select>
     <SubmitButton onClick={handleSubmitClick} >Submit</SubmitButton>
     </CenterPageDiv>
     </>

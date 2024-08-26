@@ -16,14 +16,14 @@ color: black;
 `
 
 const AssignmentEle = styled.div`
-border: solid 2px white;
+border: solid 2px gray;
  background-color: white;
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
 width: 100%;
 height: 400px;
-  background-image: url("https://assets-global.website-files.com/5dbb30f00775d4350591a4e5/6335d12aa8bba4d2c450c8d7_react%20js%20introduction%20microverse%20(2).webp")
+  background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `
 function Home(){
 return(
