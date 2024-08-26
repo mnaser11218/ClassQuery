@@ -22,7 +22,16 @@ color: black;
 font-size: 1.5rem;
 font-family: arial;
 `
-
+const SubmitButton = styled.button`
+background-color: rgb(27, 117, 208);
+color: white;
+padding: 15px;
+border-radius: 5px;
+border: 0;
+cursor: pointer;
+margin-left: 89%;
+margin-top: 5px;
+`
 
 
 const CenterPageDiv = styled.div`
@@ -41,7 +50,7 @@ return(
         <H1Tag>Ask A Question</H1Tag>
     <TitleInput placeholder="Title of your Question"></TitleInput>
     <TextAreaTag placeholder="Enter Question here"></TextAreaTag>
-
+    <SubmitButton>Submit</SubmitButton>
     </CenterPageDiv>
     </>
 )
