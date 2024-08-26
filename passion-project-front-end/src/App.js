@@ -3,9 +3,9 @@ import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
 import QuestionPage from './QuestionsPage';
 import Home from './Home';
-import AskQuestion from './AskQuestion';
 import AnswersPage from './Answerspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AskPage from './AskPage';
 
 
 
@@ -32,7 +32,7 @@ function App() {
       <Route path="/questionspage" element={ <QuestionPage/>} />
       <Route path="answerspage" element={<AnswersPage />}/> 
       <Route path="/" element={ <Home/>} />
-      <Route path="/askpage" element={<AskQuestion />} />
+      <Route path="/askpage" element={<AskPage/>} />
 
       </Routes>
 

@@ -21,11 +21,6 @@ border: 0;
 cursor: pointer;
 `  
 
-
-
-
-
-
 function QuestionPage(){   
     const [questions, setQuestions] = useState([])
     let navigate = useNavigate(); 

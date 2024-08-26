@@ -95,29 +95,3 @@ const {question, title, createdDate, tags, id} = props;
     )
 }
 export default QuestionRow;
-
-
-
-// const runfetch = () => {
-
-//     // {
-//     //     method: 'GET',
-//     //     headers: {
-//     //       Authorization: 'Bearer ' + `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNDY4MDQwMCwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI0NTk0MDAwfQ.7-XRt5cho__tX8MnnZeGSkPlDoXo1aVLwF85PszxktzIJZxgd9rlTmWCLZRZAHksh6_RFYNqiL--oNMPlomSsg`
-//     //     }}
-//     const API_URL = `http://localhost:8080`;
-//   fetch(`http://localhost:8080/api/questions?eagerload=true`)
-//     .then(res => {
-//       console.log("inside fetch method")
-//       //console.log("res is ", Object.prototype.toString.call(res));
-//       return res.json();
-//     })
-//     .then(data => {
-//       console.log("data fetched")
-//       console.log(data)
-//     })
-//     .catch(error => {
-//       console.log(`Error Fetching data : ${error}`);
-//      // document.getElementById('posts').innerHTML = 'Error Loading Data';
-//     });
-//   }
