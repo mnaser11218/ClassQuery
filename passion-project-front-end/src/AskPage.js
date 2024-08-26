@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 const TitleInput = styled.input`
 width: 100%;
 height: 30px;
@@ -50,7 +51,11 @@ const [topic, setTopic] = useState("");
 
 const handleTopicChange = event => setTopic(event.target.value);
   const handleQuestionChange = event => setQuestion(event.target.value)
-
+  let navigate = useNavigate(); 
+        var routeChange = ()=> {
+            let path = `/`; 
+            navigate(path);
+        }
 const handleSubmitClick = ()=>{
       
     fetch('http://localhost:8080/api/questions', {
@@ -62,10 +67,10 @@ const handleSubmitClick = ()=>{
         body: JSON.stringify( {
             title: topic,
             question: question,
-            createdDate: "2024-08-26"})
+            createdDate: new Date()})
       }).then(res => res.json())
         .then(res => console.log(res));
-
+      routeChange()
 }
 return(
     <>
@@ -73,7 +78,7 @@ return(
         <H1Tag>Ask A Question</H1Tag>
     <TitleInput placeholder="Title of your Question" onChange={handleTopicChange}></TitleInput>
     <TextAreaTag placeholder="Enter Question here" onChange={handleQuestionChange}></TextAreaTag>
-    <SubmitButton onClick={handleSubmitClick}>Submit</SubmitButton>
+    <SubmitButton onClick={handleSubmitClick} >Submit</SubmitButton>
     </CenterPageDiv>
     </>
 )
