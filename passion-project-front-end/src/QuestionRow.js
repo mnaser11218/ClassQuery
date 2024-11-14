@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 
 
+
 const QuestionStat = styled.div`
 margin-top:15px;
 text-align: center;
@@ -75,10 +76,11 @@ const {question, title, createdDate, tags, id} = props;
     return(
             <>
     <StyledQuestionRow>
+       
     <QuestionStat>0<span>Votes</span></QuestionStat>
     <QuestionStat>0<span>Answers</span></QuestionStat>
     <QuestionTitleArea>
-        <QuestionLink href="/answerspage" >{title}</QuestionLink>
+        <QuestionLink href={`/answerspage/${id}`} >{title}</QuestionLink>
         <QuestionTag>{question} </QuestionTag>
 
 
