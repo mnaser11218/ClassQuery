@@ -8,7 +8,7 @@ function AnswersPage(){
 
     return(
       
-      <><h1></h1></>
+      <><h1>{console.log(questionId)}</h1></>
     )
 }
 

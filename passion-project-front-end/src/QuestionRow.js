@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
-
+import { Link} from "react-router-dom";
 
 
 const QuestionStat = styled.div`
@@ -17,7 +17,7 @@ const QuestionTitleArea = styled.div`
 padding: 0 30px;
 `
 
-const QuestionLink = styled.a`
+const QuestionLink = styled(Link)`
 text-decoration: none;
 color: rgb(27, 117, 208);
 cursor: pointer;
@@ -80,7 +80,7 @@ const {question, title, createdDate, tags, id} = props;
     <QuestionStat>0<span>Votes</span></QuestionStat>
     <QuestionStat>0<span>Answers</span></QuestionStat>
     <QuestionTitleArea>
-        <QuestionLink href={`/answerspage/${id}`} >{title}</QuestionLink>
+        <QuestionLink to={`/answerspage/${id}`} >{title}</QuestionLink>
         <QuestionTag>{question} </QuestionTag>
 
 
