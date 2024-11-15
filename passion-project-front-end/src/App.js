@@ -16,6 +16,21 @@ const GlobalStyles = createGlobalStyle`
     color:#fff;
     font-family: Roboto, arial, sans-serif;
   }
+    b,strong{
+    font-weight: bold;
+    }
+    a{
+    color: #fff;
+    }
+    p{
+    margin: 10px 0;
+    }
+    blockquote{
+    background-color: rgba(0,0,0, .1);
+    padding: 15px;
+    border-radius: 4px; 
+    }
+
 `;
 
 function App() {

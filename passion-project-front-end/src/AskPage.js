@@ -27,6 +27,7 @@ border: 2px solid #777;
 border-radius: 5px;
 margin-bottom: 20px;
 color: #fff;
+font-family:inherit;
 `
 const H1Tag = styled.h1`
 color: white;
@@ -34,7 +35,7 @@ font-size: 1.8rem;
 font-family: arial;
 `
 const PreviewArea = styled.div`
-padding: 20px;
+padding: 10px 20px;
 background-color: #666;
 margin-bottom:20px;
 border-radius: 5px;
@@ -84,15 +85,18 @@ return(
     
     <TextAreaTag
     type="text"
-    placeholder="Enter Question here" onChange={handleQuestionChange}/>
+    value={question}
+    placeholder="Enter Question here" 
+    onChange={e=>setQuestion(e.target.value)}/>
     {/* <select className="custom-select" size="3">
   <option selected>Open this select menu</option>
   <option value="1">Java</option>
   <option value="2">MySql</option>
   <option value="3">React</option>
 </select> */}
+{console.log("the question is: " + question)}
     <PreviewArea>
-      <ReactMarkdown remarkPlugins={[gfm]} children={''}/>
+      <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
 
