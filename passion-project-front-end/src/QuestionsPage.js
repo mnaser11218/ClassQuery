@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
 const StyledHeader = styled.a`
-color: black;
+color: white;
 font-size: 1.8rem;
 cursor: pointer;
 `
