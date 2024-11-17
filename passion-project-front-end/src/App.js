@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AskPage from './AskPage';
 import LoginPage from './LoginPage';
 import UserContext from './UserContext';
+import Profile from './Profile';
 
 
 
@@ -58,7 +59,7 @@ const [user, setUser] = useState(null);
       <GlobalStyles />
       <Router>
 
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={44}>
       <Header />
 
       <Routes >
@@ -68,6 +69,7 @@ const [user, setUser] = useState(null);
       <Route path="answerspage/:id" element={<AnswersPage />}/> 
       <Route path="/" element={ <Home/>} />
       <Route path="/askpage" element={<AskPage/>} />
+      <Route path="/profile" element={<Profile/>} />
 
       </Routes>
       </UserContext.Provider>

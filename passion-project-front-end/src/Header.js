@@ -67,7 +67,7 @@ function Header (){
   
     <StyledInput type="text" placeholder="Search... " />
     </form>
-    {user ? <ProfileLink href="" className="profile" onClick={()=> console.log("called username")}>{user}</ProfileLink>  : <ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>}
+    {user ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{user}</ProfileLink>  : <ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>}
  
  
 
