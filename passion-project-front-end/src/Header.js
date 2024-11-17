@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow} from '@fortawesome/fontawesome-free-brands'
 import {Link} from "react-router-dom"
+import { useContext } from "react";
+import UserContext from "./UserContext";
 const StyledHeader = styled.header`
 border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
@@ -50,8 +52,10 @@ border: 1px solid #777;
 
 `
 function Header (){
+    const user= useContext(UserContext);
     return (
         <StyledHeader>
+            {console.log("the user is:: " + user)}
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon icon={faStackOverflow} size="2x"/>
         <span>
@@ -63,8 +67,9 @@ function Header (){
   
     <StyledInput type="text" placeholder="Search... " />
     </form>
- <ProfileLink href="" className="profile" onClick={()=> console.log("called username")}>Username</ProfileLink>
- <ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>
+    {user ? <ProfileLink href="" className="profile" onClick={()=> console.log("called username")}>{user}</ProfileLink>  : <ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>}
+ 
+ 
 
    </StyledHeader>
     )
