@@ -59,7 +59,7 @@ const [user, setUser] = useState(null);
       <GlobalStyles />
       <Router>
 
-        <UserContext.Provider value={44}>
+        <UserContext.Provider value={user}>
       <Header />
 
       <Routes >

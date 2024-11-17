@@ -94,7 +94,7 @@ return(
   <option value="2">MySql</option>
   <option value="3">React</option>
 </select> */}
-{console.log("the question is: " + question)}
+
     <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
