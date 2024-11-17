@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
@@ -8,6 +8,7 @@ import AnswersPage from './Answerspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AskPage from './AskPage';
 import LoginPage from './LoginPage';
+import UserContext from './UserContext';
 
 
 
@@ -46,14 +47,18 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 
-function App() {
 
+function App() {
+const [user, setUser] = useState(null);
   return (
     <>
-    <Router>
+    
     <div>
       <Reset/>
       <GlobalStyles />
+      <Router>
+
+        <UserContext.Provider value={{user}}>
       <Header />
 
       <Routes >
@@ -65,11 +70,11 @@ function App() {
       <Route path="/askpage" element={<AskPage/>} />
 
       </Routes>
-
+      </UserContext.Provider>
       {/* <button onClick={runfetch}></button> */}
-
+      </Router>
     </div>
-    </Router>
+    
     </>
   );
 }
