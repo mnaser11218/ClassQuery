@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
@@ -6,6 +7,7 @@ import Home from './Home';
 import AnswersPage from './Answerspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AskPage from './AskPage';
+import LoginPage from './LoginPage';
 
 
 
@@ -24,6 +26,17 @@ const GlobalStyles = createGlobalStyle`
     }
     p{
     margin: 10px 0;
+    line-height: 1.3=5rem;
+    }
+    h1,h2{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    }
+    h1{
+    font-size: 1.8rem;
+    }
+    h2{
+    font-size: 1.6rem;
     }
     blockquote{
     background-color: rgba(0,0,0, .1);
@@ -45,6 +58,8 @@ function App() {
 
       <Routes >
       <Route path="/questionspage" element={ <QuestionPage/>} />
+      <Route path="/login" element={ <LoginPage/>} />
+
       <Route path="answerspage/:id" element={<AnswersPage />}/> 
       <Route path="/" element={ <Home/>} />
       <Route path="/askpage" element={<AskPage/>} />

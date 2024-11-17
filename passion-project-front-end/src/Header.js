@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow} from '@fortawesome/fontawesome-free-brands'
-
+import {Link} from "react-router-dom"
 const StyledHeader = styled.header`
 border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
@@ -11,7 +11,7 @@ display: grid;
 grid-template-columns: 250px 1fr 200px
 `;
 
-const ProfileLink = styled.a`
+const ProfileLink = styled(Link)`
 color: #fff;
 text-decoration: none;
 margin-top: 10px;
@@ -64,7 +64,8 @@ function Header (){
     <StyledInput type="text" placeholder="Search... " />
     </form>
  <ProfileLink href="" className="profile" onClick={()=> console.log("called username")}>Username</ProfileLink>
-    
+ <ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>
+
    </StyledHeader>
     )
 }
