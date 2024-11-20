@@ -7,7 +7,7 @@ import axios from 'axios'
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
 `
- class LoginPage extends Component{
+ class RegisterPage extends Component{
     constructor(props){
         super(props);
         this.state= {
@@ -22,22 +22,24 @@ padding: 30px 28px;
             //         password: this.password,
             //     }
             // })
-            console.log("clicked login button")
-
+            console.log("clicked register button")
     }
 
 render(){
     return (
         <>
         <CenterPageDiv>
-        <H1HeaderTag>Login </H1HeaderTag>
+        <H1HeaderTag>Register </H1HeaderTag>
         <StyledInput placeholder="email" type="email" value={this.state.userName}
         onChange={e=>this.setState({userName: e.target.value})}
         />
         <StyledInput placeholder="password" type="password" value={this.state.password} 
-        onChange={e=>this.setState({password: e.target.value})}
+        autocomplete={'new-password'}
+        onChange={e=>this.setState({password: e.target.value})
+    
+    }
         />
-        <BlueButton onClick={this.handleLogin}>Login</BlueButton>
+        <BlueButton onClick={this.handleLogin}>Register</BlueButton>
         </CenterPageDiv>
     
         
@@ -47,4 +49,4 @@ render(){
 
 
 }
-export default LoginPage;
+export default RegisterPage;

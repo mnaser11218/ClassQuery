@@ -10,6 +10,7 @@ import AskPage from './AskPage';
 import LoginPage from './LoginPage';
 import UserContext from './UserContext';
 import Profile from './Profile';
+import RegisterPage from './RegisterPage';
 
 
 
@@ -65,6 +66,7 @@ const [user, setUser] = useState(null);
       <Routes >
       <Route path="/questionspage" element={ <QuestionPage/>} />
       <Route path="/login" element={ <LoginPage/>} />
+      <Route path="/register" element={ <RegisterPage/>} />
 
       <Route path="answerspage/:id" element={<AnswersPage />}/> 
       <Route path="/" element={ <Home/>} />
