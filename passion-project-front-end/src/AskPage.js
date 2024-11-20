@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
+import H1HeaderTag from "./styled-components/H1HeaderTag";
+import StyledInput from "./styled-components/StyledInput";
 
 const TitleInput = styled.input`
 background:none;
@@ -17,23 +19,7 @@ border-radius: 5px;
 color: #fff;
 `
 
-const TextAreaTag = styled.textarea`
-background: none;
-display:block;
-width: 100%;
-min-height: 200px;
-padding: 10px;
-border: 2px solid #777;
-border-radius: 5px;
-margin-bottom: 20px;
-color: #fff;
-font-family:inherit;
-`
-const H1Tag = styled.h1`
-color: white;
-font-size: 1.8rem;
-font-family: arial;
-`
+
 const PreviewArea = styled.div`
 padding: 10px 20px;
 background-color: #666;
@@ -74,20 +60,21 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-   
-        <H1Tag>Ask A Question</H1Tag>
+    <H1HeaderTag>Ask A Question</H1HeaderTag>
+
     <TitleInput 
     type="text"
     value={topic}
     placeholder="Title of your Question"
      onChange={e=>setTopic(e.target.value)}/>
 
+    <StyledInput 
+        type="text"
+        value={question}
+        placeholder="Enter Question here" 
+        onChange={e=>setQuestion(e.target.value)}
+    />
     
-    <TextAreaTag
-    type="text"
-    value={question}
-    placeholder="Enter Question here" 
-    onChange={e=>setQuestion(e.target.value)}/>
     {/* <select className="custom-select" size="3">
   <option selected>Open this select menu</option>
   <option value="1">Java</option>
