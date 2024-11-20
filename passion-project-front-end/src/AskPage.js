@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import BlueButton from "./BlueButton";
+import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 
