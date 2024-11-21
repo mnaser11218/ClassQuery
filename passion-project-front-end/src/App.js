@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
 import Header from './Header';
-import QuestionPage from './QuestionsPage';
+import QuestionsPage from './QuestionsPage';
 import Home from './Home';
 import AnswersPage from './Answerspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -64,7 +64,7 @@ const [user, setUser] = useState(null);
       <Header />
 
       <Routes >
-      <Route path="/questionspage" element={ <QuestionPage/>} />
+      <Route path="/questionspage" element={ <QuestionsPage/>} />
       <Route path="/login" element={ <LoginPage/>} />
       <Route path="/register" element={ <RegisterPage/>} />
 

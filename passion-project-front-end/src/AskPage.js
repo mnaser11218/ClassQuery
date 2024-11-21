@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
+import PreviewArea from "./styled-components/PreviewArea";
 
 const TitleInput = styled.input`
 background:none;
@@ -20,13 +21,6 @@ color: #fff;
 `
 
 
-const PreviewArea = styled.div`
-padding: 10px 20px;
-background-color: #666;
-margin-bottom:20px;
-border-radius: 5px;
-
-`
 
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
@@ -82,7 +76,7 @@ return(
   <option value="3">React</option>
 </select> */}
 
-    <PreviewArea>
+      <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
