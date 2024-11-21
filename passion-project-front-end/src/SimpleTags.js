@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
 
-function SimpleTags() {
-  const [tags, setTags] = useState([]); // State to hold the tags
-
+function SimpleTags({setTags, tags}) {
+  
   const handleAddTag = (event) => {
     if (event.key === 'Enter' && event.target.value) {
-      // Add tag if Enter key is pressed
       setTags([...tags, event.target.value]);
-      event.target.value = ''; // Clear the input field
+      event.target.value = ''; 
     }
   };
 
-  const handleDeleteTag = (index) => {
-    // Delete a tag by index
+  const handleDeleteTag = (index) => {  
     setTags(tags.filter((tag, i) => i !== index));
   };
 
   return (
     <div>
-
-
-      {/* Input field to add tags */}
       <input
         type="text"
         onKeyDown={handleAddTag}
         placeholder="Press Enter to add a tag"
       />
 
-      {/* Display tags */}
       <div>
         {tags.map((tag, index) => (
           <span
@@ -52,7 +45,7 @@ function SimpleTags() {
                 cursor: 'pointer',
               }}
             >
-              &times; {/* × symbol for delete */}
+              &times; 
             </button>
           </span>
         ))}

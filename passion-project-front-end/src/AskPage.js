@@ -31,19 +31,7 @@ padding: 30px 28px;
 function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
-//testing 
-// tags: 
-
-
-// tags methods
-//     const suggestions = [
-//     { value: 3, label: 'Bananas' },
-//     { value: 4, label: 'Mangos' },
-//     { value: 5, label: 'Lemons' },
-//     { value: 6, label: 'Apricots', disabled: true },
-//   ]
-
-
+const [tags, setTags] = useState([]); // State to hold the tags
 
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
@@ -96,12 +84,12 @@ return(
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
-      <SimpleTags/>
+      <SimpleTags setTags={setTags} tags={tags} />
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
       
     </CenterPageDiv>
-    {/* <Tags/> */}
-    
+ 
+
     </>
 )
 }
