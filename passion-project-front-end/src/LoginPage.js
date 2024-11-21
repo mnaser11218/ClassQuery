@@ -4,6 +4,7 @@ import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import BlueButton from "./styled-components/BlueButton";
 import axios from 'axios'
+import ErrorBox from "./ErrorBox";
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
 `
@@ -13,6 +14,7 @@ padding: 30px 28px;
         this.state= {
             userName: '',
             password: '',
+            error:false,
         }
     }
      handleLogin = ()=> {
@@ -29,7 +31,9 @@ padding: 30px 28px;
 render(){
     return (
         <>
+        
         <CenterPageDiv>
+       { this.state.error && <ErrorBox>This is an incorrect login</ErrorBox>}
         <H1HeaderTag>Login </H1HeaderTag>
         <StyledInput placeholder="email" type="email" value={this.state.userName}
         onChange={e=>this.setState({userName: e.target.value})}
