@@ -28,12 +28,11 @@ function Tags(){
     )
 
     useEffect(()=>{
-        setSuggestions([]);
+     
         fetch('http://localhost:8080/api/tags')
         .then(res=>res.json())
         .then(data=> {
-         data.forEach(tag=> setSuggestions(prevArray => [...prevArray, {value: tag.id, label: tag.tagName}]))
-         console.log("length is  : " + suggestions.length)
+            setSuggestions(data.map(tag => ({ value: tag.id, label: tag.tagName })));
         })
     }, [])
     return (
@@ -45,7 +44,7 @@ function Tags(){
       onDelete={onDelete}
        suggestions={suggestions}
       />
-      {suggestions.forEach(ele=> console.log("tag is : " + ele.label))}
+      {/* {suggestions.forEach(ele=> console.log("tag is : " + ele.label))} */}
         Tags here
         </>
     )
