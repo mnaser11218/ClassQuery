@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
@@ -7,8 +7,7 @@ import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import PreviewArea from "./styled-components/PreviewArea";
-import Tags from "./Tags";
-
+import SimpleTags from "./SimpleTags";
 
 
 
@@ -33,6 +32,18 @@ function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 //testing 
+// tags: 
+
+
+// tags methods
+//     const suggestions = [
+//     { value: 3, label: 'Bananas' },
+//     { value: 4, label: 'Mangos' },
+//     { value: 5, label: 'Lemons' },
+//     { value: 6, label: 'Apricots', disabled: true },
+//   ]
+
+
 
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
@@ -56,6 +67,7 @@ const handleSubmitClick = ()=>{
         .then(res => console.log(res));
       routeChange()
 }
+
 return(
     <>
     <CenterPageDiv>
@@ -84,10 +96,12 @@ return(
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
-     
+      <SimpleTags/>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
-      <Tags/>
+      
     </CenterPageDiv>
+    {/* <Tags/> */}
+    
     </>
 )
 }

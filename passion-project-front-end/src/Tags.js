@@ -1,11 +1,15 @@
 import { ReactTags } from 'react-tag-autocomplete';
-import React, { useCallback, useState, useEffect} from 'react'
+import React, { useCallback, useState, useEffect, useRef} from 'react'
 
 
 function Tags(){
-    const [selected, setSelected] = useState([])
-    const [tags, setTags]= useState([])
+    // const [selected, setSelected] = useState([])
+    const [tags, setTags] = useState([]);
     const [suggestions, setSuggestions] = useState([])
+    const reactTags = useRef(null);
+
+
+    
     // tags methods
 //     const suggestions = [
 //     { value: 3, label: 'Bananas' },
@@ -15,37 +19,45 @@ function Tags(){
 //   ]
     const onAdd = useCallback(
       (newTag) => {
-        setSelected([...selected, newTag])
+        console.log("on add method: "  + newTag.label)
+        setTags([...tags, newTag])
+        console.log(tags)
       },
-      [selected]
-    )
-  
-    const onDelete = useCallback(
-      (tagIndex) => {
-        setSelected(selected.filter((_, i) => i !== tagIndex))
-      },
-      [selected]
+      [tags]
     )
 
-    useEffect(()=>{
-     
+    const onDelete = useCallback(
+      (tagIndex) => {
+        setTags(tags.filter((_, i) => i !== tagIndex))
+      },
+      [tags]
+    )
+   const fetchTags = ()=> {
         fetch('http://localhost:8080/api/tags')
         .then(res=>res.json())
         .then(data=> {
             setSuggestions(data.map(tag => ({ value: tag.id, label: tag.tagName })));
         })
+    }
+
+    useEffect(()=>{
+       fetchTags()
     }, [])
     return (
         <>
 
 <ReactTags
-      labelText="Select Tags"
+
+ref={reactTags}
+        tags={tags}
+         allowNew={true}  
+    //   labelText="Select Tags"
       onAdd={onAdd}
       onDelete={onDelete}
        suggestions={suggestions}
       />
-      {/* {suggestions.forEach(ele=> console.log("tag is : " + ele.label))} */}
-        Tags here
+      Your tags: 
+      {tags.map(t=> <div key={t.id}>{t.label}</div>)}
         </>
     )
 }
