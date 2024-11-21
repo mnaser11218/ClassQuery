@@ -7,6 +7,10 @@ import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import PreviewArea from "./styled-components/PreviewArea";
+import Tags from "./Tags";
+
+
+
 
 const TitleInput = styled.input`
 background:none;
@@ -29,6 +33,7 @@ function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 //testing 
+
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
         var routeChange = ()=> {
@@ -79,8 +84,9 @@ return(
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
+     
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
-
+      <Tags/>
     </CenterPageDiv>
     </>
 )
