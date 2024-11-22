@@ -46,7 +46,16 @@ const GlobalStyles = createGlobalStyle`
     padding: 15px;
     border-radius: 4px; 
     }
-
+input.react-tags__combobox-input{
+border: 1px solid #777;
+border-radius: 3px;
+padding:10px;
+display: box;
+width: 100%;
+box-sizing: border-box: 
+margin-bottom: 20px;
+color: #fff;
+background: none;}
 `;
 
 
