@@ -87,10 +87,8 @@ return(
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
-      {/* <SimpleTags setTags={setTags} tags={tags} /> */}
       <Tags setTags={setTags} tags={tags} />
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
-      {/* your tags are : {tags.map(tag=> <div>{tag.label} id is: {tag.value}</div>)} */}
     </CenterPageDiv>
  
 

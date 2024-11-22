@@ -43,6 +43,7 @@ padding: 30px 28px;
         question && (
           <>
           <H1HeaderTag>{question.title}</H1HeaderTag>
+          <QuestionRow question={question.question} title={question.title} createdDate ={question.createdDate} tags={question.tags} id={question.id}/>
           <PreviewArea>
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question}/>
           </PreviewArea>
