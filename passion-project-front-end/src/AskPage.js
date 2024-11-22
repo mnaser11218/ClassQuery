@@ -7,7 +7,8 @@ import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import PreviewArea from "./styled-components/PreviewArea";
-import SimpleTags from "./SimpleTags";
+// import SimpleTags from "./SimpleTags";
+import Tags from "./Tags";
 
 
 
@@ -40,7 +41,7 @@ const [tags, setTags] = useState([]); // State to hold the tags
             navigate(path);
         }
 const handleSubmitClick = ()=>{
-      
+    const tagsId = tags.map(tag=> ({id:tag.value}))
     fetch('http://localhost:8080/api/questions', {
         method: 'POST',
         headers: {
@@ -50,7 +51,9 @@ const handleSubmitClick = ()=>{
         body: JSON.stringify( {
             title: topic,
             question: question,
-            createdDate: new Date()})
+            createdDate: new Date(),
+            tags: tagsId
+          })
       }).then(res => res.json())
         .then(res => console.log(res));
       routeChange()
@@ -84,9 +87,10 @@ return(
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
-      <SimpleTags setTags={setTags} tags={tags} />
+      {/* <SimpleTags setTags={setTags} tags={tags} /> */}
+      <Tags setTags={setTags} tags={tags} />
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
-      
+      {/* your tags are : {tags.map(tag=> <div>{tag.label} id is: {tag.value}</div>)} */}
     </CenterPageDiv>
  
 

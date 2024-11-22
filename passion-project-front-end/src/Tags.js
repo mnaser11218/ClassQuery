@@ -2,9 +2,8 @@ import { ReactTags } from 'react-tag-autocomplete';
 import React, { useCallback, useState, useEffect, useRef} from 'react'
 
 
-function Tags(){
+function Tags({setTags, tags}){
     // const [selected, setSelected] = useState([])
-    const [tags, setTags] = useState([]);
     const [suggestions, setSuggestions] = useState([])
     const reactTags = useRef(null);
 
@@ -26,12 +25,15 @@ function Tags(){
       [tags]
     )
 
-    const onDelete = useCallback(
-      (tagIndex) => {
-        setTags(tags.filter((_, i) => i !== tagIndex))
-      },
-      [tags]
-    )
+    // const onDelete = useCallback(
+    //   (tagIndex) => {
+    //     setTags(tags.filter((_, i) => i !== tagIndex))
+    //   },
+    //   [tags]
+    // )
+    const onDelete = (value)=>{
+        setTags(tags.filter((tag) => tag.value !== value))
+    }
    const fetchTags = ()=> {
         fetch('http://localhost:8080/api/tags')
         .then(res=>res.json())
@@ -47,17 +49,43 @@ function Tags(){
         <>
 
 <ReactTags
-
-ref={reactTags}
-        tags={tags}
-         allowNew={true}  
-    //   labelText="Select Tags"
-      onAdd={onAdd}
-      onDelete={onDelete}
-       suggestions={suggestions}
+    ref={reactTags}
+    tags={tags}
+    onAdd={onAdd}
+    onDelete={onDelete}
+    suggestions={suggestions}
+    collapseOnSelect={true}
       />
-      Your tags: 
-      {tags.map(t=> <div key={t.id}>{t.label}</div>)}
+          <div>
+        {tags.map((tag, index) => (
+          <span
+            key={index}
+            style={{
+              display: 'inline-block',
+              backgroundColor: '#007bff',
+              color: 'white',
+              padding: '5px 10px',
+              borderRadius: '15px',
+              margin: '5px',
+            }}
+          >
+            {tag.label}
+            <button
+              onClick={()=>onDelete(tag.value)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'white',
+                marginLeft: '5px',
+                cursor: 'pointer',
+              }}
+            >
+              &times; 
+            </button>
+          </span>
+        ))}
+      </div>
+
         </>
     )
 }
