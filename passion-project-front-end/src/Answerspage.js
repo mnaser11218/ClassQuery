@@ -44,7 +44,7 @@ border-radius: 5px;
       
       
       <CenterPageDiv>
-      <h1>ANSWERS PAGE FOR QUESTION NUM: {questionId}</h1>
+      <h1>QUESTION NUM: {questionId}</h1>
       {/* <QuestionRow question={question.question} title={question.title} createdDate ={question.createdDate} tags={question.tags} id={questionId}></QuestionRow> */}
       {
         question && (
@@ -57,8 +57,7 @@ border-radius: 5px;
             <div>
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
-          
-       <WhoAndWhen> time ago : {question.createdDate} <UserLink > {question.userProfile?.id ? "user Profile Id: " + question.userProfile.id :"UserProfile"} </UserLink> </WhoAndWhen>  
+       <WhoAndWhen> time ago : {question.createdDate} <UserLink id={question.userProfile.id} > { "user Profile Id: " + question.userProfile.id} </UserLink> </WhoAndWhen>  
          
             </AnswerMeta> 
         

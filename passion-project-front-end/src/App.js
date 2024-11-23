@@ -91,6 +91,7 @@ const [user, setUser] = useState("6");
       <Route path="/register" element={ <RegisterPage/>} />
 
       <Route path="answerspage/:id" element={<AnswersPage />}/> 
+      <Route path="users/:id" element={<Profile />}/> 
       <Route path="/" element={ <Home/>} />
       <Route path="/askpage" element={<AskPage/>} />
       <Route path="/profile" element={<Profile/>} />

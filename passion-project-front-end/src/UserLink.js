@@ -5,6 +5,6 @@ color: #3ca4ff;
 
 `
 function UserLink({...props}){
-    return(<StyledUserLink to="/users/" {...props}/>)
+    return(<StyledUserLink to={"/users/" + props.id} {...props}/>)
 }
 export default UserLink;
