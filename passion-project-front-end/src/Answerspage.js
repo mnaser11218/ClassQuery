@@ -29,7 +29,13 @@ padding: 30px 28px;
 `
 const AnswerMeta = styled.div`
 display: grid;
-grid-template-columns: 1fr min-content;
+grid-template-columns: 1fr 1fr;
+border: 1px solid white;
+border-radius: 5px;
+`
+const BodyTag = styled.div`
+display: grid;
+grid-template-columns: 50px 1fr;
 border: 1px solid white;
 border-radius: 5px;
 `
@@ -45,13 +51,16 @@ border-radius: 5px;
       
       <CenterPageDiv>
       <h1>QUESTION NUM: {questionId}</h1>
-      {/* <QuestionRow question={question.question} title={question.title} createdDate ={question.createdDate} tags={question.tags} id={questionId}></QuestionRow> */}
+
+      
       {
         question && (
-          <>
-          Title: 
+          <>Title: 
           <H1HeaderTag>{question.title}</H1HeaderTag>
-          Question: 
+          <BodyTag>
+        <div>voting</div>
+          <div>
+            Question:
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>
@@ -60,12 +69,20 @@ border-radius: 5px;
        <WhoAndWhen> time ago : {question.createdDate} <UserLink id={question.userProfile.id} > { "user Profile Id: " + question.userProfile.id} </UserLink> </WhoAndWhen>  
          
             </AnswerMeta> 
+          </div>
+
+
+
+        </BodyTag>
+        
+         
         
 
        
           </>
         )
       }
+     
       </CenterPageDiv>
      
     )
