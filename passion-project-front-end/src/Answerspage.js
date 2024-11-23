@@ -58,7 +58,7 @@ border-radius: 5px;
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
           
-       <WhoAndWhen> time ago : {question.createdDate} <UserLink > {question.userProfile ? question.userProfile :"UserProfile"} </UserLink> </WhoAndWhen>  
+       <WhoAndWhen> time ago : {question.createdDate} <UserLink > {question.userProfile?.id ? "user Profile Id: " + question.userProfile.id :"UserProfile"} </UserLink> </WhoAndWhen>  
          
             </AnswerMeta> 
         
