@@ -52,7 +52,7 @@ border-radius: 5px;
           Title: 
           <H1HeaderTag>{question.title}</H1HeaderTag>
           Question: 
-          <H1HeaderTag>{question.question}</H1HeaderTag>
+          <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 

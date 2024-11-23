@@ -11,6 +11,7 @@ import LoginPage from './LoginPage';
 import UserContext from './UserContext';
 import Profile from './Profile';
 import RegisterPage from './RegisterPage';
+import LoggedInUser from './LoggedInUser';
 
 
 
@@ -94,7 +95,7 @@ const [user, setUser] = useState("6");
       <Route path="users/:id" element={<Profile />}/> 
       <Route path="/" element={ <Home/>} />
       <Route path="/askpage" element={<AskPage/>} />
-      <Route path="/profile" element={<Profile/>} />
+      <Route path="/profile" element={<LoggedInUser/>} />
 
       </Routes>
       </UserContext.Provider>
