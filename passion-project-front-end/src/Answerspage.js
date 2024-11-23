@@ -42,11 +42,16 @@ padding: 30px 28px;
       {
         question && (
           <>
+          Title: 
           <H1HeaderTag>{question.title}</H1HeaderTag>
-          <QuestionRow question={question.question} title={question.title} createdDate ={question.createdDate} tags={question.tags} id={question.id}/>
+          Question: 
+          <H1HeaderTag>{question.question}</H1HeaderTag>
+          Tags: {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
+          {/* <QuestionRow question={question.question} title={question.title} createdDate ={question.createdDate} tags={question.tags} id={question.id}/>
           <PreviewArea>
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question}/>
-          </PreviewArea>
+          </PreviewArea> */}
+
        
           </>
         )

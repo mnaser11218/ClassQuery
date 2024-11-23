@@ -3,19 +3,9 @@ import React, { useCallback, useState, useEffect, useRef} from 'react'
 
 
 function Tags({setTags, tags}){
-    // const [selected, setSelected] = useState([])
     const [suggestions, setSuggestions] = useState([])
     const reactTags = useRef(null);
 
-
-    
-    // tags methods
-//     const suggestions = [
-//     { value: 3, label: 'Bananas' },
-//     { value: 4, label: 'Mangos' },
-//     { value: 5, label: 'Lemons' },
-//     { value: 6, label: 'Apricots', disabled: true },
-//   ]
     const onAdd = useCallback(
       (newTag) => {
         console.log("on add method: "  + newTag.label)
@@ -47,7 +37,6 @@ function Tags({setTags, tags}){
     }, [])
     return (
         <>
-
 <ReactTags
     ref={reactTags}
     tags={tags}
@@ -61,14 +50,6 @@ function Tags({setTags, tags}){
           <span
             key={index}
             className='tag'
-            // style={{
-            // //   display: 'inline-block',
-            // //   backgroundColor: '#007bff',
-            // //   color: 'white',
-            // //   padding: '5px 10px',
-            // //   borderRadius: '15px',
-            // //   margin: '5px',
-            // }}
           >
             {tag.label}
             <button

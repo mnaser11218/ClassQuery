@@ -50,8 +50,10 @@ input.react-tags__combobox-input{
 border: 1px solid #777;
 border-radius: 3px;
 padding:10px;
-display: box;
+display: inline-block;
 width: 100%;
+    margin: 15px;
+
 box-sizing: border-box: 
 margin-bottom: 20px;
 color: #fff;
