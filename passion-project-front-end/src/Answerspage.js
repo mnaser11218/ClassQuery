@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import PreviewArea from "./styled-components/PreviewArea";
 import UserLink from "./UserLink";
-import WhoAndWhen from "./WhoAndWhen";
+import WhoAndWhen from "./styled-components/WhoAndWhen";
 
 function AnswersPage(){
   const params = useParams();

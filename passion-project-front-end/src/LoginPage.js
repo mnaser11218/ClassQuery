@@ -4,7 +4,7 @@ import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import BlueButton from "./styled-components/BlueButton";
 import axios from 'axios'
-import ErrorBox from "./ErrorBox";
+import ErrorBox from "./styled-components/ErrorBox";
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
 `

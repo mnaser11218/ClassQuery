@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useRef, useState} from "react";
+import {useRef, useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
@@ -7,6 +7,7 @@ import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import PreviewArea from "./styled-components/PreviewArea";
+import UserContext from "./UserContext";
 // import SimpleTags from "./SimpleTags";
 import Tags from "./Tags";
 
@@ -33,6 +34,8 @@ function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
+const user= useContext(UserContext);
+
 
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
@@ -52,7 +55,10 @@ const handleSubmitClick = ()=>{
             title: topic,
             question: question,
             createdDate: new Date(),
-            tags: tagsId
+            tags: tagsId,
+            userProfile: {
+              "id": user
+          }
           })
       }).then(res => res.json())
         .then(res => console.log(res));
@@ -62,7 +68,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    <H1HeaderTag>Ask A Question</H1HeaderTag>
+    <H1HeaderTag>Ask A Question Profile: {user}</H1HeaderTag>
 
     <TitleInput 
     type="text"
