@@ -73,7 +73,7 @@ background: none;}
 
 
 function App() {
-const [user, setUser] = useState(null);
+const [user, setUser] = useState("6");
   return (
     <>
     
@@ -82,7 +82,7 @@ const [user, setUser] = useState(null);
       <GlobalStyles />
       <Router>
 
-        <UserContext.Provider value={"6"}>
+        <UserContext.Provider value={user}>
       <Header />
 
       <Routes >
