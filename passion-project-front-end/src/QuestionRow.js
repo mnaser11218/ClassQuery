@@ -28,16 +28,6 @@ display:block;
 margin-bottom: 10px;
 `
 
-const Tag = styled.span`
-display: inline-block;
-margin-right: 3px;
-border: solid white;
-padding: 7px;
-margin: 7px;
-border-radius: 5px;
-cursor: pointer;
-font-size: 0.9rem;
-`
 const StyledQuestionRow = styled.div`
 // background-color: rgba(255,255,255,.1);
 background: #808080;
@@ -86,7 +76,7 @@ const {question, title, createdDate, tags, id} = props;
 
         <User>Mohammed <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
-        {tags!= null && tags.map(tag=> <Tag>{tag.tagName}</Tag>)}
+        {tags!= null && tags.map(tag=> <span className="tag">{tag.tagName}</span>)}
         
         {/* <Tag>Spring</Tag>
         <Tag>MySql</Tag>

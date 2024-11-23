@@ -60,14 +60,15 @@ function Tags({setTags, tags}){
         {tags.map((tag, index) => (
           <span
             key={index}
-            style={{
-              display: 'inline-block',
-              backgroundColor: '#007bff',
-              color: 'white',
-              padding: '5px 10px',
-              borderRadius: '15px',
-              margin: '5px',
-            }}
+            className='tag'
+            // style={{
+            // //   display: 'inline-block',
+            // //   backgroundColor: '#007bff',
+            // //   color: 'white',
+            // //   padding: '5px 10px',
+            // //   borderRadius: '15px',
+            // //   margin: '5px',
+            // }}
           >
             {tag.label}
             <button

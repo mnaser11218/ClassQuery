@@ -56,6 +56,17 @@ box-sizing: border-box:
 margin-bottom: 20px;
 color: #fff;
 background: none;}
+
+.tag{
+    display: inline-block;
+    margin-right: 3px;
+    border: solid white;
+    padding: 7px;
+    margin: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
 `;
 
 
