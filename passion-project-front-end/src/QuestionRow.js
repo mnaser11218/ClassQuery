@@ -19,11 +19,12 @@ padding: 0 30px;
 
 const QuestionLink = styled(Link)`
 text-decoration: none;
-color: rgb(27, 117, 208);
+// color: rgb(27, 117, 208);
+color: hsl(210,89%,77%);
 cursor: pointer;
 font-size: 1.1rem;
 font-family: sans-serif;
-font-weight: bold;
+// font-weight: bold;
 display:block;
 margin-bottom: 10px;
 `
@@ -50,7 +51,7 @@ padding: 10px 0;
 `
 
 const QuestionTag = styled.div`
-
+color: var(--theme-link-color, var(--theme-secondary-400));
 display: block;
 margin: 5px;
 padding:10px;

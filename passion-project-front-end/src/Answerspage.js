@@ -10,6 +10,7 @@ import PreviewArea from "./styled-components/PreviewArea";
 import UserLink from "./UserLink";
 import WhoAndWhen from "./styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
+import H2HeaderTag from "./styled-components/H2HeaderTag";
 
 function AnswersPage(){
   const params = useParams();
@@ -75,6 +76,7 @@ padding-top: 10px;
 
 
         </BodyTag>
+        <H2HeaderTag>Your Answer</H2HeaderTag>
         
          
         
