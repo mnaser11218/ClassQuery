@@ -57,6 +57,8 @@ public class AnswerResource {
             .body(answer);
     }
 
+
+
     /**
      * {@code PUT  /answers/:id} : Updates an existing answer.
      *
@@ -147,6 +149,15 @@ public class AnswerResource {
         return answerRepository.findAll();
     }
 
+    // get all answers of a specific questions
+    @GetMapping("/question/{id}")
+    public List<Answer> getAllAnswersOfAQuestion(
+        @PathVariable("id") Long id
+    ) {
+
+        log.debug("REST request to get all Answers");
+        return answerRepository.getAnswersByQuestionId(id);
+    }
     /**
      * {@code GET  /answers/:id} : get the "id" answer.
      *
