@@ -12,6 +12,7 @@ import UserContext from './UserContext';
 import Profile from './Profile';
 import RegisterPage from './RegisterPage';
 import LoggedInUser from './LoggedInUser';
+import LeftSideBar from './LeftSideBar';
 
 
 
@@ -74,22 +75,37 @@ background: none;}
     border: none;
     }
 }
-`;
+`
+const WholePage = styled.div`
+display: grid;
+grid-template-columns: 200px 1fr;
+  height: 100vh;
+
+`
+
+;
 
 
 function App() {
 const [user, setUser] = useState("6");
   return (
     <>
-    
+   
+   <UserContext.Provider value={user}>
+   <Router>
+   <Header />
+  
+
+    <WholePage>
+      <LeftSideBar />
     <div>
       <Reset/>
       <GlobalStyles />
-      <Router>
-
-        <UserContext.Provider value={user}>
-      <Header />
-
+     
+     
+      
+     
+     
       <Routes >
       <Route path="/questionspage" element={ <QuestionsPage/>} />
       <Route path="/login" element={ <LoginPage/>} />
@@ -102,11 +118,14 @@ const [user, setUser] = useState("6");
       <Route path="/profile" element={<LoggedInUser/>} />
 
       </Routes>
-      </UserContext.Provider>
+      
       {/* <button onClick={runfetch}></button> */}
-      </Router>
+     
       
     </div>
+    </WholePage>
+    </Router>
+    </UserContext.Provider>
     </>
   );
 }

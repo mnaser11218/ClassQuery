@@ -10,7 +10,8 @@ grid-column-gap: 20px;
 background-color:#393939;
 box-shadow: 0px 3px 3px rgba(0,0,0, .2);
 display: grid;
-grid-template-columns: 250px 1fr 200px
+grid-template-columns: 250px 1fr 200px;
+border-bottom: 1px solid #777;
 `;
 
 const ProfileLink = styled(Link)`
@@ -53,6 +54,7 @@ border: 1px solid #777;
 `
 function Header (){
     const user= useContext(UserContext);
+
     return (
         <StyledHeader>
             {console.log("the user is:: " + user)}
