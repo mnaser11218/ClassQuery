@@ -69,6 +69,10 @@ background: none;}
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
+    &:hover{
+    color: #3ca4ff;
+    border: none;
+    }
 }
 `;
 
@@ -101,8 +105,8 @@ const [user, setUser] = useState("6");
       </UserContext.Provider>
       {/* <button onClick={runfetch}></button> */}
       </Router>
+      
     </div>
-    
     </>
   );
 }

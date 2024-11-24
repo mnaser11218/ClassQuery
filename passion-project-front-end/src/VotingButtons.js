@@ -2,21 +2,27 @@ import styled from "styled-components";
 const ArrowUp = styled.div`
     width: 0; 
     height: 0; 
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 25px solid #888;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #888;
       text-align: center;
+      &:hover{
+      border-bottom: 20px solid #3ca4ff;
+      }
 
   `
   
   const ArrowDown = styled.div`
     width: 0; 
     height: 0; 
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-top: 25px solid #888;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #888;
     padding: 0;
-      text-align: center;
+    text-align: center;
+      &:hover{
+    border-top: 20px solid #3ca4ff;
+      }
 
   `
 const Button = styled.button`
@@ -30,17 +36,19 @@ background-color:#2d2d2d;
 
 const Total = styled.div`
 text-align: center;
-width: 55px;
+width: 50px;
 font-size: 1.4rem;
 padding: 15px 0;
+color: #888;
+line-height: 1.4rem;
 `
-function VotingButtons(){
-    return (<div>
-	{/* &#x25B2; */}
+function VotingButtons(props){
+    return (<div {...props}>
+	{/* &#x20B2; */}
       <Button> <ArrowUp/> </Button>
      
             <Total> {6}</Total>
-            {/* &#x25BC; */}
+            {/* &#x20BC; */}
        <Button> <ArrowDown/> </Button>
    
 

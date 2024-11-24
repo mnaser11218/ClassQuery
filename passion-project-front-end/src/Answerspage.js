@@ -57,7 +57,7 @@ padding-top: 10px;
       {
         question && (
           <>Title: 
-          <H1HeaderTag style={{"border-bottom": "solid 1px white", "padding-bottom": "30px"}}>{question.title}</H1HeaderTag>
+          <H1HeaderTag style={{"border-bottom": "solid 1px white", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
           <BodyTag>
         <VotingButtons/>
           <div>
