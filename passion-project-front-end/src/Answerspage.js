@@ -9,6 +9,7 @@ import gfm from 'remark-gfm';
 import PreviewArea from "./styled-components/PreviewArea";
 import UserLink from "./UserLink";
 import WhoAndWhen from "./styled-components/WhoAndWhen";
+import VotingButtons from "./VotingButtons";
 
 function AnswersPage(){
   const params = useParams();
@@ -30,14 +31,14 @@ padding: 30px 28px;
 const AnswerMeta = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr;
-border: 1px solid white;
 border-radius: 5px;
 `
 const BodyTag = styled.div`
 display: grid;
 grid-template-columns: 50px 1fr;
-border: 1px solid white;
 border-radius: 5px;
+column-gap: 20px;
+padding-top: 10px;
 `
 
 
@@ -56,9 +57,9 @@ border-radius: 5px;
       {
         question && (
           <>Title: 
-          <H1HeaderTag>{question.title}</H1HeaderTag>
+          <H1HeaderTag style={{"border-bottom": "solid 1px white", "padding-bottom": "30px"}}>{question.title}</H1HeaderTag>
           <BodyTag>
-        <div>voting</div>
+        <VotingButtons/>
           <div>
             Question:
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
