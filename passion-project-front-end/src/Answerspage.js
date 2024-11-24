@@ -37,7 +37,7 @@ const BodyTag = styled.div`
 display: grid;
 grid-template-columns: 50px 1fr;
 border-radius: 5px;
-column-gap: 20px;
+column-gap: 40px;
 padding-top: 10px;
 `
 
