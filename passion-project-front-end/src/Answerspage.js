@@ -12,12 +12,12 @@ import WhoAndWhen from "./styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
 import H2HeaderTag from "./styled-components/H2HeaderTag";
 import PostBodyTextArea from "./styled-components/PostBodyTextArea";
+import AllAnswersListPage from "./AllAnswersListPage";
 
 function AnswersPage(){
   const params = useParams();
   const questionId = params.id;
   const [question, setQuestion]= useState("")
-  const [answer, setAnswer] = useState("");
  
  
   const fetchQuestion = ()=> {
@@ -54,7 +54,7 @@ padding-top: 10px;
       
       
       <CenterPageDiv>
-      <h1>QUESTION NUM: {questionId}</h1>
+      <h1>Question number: {questionId}</h1>
 
       
       {
@@ -78,14 +78,15 @@ padding-top: 10px;
 
 
         </BodyTag>
+          <AllAnswersListPage 
+          questionId={questionId}
+          />
+
+
         <H2HeaderTag>Your Answer</H2HeaderTag>
         
          <PostBodyTextArea
-           type="text"
-           value={answer}
-           placeholder="Enter Answer here" 
-           onChange={e=>setAnswer(e.target.value)}
-         
+         questionId={questionId}
          />
         
 
