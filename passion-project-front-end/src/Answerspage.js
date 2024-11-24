@@ -11,11 +11,13 @@ import UserLink from "./UserLink";
 import WhoAndWhen from "./styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
 import H2HeaderTag from "./styled-components/H2HeaderTag";
+import PostBodyTextArea from "./styled-components/PostBodyTextArea";
 
 function AnswersPage(){
   const params = useParams();
   const questionId = params.id;
   const [question, setQuestion]= useState("")
+  const [answer, setAnswer] = useState("");
  
  
   const fetchQuestion = ()=> {
@@ -78,7 +80,13 @@ padding-top: 10px;
         </BodyTag>
         <H2HeaderTag>Your Answer</H2HeaderTag>
         
+         <PostBodyTextArea
+           type="text"
+           value={answer}
+           placeholder="Enter Answer here" 
+           onChange={e=>setAnswer(e.target.value)}
          
+         />
         
 
        

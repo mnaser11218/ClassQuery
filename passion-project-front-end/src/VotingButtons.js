@@ -7,7 +7,7 @@ const ArrowUp = styled.div`
     border-bottom: 20px solid #888;
       text-align: center;
       &:hover{
-      border-bottom: 20px solid #3ca4ff;
+      border-bottom: 20px solid #FF9900;
       }
 
   `
@@ -21,7 +21,7 @@ const ArrowUp = styled.div`
     padding: 0;
     text-align: center;
       &:hover{
-    border-top: 20px solid #3ca4ff;
+    border-top: 20px solid #FF9900;
       }
 
   `
