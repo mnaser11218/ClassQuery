@@ -1,13 +1,13 @@
 function VotingButtons(){
     return (<div>
 	
-        <span style={{"font-size": "32px"}}>&#x25B2;</span>
+        <button style={{"font-size": "32px", "color": "white",  "background-color": " #2d2d2d", "border": "none", "cursor": "pointer"}}>&#x25B2;</button>
         <br></br>
         <br></br>
-            <span style={{"padding": "10px"}}  >{6}</span>
+            <span style={{"padding": "15px"}}  >{6}</span>
         <br></br>
         <br></br>
-        <span style={{"font-size": "32px"}}>&#x25BC;</span>
+        <button style={{"font-size": "32px", "color": "white",  "background-color": " #2d2d2d", "border": "none", "cursor": "pointer"}}>&#x25BC;</button>
    
 
     </div>)
