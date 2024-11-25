@@ -31,7 +31,7 @@ margin-bottom: 10px;
 
 const StyledQuestionRow = styled.div`
 // background-color: rgba(255,255,255,.1);
-background: #808080;
+ //background: #808080;
 padding: 10px 15px 10px;
 display: grid;
 grid-template-columns:  100px 100px 1fr;
