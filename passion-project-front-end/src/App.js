@@ -23,6 +23,10 @@ const GlobalStyles = createGlobalStyle`
     color:#fff;
     font-family: Roboto, arial, sans-serif;
   }
+    hr{
+    margin-top: 100px;
+   border-top: 1px solid gray;
+    }
     b,strong{
     font-weight: bold;
     }

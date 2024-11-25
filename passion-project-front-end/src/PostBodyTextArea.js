@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import { useState } from "react";
-import PreviewArea from "../styled-components/PreviewArea";
+import PreviewArea from "./styled-components/PreviewArea";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import BlueButton from "./BlueButton";
-
+import BlueButton from "./styled-components/BlueButton";
+import { useNavigate } from "react-router-dom";
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
@@ -20,6 +20,11 @@ color: #fff;
 function PostBodyTextArea({...props}){
     const [answer, setAnswer] = useState("");
     const {questionId} = props;
+    let navigate = useNavigate(); 
+        var routeChange = ()=> {
+            let path = `/answerspage/${questionId}`; 
+            navigate(path);
+        }
 
     const handlePostAnswer = ()=>{
         fetch('http://localhost:8080/api/answers', {
@@ -39,6 +44,7 @@ function PostBodyTextArea({...props}){
           }).then(res => res.json())
             .then(res => console.log(res));
             setAnswer("");
+            routeChange()
     }
 
     return (

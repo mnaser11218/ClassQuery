@@ -1,5 +1,22 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import VotingButtons from "./VotingButtons";
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import H1HeaderTag from "./styled-components/H1HeaderTag";
+import H2HeaderTag from "./styled-components/H2HeaderTag";
+
+const BodyTag = styled.div`
+display: grid;
+grid-template-columns: 50px 1fr;
+border-radius: 5px;
+column-gap: 40px;
+border-top: solid 1px white;
+padding-top: 30px;
+margin-top:30px;
+padding-left: 100px;
+
+`
 function AllAnswersListPage({...props}){
     const {questionId} = props;
     const [answers, setAnswers ] = useState([]);
@@ -14,10 +31,21 @@ function AllAnswersListPage({...props}){
     },[])
 
     return (<>
-    <div>{answers.map(answer=> <div>
+   <H2HeaderTag style={{"border-top": "none"}}> {answers.length} Answers:</H2HeaderTag>
+    {answers.map(answer=> {
+        return (
+         <BodyTag>
 
-        {answer.answer}
-    </div>)}</div>
+         <VotingButtons/>
+        
+               <div>
+            
+               <ReactMarkdown remarkPlugins={[gfm]} children={answer.answer} />
+               </div>
+            </BodyTag>
+        )
+    })}
+   
     </>)
 }
 export default AllAnswersListPage;

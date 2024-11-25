@@ -11,7 +11,7 @@ import UserLink from "./UserLink";
 import WhoAndWhen from "./styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
 import H2HeaderTag from "./styled-components/H2HeaderTag";
-import PostBodyTextArea from "./styled-components/PostBodyTextArea";
+import PostBodyTextArea from "./PostBodyTextArea";
 import AllAnswersListPage from "./AllAnswersListPage";
 
 function AnswersPage(){
@@ -68,6 +68,7 @@ padding-top: 10px;
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>
+            
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
        <WhoAndWhen> time ago : {question.createdDate} <UserLink id={question.userProfile.id} > { "user Profile Id: " + question.userProfile.id} </UserLink> </WhoAndWhen>  
