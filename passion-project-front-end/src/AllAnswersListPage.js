@@ -41,6 +41,7 @@ function AllAnswersListPage({...props}){
                <div>
             
                <ReactMarkdown remarkPlugins={[gfm]} children={answer.answer} />
+               <p style={{color: "gray", fontSize:"10px" }}>{answer.createdDate}</p>
                </div>
             </BodyTag>
         )

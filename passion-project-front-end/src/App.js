@@ -13,6 +13,7 @@ import Profile from './Profile';
 import RegisterPage from './RegisterPage';
 import LoggedInUser from './LoggedInUser';
 import LeftSideBar from './LeftSideBar';
+import RightSideBar from './RightSideBar';
 
 
 
@@ -82,9 +83,8 @@ background: none;}
 `
 const WholePage = styled.div`
 display: grid;
-grid-template-columns: 200px 1fr;
+grid-template-columns: 250px 1fr 250px;
   height: 100vh;
-
 `
 
 ;
@@ -126,7 +126,8 @@ const [user, setUser] = useState("6");
       {/* <button onClick={runfetch}></button> */}
      
       
-    </div>
+    </div> 
+   <RightSideBar/>
     </WholePage>
     </Router>
     </UserContext.Provider>
