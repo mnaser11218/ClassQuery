@@ -23,7 +23,10 @@ const GlobalStyles = createGlobalStyle`
      background: #2d2d2d;
     color:#fff;
     font-family: Roboto, arial, sans-serif;
+    fontSize: '17px';
+    letter-spacing: "1px";
   }
+   
     hr{
     margin-top: 100px;
    border-top: 1px solid gray;
@@ -69,7 +72,7 @@ background: none;}
 .tag{
     display: inline-block;
     margin-right: 3px;
-    border: solid white;
+    border: solid #777;
     padding: 7px;
     margin: 7px;
     border-radius: 5px;

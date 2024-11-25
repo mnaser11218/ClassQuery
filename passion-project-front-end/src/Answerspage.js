@@ -62,7 +62,7 @@ padding-top: 10px;
           <H1HeaderTag style={{"border-bottom": "1px solid #777", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
           <BodyTag>
         <VotingButtons/>
-          <div>
+          <div style={{fontSize: '17px',  "letter-spacing": "1px" }} >
            
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>

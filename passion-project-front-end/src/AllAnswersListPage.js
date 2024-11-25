@@ -31,6 +31,7 @@ function AllAnswersListPage({...props}){
     },[])
 
     return (<>
+    <hr/>
    <H2HeaderTag style={{"border-top": "none"}}> {answers.length} Answers:</H2HeaderTag>
     {answers.map(answer=> {
         return (
@@ -38,9 +39,14 @@ function AllAnswersListPage({...props}){
 
          <VotingButtons/>
         
-               <div>
+               <div  style={{fontSize: '17px',  "letter-spacing": "1px" }} >
             
-               <ReactMarkdown remarkPlugins={[gfm]} children={answer.answer} />
+               <ReactMarkdown 
+                remarkPlugins={[gfm]} 
+                children={answer.answer}    
+                
+               />
+              
                <p style={{color: "gray", fontSize:"10px" }}>{answer.createdDate}</p>
                </div>
             </BodyTag>
