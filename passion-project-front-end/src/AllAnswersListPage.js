@@ -11,7 +11,7 @@ display: grid;
 grid-template-columns: 50px 1fr;
 border-radius: 5px;
 column-gap: 40px;
-border-top: solid 1px white;
+border-top: 1px solid #777;
 padding-top: 30px;
 margin-top:30px;
 padding-left: 100px;

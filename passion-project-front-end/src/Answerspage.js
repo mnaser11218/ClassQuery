@@ -54,17 +54,16 @@ padding-top: 10px;
       
       
       <CenterPageDiv>
-      <h1>Question number: {questionId}</h1>
 
       
       {
         question && (
-          <>Title: 
-          <H1HeaderTag style={{"border-bottom": "solid 1px white", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
+          <>
+          <H1HeaderTag style={{"border-bottom": "1px solid #777", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
           <BodyTag>
         <VotingButtons/>
           <div>
-            Question:
+           
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>
