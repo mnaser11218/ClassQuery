@@ -62,7 +62,7 @@ padding-top: 10px;
           <H1HeaderTag style={{"border-bottom": "1px solid #777", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
           <BodyTag>
         <VotingButtons/>
-          <div style={{fontSize: '17px',  "letter-spacing": "1px" }} >
+          <div style={{fontSize: '17px'}} >
            
           <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
@@ -70,7 +70,7 @@ padding-top: 10px;
             
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
-       <WhoAndWhen> time ago : {question.createdDate} <UserLink id={question.userProfile.id} > { "user Profile Id: " + question.userProfile.id} </UserLink> </WhoAndWhen>  
+       <WhoAndWhen> {question.createdDate} <UserLink id={question.userProfile.id} > { "user Profile Id: " + question.userProfile.id} </UserLink> </WhoAndWhen>  
          
             </AnswerMeta> 
           </div>
@@ -88,9 +88,7 @@ padding-top: 10px;
          <PostBodyTextArea
          questionId={questionId}
          />
-        
-
-       
+      
           </>
         )
       }

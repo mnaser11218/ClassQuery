@@ -23,12 +23,13 @@ const GlobalStyles = createGlobalStyle`
      background: #2d2d2d;
     color:#fff;
     font-family: Roboto, arial, sans-serif;
-    fontSize: '17px';
-    letter-spacing: "1px";
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
   }
    
     hr{
-    margin-top: 100px;
+    margin-top: 10px;
    border-top: 1px solid gray;
     }
     b,strong{
