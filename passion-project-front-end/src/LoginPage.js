@@ -5,49 +5,59 @@ import StyledInput from "./styled-components/StyledInput";
 import BlueButton from "./styled-components/BlueButton";
 import axios from 'axios'
 import ErrorBox from "./styled-components/ErrorBox";
+import {useRef, useEffect, useState } from 'react';
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
 `
- class LoginPage extends Component{
-    constructor(props){
-        super(props);
-        this.state= {
-            userName: '',
-            password: '',
-            error:false,
-        }
-    }
-     handleLogin = ()=> {
+ function LoginPage(){
+    const [userName, setUserName]= useState('')
+    const [password, setPassword]= useState('')
+    const [error, setError] = useState(false)
+    useEffect(()=>{
+        console.log("logged int")
+    }, [])
+    // constructor(props){
+    //     super(props);
+    //     this.state= {
+    //         userName: '',
+    //         password: '',
+    //         error:false,
+    //     }
+    // }
+   
+
+    const handleLogin = ()=> {
             // axios.post('http://localhost:8080/api/user-profiles', {
             //     data: {
             //         emailAddress: this.userName,
             //         password: this.password,
             //     }
             // })
-            console.log("clicked login button")
+            // this.setState({error: true})
+            setError(true)
+            console.log("username is: " + userName + " password is: " + password )
 
     }
 
-render(){
+    
     return (
         <>
         
         <CenterPageDiv>
-       { this.state.error && <ErrorBox>This is an incorrect login</ErrorBox>}
+       { error && <ErrorBox>This is an incorrect login</ErrorBox>}
         <H1HeaderTag>Login </H1HeaderTag>
-        <StyledInput placeholder="email" type="email" value={this.state.userName}
-        onChange={e=>this.setState({userName: e.target.value})}
+        <StyledInput placeholder="email" type="email" value={userName}
+        onChange={e=>setUserName(e.target.value)}
         />
-        <StyledInput placeholder="password" type="password" value={this.state.password} 
-        onChange={e=>this.setState({password: e.target.value})}
+        <StyledInput placeholder="password" type="password" value={password} 
+        onChange={e=>setPassword(e.target.value)}
         />
-        <BlueButton onClick={this.handleLogin}>Login</BlueButton>
+        <BlueButton onClick={handleLogin}>Login</BlueButton>
         </CenterPageDiv>
     
         
         </>
     )
-}
 
 
 }

@@ -5,7 +5,6 @@ import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
-import StyledInput from "./styled-components/StyledInput";
 import PreviewArea from "./styled-components/PreviewArea";
 import UserContext from "./UserContext";
 // import SimpleTags from "./SimpleTags";
@@ -25,7 +24,18 @@ border-radius: 5px;
 color: #fff;
 `
 
-
+const StyledInputQuestion = styled.textarea`
+background:none;
+display:block;
+width: 100%;
+min-height: 100px;
+padding: 10px;
+margin-bottom: 20px;
+margin-top: 30px;
+border: 1px solid #777;
+border-radius: 5px;
+color: #fff;
+`
 
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
@@ -76,7 +86,7 @@ return(
     placeholder="Title of your Question"
      onChange={e=>setTopic(e.target.value)}/>
 
-    <StyledInput 
+    <StyledInputQuestion 
         type="text"
         value={question}
         placeholder="Enter Question here" 

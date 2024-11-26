@@ -95,7 +95,7 @@ grid-template-columns: 250px 1fr 250px;
 
 
 function App() {
-const [user, setUser] = useState("6");
+const [user, setUser] = useState(null);
   return (
     <>
    

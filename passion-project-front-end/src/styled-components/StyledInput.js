@@ -4,8 +4,8 @@ const StyledInput = styled.textarea`
 background:none;
 display:block;
 width: 100%;
-min-height: 200px;
-padding: 10px;
+//min-height: 200px;
+padding: 5px;
 margin-bottom: 20px;
 margin-top: 30px;
 border: 1px solid #777;
