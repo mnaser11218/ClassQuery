@@ -80,7 +80,7 @@ background: none;}
     cursor: pointer;
     font-size: 0.9rem;
     &:hover{
-    color: #3ca4ff;
+    color: #FF9900;
     border: none;
     }
 }

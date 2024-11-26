@@ -23,10 +23,12 @@ text-decoration: none;
 color: hsl(210,89%,77%);
 cursor: pointer;
 font-size: 1.1rem;
-font-family: sans-serif;
+font-family: var(--theme-post-title-font-family, var(--theme-body-font-family));
 // font-weight: bold;
 display:block;
 margin-bottom: 10px;
+&:hover{
+text-decoration: underline}
 `
 
 const StyledQuestionRow = styled.div`

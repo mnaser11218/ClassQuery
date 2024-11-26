@@ -5,6 +5,7 @@ import QuestionRow from "./QuestionRow"
 const StyledHeader = styled.a`
 color: white;
 font-size: 1.8rem;
+font-family: var(--ff-sans);
 cursor: pointer;
 `
 const HeaderRow = styled.div`
@@ -21,7 +22,7 @@ border: 0;
 cursor: pointer;
 `  
 
-function QuestionPage(){   
+function QuestionsPage(){   
     const [questions, setQuestions] = useState([])
     let navigate = useNavigate(); 
     const routeChange = ()=> {
@@ -51,19 +52,17 @@ function QuestionPage(){
     return(
         <main>
             <HeaderRow>
-<StyledHeader>Questions</StyledHeader>
+<StyledHeader>All Questions</StyledHeader>
 <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")
-   return <QuestionRow question={row.question} title={row.title} createdDate ={row.createdDate} tags={row.tags} id={row.id}/>
+   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id}/>
 })}
-
-
 
         </main>
     )
 
 }
 
-export default QuestionPage;
+export default QuestionsPage;
