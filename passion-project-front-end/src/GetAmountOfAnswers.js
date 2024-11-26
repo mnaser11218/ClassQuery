@@ -2,11 +2,11 @@ import styled from "styled-components"
 import { useState, useEffect } from "react";
 function GetAmountOfAnswers({...props}){
 
-    const [answers, setAnswers ] = useState([]);
+    const [answerCount, setAnswerCount ] = useState();
     const getAnswers = ()=>{
-        fetch(`http://localhost:8080/api/answers/question/${questionId}`)
+        fetch(`http://localhost:8080/api/answers/count/${questionId}`)
         .then(res=> res.json())
-        .then(data=> setAnswers(data))
+        .then(data=> setAnswerCount(data))
     }
    
     useEffect(()=>{
@@ -14,6 +14,6 @@ function GetAmountOfAnswers({...props}){
     },[])
 
 const {questionId} = props;
-return (<div>{answers.length}</div>)
+return (<div>{answerCount}</div>)
 }
 export default GetAmountOfAnswers;
