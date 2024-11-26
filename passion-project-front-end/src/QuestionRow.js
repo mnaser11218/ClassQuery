@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
-import { Link} from "react-router-dom";
+import { Link} from "react-router-dom"
+import GetAmountOfAnswers from './GetAmountOfAnswers';
 
 
 const QuestionStat = styled.div`
@@ -75,7 +76,7 @@ const {question, title, createdDate, tags, id} = props;
     <StyledQuestionRow>
        
     <QuestionStat>0<span>Votes</span></QuestionStat>
-    <QuestionStat>0<span>Answers</span></QuestionStat>
+    <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
     <QuestionTitleArea>
         <QuestionLink to={`/answerspage/${id}`} >{title}</QuestionLink>
         <QuestionTag>{question} </QuestionTag>
