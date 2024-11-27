@@ -10,6 +10,7 @@ cursor: pointer;
 `
 const HeaderRow = styled.div`
 padding: 30px 20px;
+//background-color: gray;
 display: grid;
 grid-template-columns: 1fr min-content
 `

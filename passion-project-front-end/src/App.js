@@ -14,6 +14,7 @@ import RegisterPage from './RegisterPage';
 import LoggedInUser from './LoggedInUser';
 import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
+import { UserProvider } from './CurrentUser';
 
 
 
@@ -95,11 +96,11 @@ grid-template-columns: 250px 1fr 250px;
 
 
 function App() {
-const [user, setUser] = useState(null);
+const [user, setUser] = useState("7");
   return (
     <>
-   
-   <UserContext.Provider value={user}>
+   <UserProvider>
+   {/* <UserContext.Provider value={user}> */}
    <Router>
    <Header />
   
@@ -134,7 +135,8 @@ const [user, setUser] = useState(null);
    <RightSideBar/>
     </WholePage>
     </Router>
-    </UserContext.Provider>
+    {/* </UserContext.Provider> */}
+    </UserProvider>
     </>
   );
 }

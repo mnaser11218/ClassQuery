@@ -4,6 +4,7 @@ import { faStackOverflow} from '@fortawesome/fontawesome-free-brands'
 import {Link} from "react-router-dom"
 import { useContext } from "react";
 import UserContext from "./UserContext";
+import { useUser } from "./CurrentUser";
 const StyledHeader = styled.header`
 border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
@@ -53,11 +54,12 @@ border: 1px solid #777;
 
 `
 function Header (){
-    const user= useContext(UserContext);
+   // const user= useContext(UserContext);
+   const { currentLoggedInUser } = useUser();
 
     return (
         <StyledHeader>
-            {console.log("the user is:: " + user)}
+            {console.log("the user is:: " + currentLoggedInUser)}
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon icon={faStackOverflow} size="2x"/>
         <span>
@@ -69,7 +71,7 @@ function Header (){
   
     <StyledInput type="text" placeholder="Search... " />
     </form>
-    {user ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{user}</ProfileLink>  : <div><ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink to="/register">Register</ProfileLink></div>}
+    {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink to="/register">Register</ProfileLink></div>}
  
  
 

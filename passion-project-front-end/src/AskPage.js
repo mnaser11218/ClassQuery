@@ -6,9 +6,10 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import PreviewArea from "./styled-components/PreviewArea";
-import UserContext from "./UserContext";
+// import UserContext from "./UserContext";
 // import SimpleTags from "./SimpleTags";
 import Tags from "./Tags";
+import { useUser } from "./CurrentUser";
 
 
 
@@ -44,8 +45,9 @@ function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
-const user= useContext(UserContext);
+//const user= useContext(UserContext);
 
+const { currentLoggedInUser } = useUser()
 
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
@@ -67,7 +69,7 @@ const handleSubmitClick = ()=>{
             createdDate: new Date(),
             tags: tagsId,
             userProfile: {
-              "id": user
+              "id": currentLoggedInUser.id
           }
           })
       }).then(res => res.json())
@@ -78,7 +80,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    <H1HeaderTag>Ask A Question Profile: {user}</H1HeaderTag>
+    <H1HeaderTag>Ask A Question Profile: {currentLoggedInUser.name}</H1HeaderTag>
 
     <TitleInput 
     type="text"
