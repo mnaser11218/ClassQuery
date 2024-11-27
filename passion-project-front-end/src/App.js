@@ -53,6 +53,21 @@ const GlobalStyles = createGlobalStyle`
     h2{
     font-size: 1.6rem;
     }
+    span{
+    margin-left: 10px;
+    }
+    li{
+    position: relative;
+    margin: 5px;
+    border: 1px white;
+    border-radius: 5px;
+    padding: 7px;
+    &:hover{
+    background-color: hsl(22 5% 25% / 1);
+    cursor: pointer;
+    }
+    
+    }
     blockquote{
     background-color: rgba(0,0,0, .1);
     padding: 15px;
