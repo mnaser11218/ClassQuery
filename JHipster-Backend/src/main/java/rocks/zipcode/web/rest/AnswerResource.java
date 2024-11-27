@@ -158,6 +158,17 @@ public class AnswerResource {
         log.debug("REST request to get all Answers");
         return answerRepository.getAnswersByQuestionId(id);
     }
+
+    // get number of answers for a questionid
+    @GetMapping("/count/{id}")
+    public Long getAnswerCountOfAQuestion(
+        @PathVariable("id") Long id
+    ) {
+
+        log.debug("REST request to get all Answers");
+        return answerRepository.getNumberOfAnswersByQuestionId(id);
+    }
+
     /**
      * {@code GET  /answers/:id} : get the "id" answer.
      *

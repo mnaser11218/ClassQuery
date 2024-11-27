@@ -170,6 +170,15 @@ public class UserProfileResource {
         return ResponseUtil.wrapOrNotFound(userProfile);
     }
 
+    // get userprofile by username
+
+    @GetMapping("username/{username}")
+    public ResponseEntity<UserProfile> getUserProfileByEmail(@PathVariable("username") String username) {
+        log.debug("REST request to get UserProfile by email : {}", username);
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.getUserProfileByEmail(username));
+        return ResponseUtil.wrapOrNotFound(userProfile);
+    }
+
     /**
      * {@code DELETE  /user-profiles/:id} : delete the "id" userProfile.
      *

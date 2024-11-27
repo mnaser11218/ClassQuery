@@ -16,4 +16,9 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
         "join question on question.id = answer.question_id\n" +
         "where answer.question_id = ?1", nativeQuery = true)
     List<Answer> getAnswersByQuestionId(Long questionId);
+
+
+    @Query(value="select Count(id) from answer \n" +
+        "where question_id = ?1", nativeQuery = true)
+    Long getNumberOfAnswersByQuestionId(Long questionId);
 }
