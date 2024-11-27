@@ -14,7 +14,7 @@ function LoggedInUser(){
     const handleLogOut = (e)=> {
         e.preventDefault()
         setCurrentLoggedInUser(null);
-        navigate('/home')
+        navigate('/questionspage')
     }
 
     return (<H1HeaderTag> Welcome
