@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Component } from "react";
+import { Component, useState } from "react";
 import H1HeaderTag from "./styled-components/H1HeaderTag";
 import StyledInput from "./styled-components/StyledInput";
 import BlueButton from "./styled-components/BlueButton";
@@ -7,45 +7,32 @@ import axios from 'axios'
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
 `
- class RegisterPage extends Component{
-    constructor(props){
-        super(props);
-        this.state= {
-            userName: '',
-            password: '',
-        }
-    }
-     handleLogin = ()=> {
-            // axios.post('http://localhost:8080/api/user-profiles', {
-            //     data: {
-            //         emailAddress: this.userName,
-            //         password: this.password,
-            //     }
-            // })
+ function RegisterPage (){
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+
+     const handleRegister = (e)=> {
+         e.preventDefault()
             console.log("clicked register button")
     }
 
-render(){
     return (
         <>
         <CenterPageDiv>
         <H1HeaderTag>Register </H1HeaderTag>
-        <StyledInput placeholder="email" type="email" value={this.state.userName}
-        onChange={e=>this.setState({userName: e.target.value})}
+        <StyledInput placeholder="email" type="email" value={userName}
+        onChange={e=>setUserName(e.target.value)}
         />
-        <StyledInput placeholder="password" type="password" value={this.state.password} 
+        <StyledInput placeholder="password" type="password" value={password} 
         autocomplete={'new-password'}
-        onChange={e=>this.setState({password: e.target.value})
-    
-    }
+        onChange={e=>setPassword(e.target.value)}
         />
-        <BlueButton onClick={this.handleLogin}>Register</BlueButton>
+        <BlueButton onClick={handleRegister}>Register</BlueButton>
         </CenterPageDiv>
     
         
         </>
     )
-}
 
 
 }

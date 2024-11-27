@@ -11,7 +11,6 @@ function LoggedInUser(){
     const { setCurrentLoggedInUser } = useUser()
     const handleLogOut = (e)=> {
         e.preventDefault()
-        console.log("clicked logout")
         setCurrentLoggedInUser(null);
     }
 
