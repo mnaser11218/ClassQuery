@@ -80,7 +80,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    <H1HeaderTag>Ask A Question Profile: {currentLoggedInUser.name}</H1HeaderTag>
+    <H1HeaderTag>Ask A Question: {currentLoggedInUser.name}</H1HeaderTag>
 
     <TitleInput 
     type="text"

@@ -1,3 +1,3 @@
-import {createConext, useState} from "react";
+// import {createConext, useState} from "react";
 
-const AuthContext = createConext({});
+// const AuthContext = createConext({});

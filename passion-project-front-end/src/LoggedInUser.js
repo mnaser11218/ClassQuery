@@ -8,18 +8,25 @@ import { useNavigate } from "react-router-dom";
 
 
 function LoggedInUser(){
+  
     // const user = useContext(UserContext)
     const navigate = useNavigate()
-    const { setCurrentLoggedInUser } = useUser()
+    const { setCurrentLoggedInUser, currentLoggedInUser } = useUser()
     const handleLogOut = (e)=> {
         e.preventDefault()
         setCurrentLoggedInUser(null);
         navigate('/questionspage')
     }
+    const handleLoggedIn =(e)=>{
+        e.preventDefault()
+        console.log(currentLoggedInUser)
+        navigate("/login")
+    }
+    
 
     return (<H1HeaderTag> Welcome
     <hr></hr>
-    <BlueButton onClick={handleLogOut}>Log Out</BlueButton>
-    </H1HeaderTag>)
+  { !currentLoggedInUser ?  <BlueButton onClick={handleLoggedIn}> Log In</BlueButton>  :  <BlueButton onClick={handleLogOut}>Log Out</BlueButton> }
+    </H1HeaderTag>) 
 }
 export default LoggedInUser;

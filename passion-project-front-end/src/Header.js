@@ -72,8 +72,6 @@ function Header (){
     <StyledInput type="text" placeholder="Search... " />
     </form>
     {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink to="/register">Register</ProfileLink></div>}
- 
- 
 
    </StyledHeader>
     )
