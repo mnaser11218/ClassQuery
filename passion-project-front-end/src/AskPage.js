@@ -69,7 +69,7 @@ const handleSubmitClick = ()=>{
             createdDate: new Date(),
             tags: tagsId,
             userProfile: {
-              "id": currentLoggedInUser.id
+              "id": currentLoggedInUser?.id
           }
           })
       }).then(res => res.json())
@@ -80,7 +80,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    <H1HeaderTag>Ask A Question: {currentLoggedInUser.name}</H1HeaderTag>
+    <H1HeaderTag>Ask A Question: {currentLoggedInUser?.name}</H1HeaderTag>
 
     <TitleInput 
     type="text"
