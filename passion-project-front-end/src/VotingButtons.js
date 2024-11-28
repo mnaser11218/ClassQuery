@@ -28,7 +28,8 @@ const ArrowUp = styled.div`
 const Button = styled.button`
 font-size: 2rem;
 color: #888;
-background-color:#2d2d2d;
+//background-color:#2d2d2d;
+background-color: #244855;
  border: 0;
   cursor: pointer;
   text-align: center;

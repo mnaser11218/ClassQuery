@@ -33,7 +33,9 @@ function AllAnswersListPage({...props}){
     return (<>
     <hr/>
    <H2HeaderTag style={{"border-top": "none"}}> {answers.length} Answers:</H2HeaderTag>
-    {answers.map(answer=> {
+
+   {answers.length === 0 ? <p>No answers available.</p> :
+    answers.map(answer=> {
         return (
          <BodyTag>
 

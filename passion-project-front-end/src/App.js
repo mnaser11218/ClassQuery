@@ -21,8 +21,11 @@ import { UserProvider } from './CurrentUser';
 const GlobalStyles = createGlobalStyle`
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;700&display=swap');
   body{
-     background: #2d2d2d;
+    // background: #2d2d2d;
+    background: #244855;
     color:#fff;
+    //color: #FBE9B0;
+    //color: black;
     font-family: Roboto, arial, sans-serif;
     font-size: 17px;
     letter-spacing: 0.5px;
