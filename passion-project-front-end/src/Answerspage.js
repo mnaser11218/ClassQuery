@@ -13,11 +13,13 @@ import VotingButtons from "./VotingButtons";
 import H2HeaderTag from "./styled-components/H2HeaderTag";
 import PostBodyTextArea from "./PostBodyTextArea";
 import AllAnswersListPage from "./AllAnswersListPage";
+import { useUser } from "./CurrentUser";
 
 function AnswersPage(){
   const params = useParams();
   const questionId = params.id;
   const [question, setQuestion]= useState("")
+  const {currentLoggedInUser} = useUser();
  
  
   const fetchQuestion = ()=> {
@@ -82,12 +84,17 @@ padding-top: 10px;
           questionId={questionId}
           />
 
-
+{ currentLoggedInUser?.id ? (
+  <>
         <H2HeaderTag>Your Answer</H2HeaderTag>
         
          <PostBodyTextArea
          questionId={questionId}
          />
+         </>
+)
+         : "Log in to submit an answer"
+}
       
           </>
         )
