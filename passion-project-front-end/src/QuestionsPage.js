@@ -16,7 +16,8 @@ display: grid;
 grid-template-columns: 1fr min-content
 `
 const BlueButton = styled.button`
-background-color: rgb(27, 117, 208);
+//background-color: rgb(27, 117, 208);
+background-color: #f9af42;
 color: white;
 padding: 15px;
 border-radius: 5px;

@@ -20,7 +20,7 @@ width: 100%;
 padding: 10px;
 margin-bottom: 20px;
 margin-top: 30px;
-border: 1px solid #777;
+border: 1px solid #F8F7E5;
 border-radius: 5px;
 color: #fff;
 `
@@ -33,7 +33,7 @@ min-height: 100px;
 padding: 10px;
 margin-bottom: 20px;
 margin-top: 30px;
-border: 1px solid #777;
+border: 1px solid #F8F7E5;
 border-radius: 5px;
 color: #fff;
 `
@@ -80,7 +80,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    { currentLoggedInUser?.name ? "Sign in to ask Question" : <H1HeaderTag>Ask A Question: {currentLoggedInUser?.name}</H1HeaderTag>}
+    { currentLoggedInUser?.name ? <H1HeaderTag>Welcome, {currentLoggedInUser?.name}.</H1HeaderTag> : "Sign in to ask Question" }
 
     <TitleInput 
     type="text"

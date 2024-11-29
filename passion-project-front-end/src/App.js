@@ -22,9 +22,12 @@ const GlobalStyles = createGlobalStyle`
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;700&display=swap');
   body{
     // background: #2d2d2d;
-    background: #244855;
-    color:#fff;
+    //background: #244855;
+    background: rgb(117, 132, 106);
+    color: #F8F7E5;
+    //color:#fff;
     //color: #FBE9B0;
+   //background: rgb(29, 29, 29);
     //color: black;
     font-family: Roboto, arial, sans-serif;
     font-size: 17px;
@@ -34,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
    
     hr{
     margin-top: 10px;
-   border-top: 1px solid gray;
+   border-top: 1px solid #F8F7E5;;
     }
     b,strong{
     font-weight: bold;
@@ -62,7 +65,7 @@ const GlobalStyles = createGlobalStyle`
     li{
     position: relative;
     margin: 5px;
-    border: 1px white;
+    border: 1px #F8F7E5;
     border-radius: 5px;
     padding: 7px;
     &:hover{

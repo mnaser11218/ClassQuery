@@ -4,7 +4,7 @@ const ArrowUp = styled.div`
     height: 0; 
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid #888;
+    border-bottom: 20px solid #f9af42;
       text-align: center;
       &:hover{
       border-bottom: 20px solid #FF9900;
@@ -17,7 +17,7 @@ const ArrowUp = styled.div`
     height: 0; 
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid #888;
+    border-top: 20px solid #f9af42;
     padding: 0;
     text-align: center;
       &:hover{
@@ -28,8 +28,11 @@ const ArrowUp = styled.div`
 const Button = styled.button`
 font-size: 2rem;
 color: #888;
+
 //background-color:#2d2d2d;
-background-color: #244855;
+//background-color: #244855;
+background-color:rgb(117, 132, 106);
+
  border: 0;
   cursor: pointer;
   text-align: center;

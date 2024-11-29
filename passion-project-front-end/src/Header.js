@@ -8,12 +8,8 @@ import { useUser } from "./CurrentUser";
 const StyledHeader = styled.header`
 border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
-//background-color:#393939;
-//background-color: #90AEAD;
-background-color: #748D92;
-//background-color: #D3D9D4;
-
-//color: #874F41;
+background-color: #F8F7E5;
+//background-color: #874F41;
 box-shadow: 0px 3px 3px rgba(0,0,0, .2);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
@@ -21,8 +17,8 @@ border-bottom: 1px solid #777;
 `;
 
 const ProfileLink = styled(Link)`
-color: #fff;
-//color: #874F41;
+//color: #fff;
+color: #874F41;
 text-decoration: none;
 margin-top: 10px;
 line-height: 50px;
@@ -30,8 +26,10 @@ line-height: 50px;
 
 const LogoLink = styled.a`
 text-decoration: none;
-color: white;
+//color: white;
 //color: #E64833;
+//color: #0b1f1c;
+color:#874F41;
 display: inline-block;
 height: 50px;
 line-height: 50px;

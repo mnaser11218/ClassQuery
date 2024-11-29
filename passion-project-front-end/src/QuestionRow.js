@@ -21,11 +21,12 @@ padding: 0 30px;
 const QuestionLink = styled(Link)`
 text-decoration: none;
 //color: rgb(27, 117, 208);
-color: hsl(210,89%,77%);
+//color: hsl(210,89%,77%);
+color: #874F41;
 cursor: pointer;
-font-size: 1.1rem;
+font-size: 1.2rem;
 font-family: var(--theme-post-title-font-family, var(--theme-body-font-family));
-// font-weight: bold;
+font-weight: 500;
 display:block;
 margin-bottom: 10px;
 &:hover{
@@ -38,7 +39,8 @@ const StyledQuestionRow = styled.div`
 padding: 10px 15px 10px;
 display: grid;
 grid-template-columns:  100px 100px 1fr;
-border-top: solid 1px #777;
+//border-top: solid 1px #777;
+border-top: solid 1px #F8F7E5;
 `
 const WhoAndWhen = styled.div`
 display: inline-block;
