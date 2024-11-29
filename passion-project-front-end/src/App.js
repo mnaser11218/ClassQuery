@@ -66,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 5px;
     padding: 7px;
     &:hover{
-    background-color: hsl(22 5% 25% / 1);
+    background-color: #748D92;
     cursor: pointer;
     }
     
@@ -99,7 +99,8 @@ background: none;}
     cursor: pointer;
     font-size: 0.9rem;
     &:hover{
-    color: #FF9900;
+    //color: #FF9900;
+    color: #748D92;
     border: none;
     }
 }

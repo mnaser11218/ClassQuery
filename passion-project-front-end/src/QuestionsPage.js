@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
+import { useUser } from './CurrentUser';
 const StyledHeader = styled.a`
 color: white;
 font-size: 1.8rem;
@@ -24,6 +25,7 @@ cursor: pointer;
 `  
 
 function QuestionsPage(){   
+  const { currentLoggedInUser } = useUser()
     const [questions, setQuestions] = useState([])
     let navigate = useNavigate(); 
     const routeChange = ()=> {
@@ -54,7 +56,7 @@ function QuestionsPage(){
         <main>
             <HeaderRow>
 <StyledHeader>All Questions</StyledHeader>
-<BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
+    { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")
