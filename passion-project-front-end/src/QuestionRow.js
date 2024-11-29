@@ -22,7 +22,8 @@ const QuestionLink = styled(Link)`
 text-decoration: none;
 //color: rgb(27, 117, 208);
 //color: hsl(210,89%,77%);
-color: #874F41;
+//color: #874F41;
+color:  #F8F7E5;
 cursor: pointer;
 font-size: 1.2rem;
 font-family: var(--theme-post-title-font-family, var(--theme-body-font-family));
