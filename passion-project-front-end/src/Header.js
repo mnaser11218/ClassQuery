@@ -10,7 +10,7 @@ border-top: solid 2px #FF9900;
 grid-column-gap: 20px;
 background-color: #F8F7E5;
 //background-color: #874F41;
-box-shadow: 0px 3px 3px rgba(0,0,0, .2);
+box-shadow: 0px 3px 3px rgb(117, 132, 106);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
 border-bottom: 1px solid #777;
