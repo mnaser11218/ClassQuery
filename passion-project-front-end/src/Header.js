@@ -6,7 +6,8 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 import { useUser } from "./CurrentUser";
 const StyledHeader = styled.header`
-border-top: solid 2px #FF9900;
+//border-top: solid 2px #FF9900;
+border-top: solid 2px #874F41;
 grid-column-gap: 20px;
 background-color: #F8F7E5;
 //background-color: #874F41;
