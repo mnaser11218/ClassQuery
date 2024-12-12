@@ -1,6 +1,7 @@
 {
   "generator-jhipster": {
     "applicationType": "monolith",
+    "appsFolders": ["JHipster-Backend"],
     "authenticationType": "jwt",
     "baseName": "zipcodeoverflow",
     "buildTool": "maven",
@@ -13,6 +14,7 @@
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "devServerPort": 9060,
+    "directoryPath": "/Users/muhammednaser/Desktop/projects/ClassQuery/",
     "enableHibernateCache": true,
     "enableSwaggerCodegen": false,
     "enableTranslation": true,
@@ -25,6 +27,7 @@
     "messageBroker": false,
     "microfrontend": null,
     "microfrontends": [],
+    "monitoring": "no",
     "monorepository": true,
     "nativeLanguage": "en",
     "packageFolder": "rocks/zipcode",
@@ -34,7 +37,7 @@
     "searchEngine": false,
     "serverPort": null,
     "serverSideOptions": [],
-    "serviceDiscoveryType": false,
+    "serviceDiscoveryType": "no",
     "skipCommitHook": true,
     "syncUserWithIdp": null,
     "testFrameworks": [],

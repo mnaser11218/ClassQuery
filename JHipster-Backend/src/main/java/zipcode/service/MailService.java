@@ -53,7 +53,7 @@ public class MailService {
 
     @Async
     public void sendEmail(String to, String subject, String content, boolean isMultipart, boolean isHtml) {
-        this.sendEmailSync(to, subject, content, isMultipart, isHtml);
+       this.sendEmailSync(to, subject, content, isMultipart, isHtml);
     }
 
     private void sendEmailSync(String to, String subject, String content, boolean isMultipart, boolean isHtml) {
