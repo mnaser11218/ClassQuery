@@ -9,8 +9,9 @@ const StyledHeader = styled.header`
 //border-top: solid 2px #FF9900;
 border-top: solid 2px #874F41;
 grid-column-gap: 20px;
-background-color: #F8F7E5;
+//background-color: #F8F7E5;
 //background-color: #874F41;
+
 box-shadow: 0px 3px 3px rgb(117, 132, 106);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
@@ -27,10 +28,10 @@ line-height: 50px;
 
 const LogoLink = styled.a`
 text-decoration: none;
-//color: white;
+color: white;
 //color: #E64833;
 //color: #0b1f1c;
-color:#874F41;
+//color:#874F41;
 display: inline-block;
 height: 50px;
 line-height: 50px;

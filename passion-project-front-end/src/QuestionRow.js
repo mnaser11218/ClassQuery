@@ -23,10 +23,11 @@ text-decoration: none;
 //color: rgb(27, 117, 208);
 //color: hsl(210,89%,77%);
 //color: #874F41;
-color:  #F8F7E5;
+color:  hsl(210,77%,46%);
 cursor: pointer;
 font-size: 1.2rem;
-font-family: var(--theme-post-title-font-family, var(--theme-body-font-family));
+//font-family: var(--theme-post-title-font-family, var(--theme-body-font-family));
+font-family: var(--ff-sans);
 font-weight: 500;
 display:block;
 margin-bottom: 10px;
@@ -41,7 +42,8 @@ padding: 10px 15px 10px;
 display: grid;
 grid-template-columns:  100px 100px 1fr;
 //border-top: solid 1px #777;
-border-top: solid 1px #F8F7E5;
+// border-top: solid 1px #F8F7E5;
+border-top: solid 1px hsl(210,8%,5%);
 `
 const WhoAndWhen = styled.div`
 display: inline-block;

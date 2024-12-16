@@ -23,8 +23,11 @@ const GlobalStyles = createGlobalStyle`
   body{
     // background: #2d2d2d;
     //background: #244855;
-    background: rgb(117, 132, 106);
-    color: #F8F7E5;
+    //background: rgb(117, 132, 106);
+    // background: rgb(168 213 227);
+    background: hsl(0,0%,100%);
+    //color: #F8F7E5;
+    color: hsl(210,8%,25%);
     //color:#fff;
     //color: #FBE9B0;
    //background: rgb(29, 29, 29);
@@ -37,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
    
     hr{
     margin-top: 10px;
-   border-top: 1px solid #F8F7E5;;
+   border-top: 1px solid #F8F7E5;
     }
     b,strong{
     font-weight: bold;
@@ -118,7 +121,7 @@ grid-template-columns: 250px 1fr 250px;
 
 
 function App() {
-const [user, setUser] = useState("7");
+const [user, setUser] = useState(null);
   return (
     <>
    <UserProvider>
