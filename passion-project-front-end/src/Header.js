@@ -11,7 +11,7 @@ border-top: solid 2px hsl(27, 89%, 48%);
 grid-column-gap: 20px;
 //background-color: #F8F7E5;
 //background-color: #874F41;
-
+background-color: #3f3f3f;
 box-shadow: 0px 3px 3px hsl(27, 89%, 48%);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
@@ -68,7 +68,7 @@ function Header (){
         <StyledHeader>
             {console.log("the user is:: " + currentLoggedInUser)}
         <LogoLink href="/questionspage" className="logo">
-        <FontAwesomeIcon icon={faStackOverflow} size="2x"/>
+        <FontAwesomeIcon style={{"color": "hsl(27, 89%, 48%)"}}icon={faStackOverflow} size="2x"/>
         <span>
     class<b>Query</b>
     </span>

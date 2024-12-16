@@ -13,6 +13,7 @@ border-right: 1px solid hsl(210,8%,5%);
 
 const Text = styled(Link)`
 text-decoration: none;
+color: color: var(--theme-link-color, var(--theme-secondary-400));
 
 `
 

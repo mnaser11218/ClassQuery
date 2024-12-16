@@ -59,7 +59,7 @@ padding: 10px 0;
 `
 
 const QuestionTag = styled.div`
-//color: var(--theme-link-color, var(--theme-secondary-400));
+color: var(--theme-link-color, var(--theme-secondary-400));
   letter-spacing: 0.5px;
   line-height: 1.5;
 
