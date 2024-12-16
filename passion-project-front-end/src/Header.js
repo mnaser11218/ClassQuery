@@ -7,12 +7,12 @@ import UserContext from "./UserContext";
 import { useUser } from "./CurrentUser";
 const StyledHeader = styled.header`
 //border-top: solid 2px #FF9900;
-border-top: solid 2px #874F41;
+border-top: solid 2px hsl(27, 89%, 48%);
 grid-column-gap: 20px;
 //background-color: #F8F7E5;
 //background-color: #874F41;
 
-box-shadow: 0px 3px 3px rgb(117, 132, 106);
+box-shadow: 0px 3px 3px hsl(27, 89%, 48%);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
 border-bottom: 1px solid #777;
