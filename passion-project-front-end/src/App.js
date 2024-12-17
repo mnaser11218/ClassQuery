@@ -21,13 +21,13 @@ import { UserProvider } from './CurrentUser';
 const GlobalStyles = createGlobalStyle`
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;700&display=swap');
   body{
-    // background: #2d2d2d;
+     background: #2d2d2d;
     //background: #244855;
     //background: rgb(117, 132, 106);
     // background: rgb(168 213 227);
-    background: hsl(0,0%,100%);
-    //color: #F8F7E5;
-    color: hsl(210,8%,25%);
+    //background: hsl(0,0%,100%);
+    color: #F8F7E5;
+   // color: hsl(210,8%,25%);
     //color:#fff;
     //color: #FBE9B0;
    //background: rgb(29, 29, 29);

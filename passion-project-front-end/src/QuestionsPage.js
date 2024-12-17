@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
 import { useUser } from './CurrentUser';
 const StyledHeader = styled.a`
-color: hsl(210,8%,25%);
+color: #F8F7E5;
 font-size: 1.8rem;
 font-family: var(--ff-sans);
 cursor: pointer;

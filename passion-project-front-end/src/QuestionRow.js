@@ -43,7 +43,7 @@ display: grid;
 grid-template-columns:  100px 100px 1fr;
 //border-top: solid 1px #777;
 // border-top: solid 1px #F8F7E5;
-border-top: solid 1px hsl(210,8%,5%);
+border-top: solid 1px #F8F7E5;
 `
 const WhoAndWhen = styled.div`
 display: inline-block;
