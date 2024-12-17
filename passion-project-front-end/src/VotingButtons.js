@@ -4,7 +4,7 @@ const ArrowUp = styled.div`
     height: 0; 
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid #f9af42;
+    border-bottom: 20px solid hsl(27, 89%, 48%);
       text-align: center;
       &:hover{
       border-bottom: 20px solid #FF9900;
@@ -17,7 +17,7 @@ const ArrowUp = styled.div`
     height: 0; 
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid #f9af42;
+    border-top: 20px solid hsl(27, 89%, 48%);
     padding: 0;
     text-align: center;
       &:hover{
@@ -31,7 +31,7 @@ color: #888;
 
 //background-color:#2d2d2d;
 //background-color: #244855;
-background-color:rgb(117, 132, 106);
+background-color:#2d2d2d;
 
  border: 0;
   cursor: pointer;
@@ -43,7 +43,7 @@ text-align: center;
 width: 50px;
 font-size: 1.4rem;
 padding: 15px 0;
-color: #888;
+color: #F8F7E5;
 line-height: 1.4rem;
 `
 function VotingButtons(props){
@@ -51,7 +51,7 @@ function VotingButtons(props){
 	{/* &#x20B2; */}
       <Button> <ArrowUp/> </Button>
      
-            <Total> {6}</Total>
+            <Total> {0}</Total>
             {/* &#x20BC; */}
        <Button> <ArrowDown/> </Button>
    
