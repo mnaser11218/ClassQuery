@@ -12,7 +12,7 @@ grid-column-gap: 20px;
 //background-color: #F8F7E5;
 //background-color: #874F41;
 background-color: #3f3f3f;
-box-shadow: 0px 3px 3px hsl(27, 89%, 48%);
+box-shadow: 0px 1px 1px hsl(27, 89%, 48%);
 display: grid;
 grid-template-columns: 250px 1fr 200px;
 border-bottom: 1px solid #777;
@@ -20,7 +20,8 @@ border-bottom: 1px solid #777;
 
 const ProfileLink = styled(Link)`
 //color: #fff;
-color: #874F41;
+//color: #874F41;
+color:white;
 text-decoration: none;
 margin-top: 10px;
 line-height: 50px;
