@@ -23,6 +23,8 @@ border-radius: 5px;
 display: inline-block;
 margin:auto;
 font-size: 20px;
+color:black;
+text-decoration: none;
 
 `
 
@@ -51,7 +53,7 @@ return(
     {assignments?.map(ele=>{
       return(
       <AssignmentEle>
-        <LinkTag>
+        <LinkTag to={`/assignmentquestion/${ele.id}`}>
         {ele.name}
         </LinkTag>
          

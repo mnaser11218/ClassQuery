@@ -15,6 +15,7 @@ import LoggedInUser from './LoggedInUser';
 import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
 import { UserProvider } from './CurrentUser';
+import AssignmentQuestions from './AssignmentQuestions';
 
 
 
@@ -142,6 +143,7 @@ const [user, setUser] = useState(null);
      
       <Routes >
       <Route path="/questionspage" element={ <QuestionsPage/>} />
+      <Route path="/assignmentquestion/:id" element={ <AssignmentQuestions/>} />
       <Route path="/login" element={ <LoginPage/>} />
       <Route path="/register" element={ <RegisterPage/>} />
 
