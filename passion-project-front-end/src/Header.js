@@ -69,7 +69,7 @@ function Header (){
         <StyledHeader>
             {console.log("the user is:: " + currentLoggedInUser)}
         <LogoLink href="/questionspage" className="logo">
-        <FontAwesomeIcon style={{"color": "hsl(27, 89%, 48%)"}}icon={faStackOverflow} size="2x"/>
+        <FontAwesomeIcon style={{"color": "#FF9900"}}icon={faStackOverflow} size="2x"/>
         <span>
     class<b>Query</b>
     </span>

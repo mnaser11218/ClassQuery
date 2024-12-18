@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const H1home = styled.div`
 color:black;
 font-size: 5rem;
@@ -10,10 +11,19 @@ border: solid 2px white;
 const DivEle = styled.div`
 color: black;
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
+  grid-template-columns: auto auto auto;
+  grid-gap: 15px;
   padding: 10px;
-  height: 500px;
+  height: 300px;
+ 
+`
+const LinkTag =styled(Link)`
+border: black 1px solid;
+border-radius: 5px;
+display: inline-block;
+margin:auto;
+font-size: 20px;
+
 `
 
 const AssignmentEle = styled.div`
@@ -24,6 +34,7 @@ border: solid 2px gray;
   font-size: 30px;
 width: 100%;
 height: 400px;
+ border-radius: 10px;
   //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `
 function Home(){
@@ -37,10 +48,13 @@ function Home(){
 return(
     <>
     <DivEle>
-    {assignments.map(ele=>{
+    {assignments?.map(ele=>{
       return(
       <AssignmentEle>
-        {ele.name} 
+        <LinkTag>
+        {ele.name}
+        </LinkTag>
+         
     
       </AssignmentEle>
 
