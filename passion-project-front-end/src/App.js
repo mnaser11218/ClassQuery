@@ -133,7 +133,7 @@ const [user, setUser] = useState(null);
 
     <WholePage>
       <LeftSideBar />
-    <div>
+    <div >
       <Reset/>
       <GlobalStyles />
      

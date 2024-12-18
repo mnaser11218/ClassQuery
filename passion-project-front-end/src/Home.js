@@ -14,7 +14,8 @@ color: black;
   grid-template-columns: auto auto auto;
   grid-gap: 15px;
   padding: 10px;
-  height: 300px;
+  // overflow: auto;
+  // height: 300px;
  
 `
 const LinkTag =styled(Link)`
