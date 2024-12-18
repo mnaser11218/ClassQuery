@@ -105,8 +105,8 @@ background: none;}
     cursor: pointer;
     font-size: 0.9rem;
     &:hover{
-    //color: #FF9900;
-    color: #748D92;
+    color: #FF9900;
+    //color: #748D92;
     border: none;
     }
 }
