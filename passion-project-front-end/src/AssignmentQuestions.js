@@ -1,11 +1,55 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useUser } from './CurrentUser';
+import { useParams, useNavigate } from 'react-router-dom';
+import QuestionRow from './QuestionRow';
+import BlueButton from './styled-components/BlueButton';
+import styled from 'styled-components';
+
+const StyledHeader = styled.a`
+color: #F8F7E5;
+font-size: 1.8rem;
+font-family: var(--ff-sans);
+cursor: pointer;
+`
+const HeaderRow = styled.div`
+padding: 30px 20px;
+//background-color: gray;
+display: grid;
+grid-template-columns: 1fr min-content
+`
 function AssignmentQuestions() {
+    const { currentLoggedInUser } = useUser()
+    let navigate = useNavigate(); 
+    const routeChange = ()=> {
+        let path = `/askpage`; 
+        navigate(path);
+    }
+    const [questions, setQuestions]=useState([])
     const params = useParams();
     const assignmentId = params.id;
-  return (
-    <div>AssignmentQuestion id : {assignmentId} </div>
-  )
+useEffect(()=>{
+    fetch(`http://localhost:8080/api/questions/assignment/${assignmentId}`)
+    .then(res=>res.json())
+    .then(data=> setQuestions(data))
+}, [])
+ 
+
+
+return(
+    <main>
+        <HeaderRow>
+<StyledHeader>All Questions</StyledHeader>
+{ currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
+</HeaderRow>
+{questions.map(row=> {
+console.log("inside row")
+return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} />
+})}
+
+    </main>
+)
+
 }
 
 export default AssignmentQuestions

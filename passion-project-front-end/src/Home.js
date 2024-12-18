@@ -36,7 +36,7 @@ border: solid 2px gray;
   padding: 20px 0;
   font-size: 30px;
 width: 100%;
-height: 400px;
+height: 300px;
  border-radius: 10px;
   //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `
