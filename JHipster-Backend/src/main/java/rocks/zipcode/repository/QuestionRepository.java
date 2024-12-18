@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
+import rocks.zipcode.domain.Answer;
 import rocks.zipcode.domain.Question;
 
 /**
@@ -27,4 +28,7 @@ public interface QuestionRepository extends QuestionRepositoryWithBagRelationshi
     default Page<Question> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAll(pageable));
     }
+
+    @Query(value = "select * from question where assignment_id = ?1", nativeQuery = true)
+    List<Question> getQuestionsByAssignmentId(Long assignmentId);
 }
