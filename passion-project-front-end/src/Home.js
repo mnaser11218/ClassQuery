@@ -23,12 +23,17 @@ border: solid 2px gray;
   font-size: 30px;
 width: 100%;
 height: 400px;
-  background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
+  //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `
 function Home(){
 return(
     <>
     <DivEle>
+    <AssignmentEle>testing</AssignmentEle>
+    <AssignmentEle>testing</AssignmentEle>
+    <AssignmentEle>testing</AssignmentEle>
+    <AssignmentEle>testing</AssignmentEle>
+    {/* <AssignmentEle/>
     <AssignmentEle/>
     <AssignmentEle/>
     <AssignmentEle/>
@@ -50,9 +55,7 @@ return(
     <AssignmentEle/>
     <AssignmentEle/>
     <AssignmentEle/>
-    <AssignmentEle/>
-    <AssignmentEle/>
-    <AssignmentEle/>
+    <AssignmentEle/> */}
     </DivEle>
     
     </>
