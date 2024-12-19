@@ -26,12 +26,17 @@ function AssignmentQuestions() {
         navigate(path);
     }
     const [questions, setQuestions]=useState([])
+    const [assignmentName, setAssignmentName] = useState("")
     const params = useParams();
     const assignmentId = params.id;
 useEffect(()=>{
     fetch(`http://localhost:8080/api/questions/assignment/${assignmentId}`)
     .then(res=>res.json())
     .then(data=> setQuestions(data))
+
+    fetch("http://localhost:8080/api/assignments/"+assignmentId)
+    .then(res=> res.json())
+    .then(data=> setAssignmentName(data.name))
 }, [])
  
 
@@ -39,7 +44,7 @@ useEffect(()=>{
 return(
     <main>
         <HeaderRow>
-<StyledHeader>Assignment Name : {}</StyledHeader>
+<StyledHeader>Assignment Name : {assignmentName}</StyledHeader>
 { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
 </HeaderRow>
 {questions.map(row=> {

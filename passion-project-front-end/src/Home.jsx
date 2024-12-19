@@ -14,18 +14,22 @@ color: black;
   grid-template-columns: auto auto auto;
   grid-gap: 15px;
   padding: 10px;
+
   // overflow: auto;
   // height: 300px;
  
 `
 const LinkTag =styled(Link)`
-border: black 1px solid;
+
 border-radius: 5px;
 display: inline-block;
 margin:auto;
-font-size: 20px;
+font-size: 25px;
+font-weight:bold;
 color:black;
 text-decoration: none;
+background-color:white;
+padding: 5px;
 
 `
 
@@ -43,6 +47,7 @@ height: 300px;
 function Home(){
   const [assignments, setAssignments]=useState([])
 
+
   useEffect(()=>{
   fetch("http://localhost:8080/api/assignments")
   .then(response=> response.json())
@@ -53,9 +58,11 @@ return(
     <DivEle>
     {assignments?.map(ele=>{
       return(
-      <AssignmentEle style={{"backgroundImage": `url(${ele.description})`}}>
+      <AssignmentEle style={{"backgroundImage": `url(${ele.description})`,   backgroundRepeat: "no-repeat",
+      // Optional: Makes sure the image covers the element
+      backgroundPosition: "center"}}>
         <LinkTag to={`/assignmentquestion/${ele.id}`}>
-        {ele.name}
+        Assignment name: {<br></br>} {ele.name}
         </LinkTag>
          
     
