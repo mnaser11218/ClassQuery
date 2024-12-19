@@ -53,7 +53,7 @@ return(
     <DivEle>
     {assignments?.map(ele=>{
       return(
-      <AssignmentEle>
+      <AssignmentEle style={{"backgroundImage": `url(${ele.description})`}}>
         <LinkTag to={`/assignmentquestion/${ele.id}`}>
         {ele.name}
         </LinkTag>
