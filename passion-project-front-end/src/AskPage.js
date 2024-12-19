@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {useRef, useState, useContext} from "react";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "./styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
@@ -46,6 +47,8 @@ const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
 //const user= useContext(UserContext);
+const params = useParams();
+const assignmentId = params?.id;
 
 const { currentLoggedInUser } = useUser()
 
@@ -70,7 +73,8 @@ const handleSubmitClick = ()=>{
             tags: tagsId,
             userProfile: {
               "id": currentLoggedInUser?.id
-          }
+          },  
+          assignment: assignmentId ? {"id": assignmentId} : null
           })
       }).then(res => res.json())
         .then(res => console.log(res));

@@ -22,7 +22,7 @@ function AssignmentQuestions() {
     const { currentLoggedInUser } = useUser()
     let navigate = useNavigate(); 
     const routeChange = ()=> {
-        let path = `/askpage`; 
+        let path = `/askpage/${assignmentId}`; 
         navigate(path);
     }
     const [questions, setQuestions]=useState([])
@@ -39,7 +39,7 @@ useEffect(()=>{
 return(
     <main>
         <HeaderRow>
-<StyledHeader>All Questions</StyledHeader>
+<StyledHeader>Assignment Name : {}</StyledHeader>
 { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
 </HeaderRow>
 {questions.map(row=> {
