@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 const ArrowUp = styled.div`
     width: 0; 
@@ -47,9 +48,30 @@ color: #F8F7E5;
 line-height: 1.4rem;
 `
 function VotingButtons(props){
+
   const {answerId, questionId} = props;
+  const [answerLikeCount, setAnswerLikeCount] = useState(0);
+  const [questionLikeCount, setQuestionLikeCount] = useState(0);
+  useEffect(()=>{
+    if(answerId != null){
+      getLikeCountForAnswer()
+    } else{
+      getLikeCountForQuestion()  
+    }
+  },[])
   const handleLikeButton = ()=>{
     console.log("clicked like button")
+  }
+  const getLikeCountForAnswer = ()=>{
+    fetch(`http://localhost:8080/api/answers/${answerId}`)
+    .then(response=>response.json())
+    .then(data=>setAnswerLikeCount(data.liked ? data.liked : 0))
+
+  }
+  const getLikeCountForQuestion = ()=>{
+    fetch(`http://localhost:8080/api/questions/${questionId}`)
+    .then(response=>response.json())
+    .then(data=>setQuestionLikeCount(data.liked ? data.liked : 0))
   }
   const handleDislikeButton = ()=>{
     const variable = (answerId ? answerId : questionId)
@@ -58,7 +80,7 @@ function VotingButtons(props){
     return (<div {...props}>
 	{/* &#x20B2; */}
       <Button onClick={handleLikeButton}> <ArrowUp/> </Button>
-            <Total> {0}</Total>
+            <Total> {answerId ? answerLikeCount : questionLikeCount}</Total>
             {/* &#x20BC; */}
        <Button onClick={handleDislikeButton}> <ArrowDown/> </Button>
    
