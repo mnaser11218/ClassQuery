@@ -27,7 +27,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @Transactional
 public class UserProfileResource {
 
-    private static final Logger log = LoggerFactory.getLogger(UserProfileResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserProfileResource.class);
 
     private static final String ENTITY_NAME = "userProfile";
 
@@ -49,7 +49,7 @@ public class UserProfileResource {
      */
     @PostMapping("")
     public ResponseEntity<UserProfile> createUserProfile(@Valid @RequestBody UserProfile userProfile) throws URISyntaxException {
-        log.debug("REST request to save UserProfile : {}", userProfile);
+        LOG.debug("REST request to save UserProfile : {}", userProfile);
         if (userProfile.getId() != null) {
             throw new BadRequestAlertException("A new userProfile cannot already have an ID", ENTITY_NAME, "idexists");
         }
@@ -74,7 +74,7 @@ public class UserProfileResource {
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody UserProfile userProfile
     ) throws URISyntaxException {
-        log.debug("REST request to update UserProfile : {}, {}", id, userProfile);
+        LOG.debug("REST request to update UserProfile : {}, {}", id, userProfile);
         if (userProfile.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -108,7 +108,7 @@ public class UserProfileResource {
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody UserProfile userProfile
     ) throws URISyntaxException {
-        log.debug("REST request to partial update UserProfile partially : {}, {}", id, userProfile);
+        LOG.debug("REST request to partial update UserProfile partially : {}, {}", id, userProfile);
         if (userProfile.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -128,6 +128,9 @@ public class UserProfileResource {
                 }
                 if (userProfile.getEmailAddress() != null) {
                     existingUserProfile.setEmailAddress(userProfile.getEmailAddress());
+                }
+                if (userProfile.getPassword() != null) {
+                    existingUserProfile.setPassword(userProfile.getPassword());
                 }
                 if (userProfile.getAboutMe() != null) {
                     existingUserProfile.setAboutMe(userProfile.getAboutMe());
@@ -153,7 +156,7 @@ public class UserProfileResource {
      */
     @GetMapping("")
     public List<UserProfile> getAllUserProfiles() {
-        log.debug("REST request to get all UserProfiles");
+        LOG.debug("REST request to get all UserProfiles");
         return userProfileRepository.findAll();
     }
 
@@ -165,17 +168,8 @@ public class UserProfileResource {
      */
     @GetMapping("/{id}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable("id") Long id) {
-        log.debug("REST request to get UserProfile : {}", id);
+        LOG.debug("REST request to get UserProfile : {}", id);
         Optional<UserProfile> userProfile = userProfileRepository.findById(id);
-        return ResponseUtil.wrapOrNotFound(userProfile);
-    }
-
-    // get userprofile by username
-
-    @GetMapping("username/{username}")
-    public ResponseEntity<UserProfile> getUserProfileByEmail(@PathVariable("username") String username) {
-        log.debug("REST request to get UserProfile by email : {}", username);
-        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.getUserProfileByEmail(username));
         return ResponseUtil.wrapOrNotFound(userProfile);
     }
 
@@ -187,7 +181,7 @@ public class UserProfileResource {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserProfile(@PathVariable("id") Long id) {
-        log.debug("REST request to delete UserProfile : {}", id);
+        LOG.debug("REST request to delete UserProfile : {}", id);
         userProfileRepository.deleteById(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

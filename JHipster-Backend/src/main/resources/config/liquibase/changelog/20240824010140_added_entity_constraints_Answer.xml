@@ -10,6 +10,13 @@
     -->
     <changeSet id="20240824010140-2" author="jhipster">
 
+        <addForeignKeyConstraint baseColumnNames="user_profile_id"
+                                 baseTableName="answer"
+                                 constraintName="fk_answer__user_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_profile"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="question_id"
                                  baseTableName="answer"
                                  constraintName="fk_answer__question_id"

@@ -77,14 +77,13 @@ class AssignmentResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Assignment createEntity(EntityManager em) {
-        Assignment assignment = new Assignment()
+    public static Assignment createEntity() {
+        return new Assignment()
             .name(DEFAULT_NAME)
             .topic(DEFAULT_TOPIC)
             .courseName(DEFAULT_COURSE_NAME)
             .description(DEFAULT_DESCRIPTION)
             .created(DEFAULT_CREATED);
-        return assignment;
     }
 
     /**
@@ -93,19 +92,18 @@ class AssignmentResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Assignment createUpdatedEntity(EntityManager em) {
-        Assignment assignment = new Assignment()
+    public static Assignment createUpdatedEntity() {
+        return new Assignment()
             .name(UPDATED_NAME)
             .topic(UPDATED_TOPIC)
             .courseName(UPDATED_COURSE_NAME)
             .description(UPDATED_DESCRIPTION)
             .created(UPDATED_CREATED);
-        return assignment;
     }
 
     @BeforeEach
     public void initTest() {
-        assignment = createEntity(em);
+        assignment = createEntity();
     }
 
     @AfterEach
@@ -311,7 +309,7 @@ class AssignmentResourceIT {
         Assignment partialUpdatedAssignment = new Assignment();
         partialUpdatedAssignment.setId(assignment.getId());
 
-        partialUpdatedAssignment.topic(UPDATED_TOPIC).courseName(UPDATED_COURSE_NAME).created(UPDATED_CREATED);
+        partialUpdatedAssignment.topic(UPDATED_TOPIC).courseName(UPDATED_COURSE_NAME);
 
         restAssignmentMockMvc
             .perform(

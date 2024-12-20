@@ -8,7 +8,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +25,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @Transactional
 public class QuestionResource {
 
-    private static final Logger log = LoggerFactory.getLogger(QuestionResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(QuestionResource.class);
 
     private static final String ENTITY_NAME = "question";
 
@@ -48,7 +47,7 @@ public class QuestionResource {
      */
     @PostMapping("")
     public ResponseEntity<Question> createQuestion(@RequestBody Question question) throws URISyntaxException {
-        log.debug("REST request to save Question : {}", question);
+        LOG.debug("REST request to save Question : {}", question);
         if (question.getId() != null) {
             throw new BadRequestAlertException("A new question cannot already have an ID", ENTITY_NAME, "idexists");
         }
@@ -73,7 +72,7 @@ public class QuestionResource {
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Question question
     ) throws URISyntaxException {
-        log.debug("REST request to update Question : {}, {}", id, question);
+        LOG.debug("REST request to update Question : {}, {}", id, question);
         if (question.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -107,7 +106,7 @@ public class QuestionResource {
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Question question
     ) throws URISyntaxException {
-        log.debug("REST request to partial update Question partially : {}, {}", id, question);
+        LOG.debug("REST request to partial update Question partially : {}, {}", id, question);
         if (question.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -127,6 +126,9 @@ public class QuestionResource {
                 }
                 if (question.getQuestion() != null) {
                     existingQuestion.setQuestion(question.getQuestion());
+                }
+                if (question.getLiked() != null) {
+                    existingQuestion.setLiked(question.getLiked());
                 }
                 if (question.getCreatedDate() != null) {
                     existingQuestion.setCreatedDate(question.getCreatedDate());
@@ -150,7 +152,7 @@ public class QuestionResource {
      */
     @GetMapping("")
     public List<Question> getAllQuestions(@RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload) {
-        log.debug("REST request to get all Questions");
+        LOG.debug("REST request to get all Questions");
         if (eagerload) {
             return questionRepository.findAllWithEagerRelationships();
         } else {
@@ -166,15 +168,9 @@ public class QuestionResource {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Question> getQuestion(@PathVariable("id") Long id) {
-        log.debug("REST request to get Question : {}", id);
+        LOG.debug("REST request to get Question : {}", id);
         Optional<Question> question = questionRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(question);
-    }
-
-    @GetMapping("/assignment/{id}")
-    public List<Question>getQuestionsOfAssignment(@PathVariable("id") Long id) {
-        log.debug("REST request to get Questions of Assignment : {}", id);
-      return questionRepository.getQuestionsByAssignmentId(id);
     }
 
     /**
@@ -185,7 +181,7 @@ public class QuestionResource {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteQuestion(@PathVariable("id") Long id) {
-        log.debug("REST request to delete Question : {}", id);
+        LOG.debug("REST request to delete Question : {}", id);
         questionRepository.deleteById(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

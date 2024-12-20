@@ -26,11 +26,18 @@ public class Answer implements Serializable {
     @Column(name = "answer")
     private String answer;
 
+    @Column(name = "liked")
+    private Long liked;
+
     @Column(name = "created_date")
     private LocalDate createdDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "answers", "tags", "userProfile", "assignment" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "answers", "questions" }, allowSetters = true)
+    private UserProfile userProfile;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "answers", "tags", "assignment", "userProfile" }, allowSetters = true)
     private Question question;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -61,6 +68,19 @@ public class Answer implements Serializable {
         this.answer = answer;
     }
 
+    public Long getLiked() {
+        return this.liked;
+    }
+
+    public Answer liked(Long liked) {
+        this.setLiked(liked);
+        return this;
+    }
+
+    public void setLiked(Long liked) {
+        this.liked = liked;
+    }
+
     public LocalDate getCreatedDate() {
         return this.createdDate;
     }
@@ -72,6 +92,19 @@ public class Answer implements Serializable {
 
     public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public UserProfile getUserProfile() {
+        return this.userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    public Answer userProfile(UserProfile userProfile) {
+        this.setUserProfile(userProfile);
+        return this;
     }
 
     public Question getQuestion() {
@@ -112,6 +145,7 @@ public class Answer implements Serializable {
         return "Answer{" +
             "id=" + getId() +
             ", answer='" + getAnswer() + "'" +
+            ", liked=" + getLiked() +
             ", createdDate='" + getCreatedDate() + "'" +
             "}";
     }

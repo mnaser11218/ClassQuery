@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState } from 'react-jhipster';
+import { TextFormat, Translate, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ASC, DESC, SORT } from 'app/shared/util/pagination.constants';
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { ASC, DESC } from 'app/shared/util/pagination.constants';
 import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
@@ -59,9 +59,8 @@ export const UserProfile = () => {
     const order = sortState.order;
     if (sortFieldName !== fieldName) {
       return faSort;
-    } else {
-      return order === ASC ? faSortUp : faSortDown;
     }
+    return order === ASC ? faSortUp : faSortDown;
   };
 
   return (
@@ -97,6 +96,10 @@ export const UserProfile = () => {
                   <Translate contentKey="zipcodeoverflowApp.userProfile.emailAddress">Email Address</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('emailAddress')} />
                 </th>
+                <th className="hand" onClick={sort('password')}>
+                  <Translate contentKey="zipcodeoverflowApp.userProfile.password">Password</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('password')} />
+                </th>
                 <th className="hand" onClick={sort('aboutMe')}>
                   <Translate contentKey="zipcodeoverflowApp.userProfile.aboutMe">About Me</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('aboutMe')} />
@@ -118,6 +121,7 @@ export const UserProfile = () => {
                   </td>
                   <td>{userProfile.name}</td>
                   <td>{userProfile.emailAddress}</td>
+                  <td>{userProfile.password}</td>
                   <td>{userProfile.aboutMe}</td>
                   <td>
                     {userProfile.created ? <TextFormat type="date" value={userProfile.created} format={APP_LOCAL_DATE_FORMAT} /> : null}

@@ -13,6 +13,10 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "liked",
+      "fieldType": "Long"
+    },
+    {
       "fieldName": "createdDate",
       "fieldType": "LocalDate"
     }
@@ -34,16 +38,16 @@
       "relationshipType": "many-to-many"
     },
     {
-      "otherEntityName": "userProfile",
+      "otherEntityName": "assignment",
       "otherEntityRelationshipName": "questions",
-      "relationshipName": "userProfile",
+      "relationshipName": "assignment",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityName": "assignment",
+      "otherEntityName": "userProfile",
       "otherEntityRelationshipName": "questions",
-      "relationshipName": "assignment",
+      "relationshipName": "userProfile",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

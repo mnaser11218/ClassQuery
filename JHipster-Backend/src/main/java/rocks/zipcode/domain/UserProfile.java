@@ -33,6 +33,9 @@ public class UserProfile implements Serializable {
     @Column(name = "email_address")
     private String emailAddress;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "about_me")
     private String aboutMe;
 
@@ -41,7 +44,12 @@ public class UserProfile implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "answers", "tags", "userProfile", "assignment" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "userProfile", "question" }, allowSetters = true)
+    private Set<Answer> answers = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "answers", "tags", "assignment", "userProfile" }, allowSetters = true)
     private Set<Question> questions = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -85,6 +93,19 @@ public class UserProfile implements Serializable {
         this.emailAddress = emailAddress;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
+
+    public UserProfile password(String password) {
+        this.setPassword(password);
+        return this;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getAboutMe() {
         return this.aboutMe;
     }
@@ -109,6 +130,37 @@ public class UserProfile implements Serializable {
 
     public void setCreated(LocalDate created) {
         this.created = created;
+    }
+
+    public Set<Answer> getAnswers() {
+        return this.answers;
+    }
+
+    public void setAnswers(Set<Answer> answers) {
+        if (this.answers != null) {
+            this.answers.forEach(i -> i.setUserProfile(null));
+        }
+        if (answers != null) {
+            answers.forEach(i -> i.setUserProfile(this));
+        }
+        this.answers = answers;
+    }
+
+    public UserProfile answers(Set<Answer> answers) {
+        this.setAnswers(answers);
+        return this;
+    }
+
+    public UserProfile addAnswer(Answer answer) {
+        this.answers.add(answer);
+        answer.setUserProfile(this);
+        return this;
+    }
+
+    public UserProfile removeAnswer(Answer answer) {
+        this.answers.remove(answer);
+        answer.setUserProfile(null);
+        return this;
     }
 
     public Set<Question> getQuestions() {
@@ -168,6 +220,7 @@ public class UserProfile implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", emailAddress='" + getEmailAddress() + "'" +
+            ", password='" + getPassword() + "'" +
             ", aboutMe='" + getAboutMe() + "'" +
             ", created='" + getCreated() + "'" +
             "}";

@@ -51,6 +51,7 @@ public class CacheConfiguration {
             createCache(cm, rocks.zipcode.domain.Authority.class.getName());
             createCache(cm, rocks.zipcode.domain.User.class.getName() + ".authorities");
             createCache(cm, rocks.zipcode.domain.UserProfile.class.getName());
+            createCache(cm, rocks.zipcode.domain.UserProfile.class.getName() + ".answers");
             createCache(cm, rocks.zipcode.domain.UserProfile.class.getName() + ".questions");
             createCache(cm, rocks.zipcode.domain.Assignment.class.getName());
             createCache(cm, rocks.zipcode.domain.Assignment.class.getName() + ".questions");

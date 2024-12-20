@@ -1,6 +1,7 @@
 package rocks.zipcode.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static rocks.zipcode.domain.AnswerTestSamples.*;
 import static rocks.zipcode.domain.QuestionTestSamples.*;
 import static rocks.zipcode.domain.UserProfileTestSamples.*;
 
@@ -23,6 +24,28 @@ class UserProfileTest {
 
         userProfile2 = getUserProfileSample2();
         assertThat(userProfile1).isNotEqualTo(userProfile2);
+    }
+
+    @Test
+    void answerTest() {
+        UserProfile userProfile = getUserProfileRandomSampleGenerator();
+        Answer answerBack = getAnswerRandomSampleGenerator();
+
+        userProfile.addAnswer(answerBack);
+        assertThat(userProfile.getAnswers()).containsOnly(answerBack);
+        assertThat(answerBack.getUserProfile()).isEqualTo(userProfile);
+
+        userProfile.removeAnswer(answerBack);
+        assertThat(userProfile.getAnswers()).doesNotContain(answerBack);
+        assertThat(answerBack.getUserProfile()).isNull();
+
+        userProfile.answers(new HashSet<>(Set.of(answerBack)));
+        assertThat(userProfile.getAnswers()).containsOnly(answerBack);
+        assertThat(answerBack.getUserProfile()).isEqualTo(userProfile);
+
+        userProfile.setAnswers(new HashSet<>());
+        assertThat(userProfile.getAnswers()).doesNotContain(answerBack);
+        assertThat(answerBack.getUserProfile()).isNull();
     }
 
     @Test

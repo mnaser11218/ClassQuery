@@ -19,7 +19,9 @@
       },
       "id": "ID",
       "answer": "Answer",
+      "liked": "Liked",
       "createdDate": "Created Date",
+      "userProfile": "User Profile",
       "question": "Question"
     }
   }

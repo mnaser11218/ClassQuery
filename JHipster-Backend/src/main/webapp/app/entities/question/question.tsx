@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState } from 'react-jhipster';
+import { TextFormat, Translate, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ASC, DESC, SORT } from 'app/shared/util/pagination.constants';
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { ASC, DESC } from 'app/shared/util/pagination.constants';
 import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
@@ -59,9 +59,8 @@ export const Question = () => {
     const order = sortState.order;
     if (sortFieldName !== fieldName) {
       return faSort;
-    } else {
-      return order === ASC ? faSortUp : faSortDown;
     }
+    return order === ASC ? faSortUp : faSortDown;
   };
 
   return (
@@ -97,6 +96,10 @@ export const Question = () => {
                   <Translate contentKey="zipcodeoverflowApp.question.question">Question</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('question')} />
                 </th>
+                <th className="hand" onClick={sort('liked')}>
+                  <Translate contentKey="zipcodeoverflowApp.question.liked">Liked</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('liked')} />
+                </th>
                 <th className="hand" onClick={sort('createdDate')}>
                   <Translate contentKey="zipcodeoverflowApp.question.createdDate">Created Date</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
@@ -105,10 +108,10 @@ export const Question = () => {
                   <Translate contentKey="zipcodeoverflowApp.question.tags">Tags</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="zipcodeoverflowApp.question.userProfile">User Profile</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="zipcodeoverflowApp.question.assignment">Assignment</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="zipcodeoverflowApp.question.assignment">Assignment</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="zipcodeoverflowApp.question.userProfile">User Profile</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -123,6 +126,7 @@ export const Question = () => {
                   </td>
                   <td>{question.title}</td>
                   <td>{question.question}</td>
+                  <td>{question.liked}</td>
                   <td>
                     {question.createdDate ? <TextFormat type="date" value={question.createdDate} format={APP_LOCAL_DATE_FORMAT} /> : null}
                   </td>
@@ -136,10 +140,10 @@ export const Question = () => {
                         ))
                       : null}
                   </td>
+                  <td>{question.assignment ? <Link to={`/assignment/${question.assignment.id}`}>{question.assignment.id}</Link> : ''}</td>
                   <td>
                     {question.userProfile ? <Link to={`/user-profile/${question.userProfile.id}`}>{question.userProfile.id}</Link> : ''}
                   </td>
-                  <td>{question.assignment ? <Link to={`/assignment/${question.assignment.id}`}>{question.assignment.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/question/${question.id}`} color="info" size="sm" data-cy="entityDetailsButton">

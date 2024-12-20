@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, Row, Col, FormText } from 'reactstrap';
-import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
+import { Button, Col, Row } from 'reactstrap';
+import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { IQuestion } from 'app/shared/model/question.model';
+import { getEntities as getUserProfiles } from 'app/entities/user-profile/user-profile.reducer';
 import { getEntities as getQuestions } from 'app/entities/question/question.reducer';
-import { IAnswer } from 'app/shared/model/answer.model';
-import { getEntity, updateEntity, createEntity, reset } from './answer.reducer';
+import { createEntity, getEntity, reset, updateEntity } from './answer.reducer';
 
 export const AnswerUpdate = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +18,7 @@ export const AnswerUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const userProfiles = useAppSelector(state => state.userProfile.entities);
   const questions = useAppSelector(state => state.question.entities);
   const answerEntity = useAppSelector(state => state.answer.entity);
   const loading = useAppSelector(state => state.answer.loading);
@@ -38,6 +36,7 @@ export const AnswerUpdate = () => {
       dispatch(getEntity(id));
     }
 
+    dispatch(getUserProfiles({}));
     dispatch(getQuestions({}));
   }, []);
 
@@ -47,15 +46,18 @@ export const AnswerUpdate = () => {
     }
   }, [updateSuccess]);
 
-  // eslint-disable-next-line complexity
   const saveEntity = values => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
+    }
+    if (values.liked !== undefined && typeof values.liked !== 'number') {
+      values.liked = Number(values.liked);
     }
 
     const entity = {
       ...answerEntity,
       ...values,
+      userProfile: userProfiles.find(it => it.id.toString() === values.userProfile?.toString()),
       question: questions.find(it => it.id.toString() === values.question?.toString()),
     };
 
@@ -71,6 +73,7 @@ export const AnswerUpdate = () => {
       ? {}
       : {
           ...answerEntity,
+          userProfile: answerEntity?.userProfile?.id,
           question: answerEntity?.question?.id,
         };
 
@@ -107,12 +110,35 @@ export const AnswerUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('zipcodeoverflowApp.answer.liked')}
+                id="answer-liked"
+                name="liked"
+                data-cy="liked"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('zipcodeoverflowApp.answer.createdDate')}
                 id="answer-createdDate"
                 name="createdDate"
                 data-cy="createdDate"
                 type="date"
               />
+              <ValidatedField
+                id="answer-userProfile"
+                name="userProfile"
+                data-cy="userProfile"
+                label={translate('zipcodeoverflowApp.answer.userProfile')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {userProfiles
+                  ? userProfiles.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <ValidatedField
                 id="answer-question"
                 name="question"

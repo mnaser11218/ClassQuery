@@ -77,14 +77,13 @@ class TagResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Tag createEntity(EntityManager em) {
-        Tag tag = new Tag()
+    public static Tag createEntity() {
+        return new Tag()
             .tagName(DEFAULT_TAG_NAME)
             .tagDescription(DEFAULT_TAG_DESCRIPTION)
             .createdDate(DEFAULT_CREATED_DATE)
             .labName(DEFAULT_LAB_NAME)
             .labTopic(DEFAULT_LAB_TOPIC);
-        return tag;
     }
 
     /**
@@ -93,19 +92,18 @@ class TagResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Tag createUpdatedEntity(EntityManager em) {
-        Tag tag = new Tag()
+    public static Tag createUpdatedEntity() {
+        return new Tag()
             .tagName(UPDATED_TAG_NAME)
             .tagDescription(UPDATED_TAG_DESCRIPTION)
             .createdDate(UPDATED_CREATED_DATE)
             .labName(UPDATED_LAB_NAME)
             .labTopic(UPDATED_LAB_TOPIC);
-        return tag;
     }
 
     @BeforeEach
     public void initTest() {
-        tag = createEntity(em);
+        tag = createEntity();
     }
 
     @AfterEach
@@ -291,11 +289,7 @@ class TagResourceIT {
         Tag partialUpdatedTag = new Tag();
         partialUpdatedTag.setId(tag.getId());
 
-        partialUpdatedTag
-            .tagName(UPDATED_TAG_NAME)
-            .tagDescription(UPDATED_TAG_DESCRIPTION)
-            .labName(UPDATED_LAB_NAME)
-            .labTopic(UPDATED_LAB_TOPIC);
+        partialUpdatedTag.tagName(UPDATED_TAG_NAME).createdDate(UPDATED_CREATED_DATE).labTopic(UPDATED_LAB_TOPIC);
 
         restTagMockMvc
             .perform(

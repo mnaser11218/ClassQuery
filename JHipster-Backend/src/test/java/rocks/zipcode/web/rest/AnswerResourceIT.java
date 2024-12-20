@@ -37,6 +37,9 @@ class AnswerResourceIT {
     private static final String DEFAULT_ANSWER = "AAAAAAAAAA";
     private static final String UPDATED_ANSWER = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_LIKED = 1L;
+    private static final Long UPDATED_LIKED = 2L;
+
     private static final LocalDate DEFAULT_CREATED_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CREATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
@@ -68,9 +71,8 @@ class AnswerResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Answer createEntity(EntityManager em) {
-        Answer answer = new Answer().answer(DEFAULT_ANSWER).createdDate(DEFAULT_CREATED_DATE);
-        return answer;
+    public static Answer createEntity() {
+        return new Answer().answer(DEFAULT_ANSWER).liked(DEFAULT_LIKED).createdDate(DEFAULT_CREATED_DATE);
     }
 
     /**
@@ -79,14 +81,13 @@ class AnswerResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Answer createUpdatedEntity(EntityManager em) {
-        Answer answer = new Answer().answer(UPDATED_ANSWER).createdDate(UPDATED_CREATED_DATE);
-        return answer;
+    public static Answer createUpdatedEntity() {
+        return new Answer().answer(UPDATED_ANSWER).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
     }
 
     @BeforeEach
     public void initTest() {
-        answer = createEntity(em);
+        answer = createEntity();
     }
 
     @AfterEach
@@ -149,6 +150,7 @@ class AnswerResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(answer.getId().intValue())))
             .andExpect(jsonPath("$.[*].answer").value(hasItem(DEFAULT_ANSWER)))
+            .andExpect(jsonPath("$.[*].liked").value(hasItem(DEFAULT_LIKED.intValue())))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())));
     }
 
@@ -165,6 +167,7 @@ class AnswerResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(answer.getId().intValue()))
             .andExpect(jsonPath("$.answer").value(DEFAULT_ANSWER))
+            .andExpect(jsonPath("$.liked").value(DEFAULT_LIKED.intValue()))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()));
     }
 
@@ -187,7 +190,7 @@ class AnswerResourceIT {
         Answer updatedAnswer = answerRepository.findById(answer.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedAnswer are not directly saved in db
         em.detach(updatedAnswer);
-        updatedAnswer.answer(UPDATED_ANSWER).createdDate(UPDATED_CREATED_DATE);
+        updatedAnswer.answer(UPDATED_ANSWER).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restAnswerMockMvc
             .perform(
@@ -263,7 +266,7 @@ class AnswerResourceIT {
         Answer partialUpdatedAnswer = new Answer();
         partialUpdatedAnswer.setId(answer.getId());
 
-        partialUpdatedAnswer.createdDate(UPDATED_CREATED_DATE);
+        partialUpdatedAnswer.liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restAnswerMockMvc
             .perform(
@@ -291,7 +294,7 @@ class AnswerResourceIT {
         Answer partialUpdatedAnswer = new Answer();
         partialUpdatedAnswer.setId(answer.getId());
 
-        partialUpdatedAnswer.answer(UPDATED_ANSWER).createdDate(UPDATED_CREATED_DATE);
+        partialUpdatedAnswer.answer(UPDATED_ANSWER).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restAnswerMockMvc
             .perform(

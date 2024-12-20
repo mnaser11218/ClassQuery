@@ -4,6 +4,7 @@ export interface IUserProfile {
   id?: number;
   name?: string;
   emailAddress?: string | null;
+  password?: string | null;
   aboutMe?: string | null;
   created?: dayjs.Dayjs | null;
 }

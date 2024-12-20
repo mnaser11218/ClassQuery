@@ -49,6 +49,7 @@ public class UserProfileAsserts {
             .as("Verify UserProfile relevant properties")
             .satisfies(e -> assertThat(e.getName()).as("check name").isEqualTo(actual.getName()))
             .satisfies(e -> assertThat(e.getEmailAddress()).as("check emailAddress").isEqualTo(actual.getEmailAddress()))
+            .satisfies(e -> assertThat(e.getPassword()).as("check password").isEqualTo(actual.getPassword()))
             .satisfies(e -> assertThat(e.getAboutMe()).as("check aboutMe").isEqualTo(actual.getAboutMe()))
             .satisfies(e -> assertThat(e.getCreated()).as("check created").isEqualTo(actual.getCreated()));
     }
@@ -59,5 +60,7 @@ public class UserProfileAsserts {
      * @param expected the expected entity
      * @param actual the actual entity
      */
-    public static void assertUserProfileUpdatableRelationshipsEquals(UserProfile expected, UserProfile actual) {}
+    public static void assertUserProfileUpdatableRelationshipsEquals(UserProfile expected, UserProfile actual) {
+        // empty method
+    }
 }

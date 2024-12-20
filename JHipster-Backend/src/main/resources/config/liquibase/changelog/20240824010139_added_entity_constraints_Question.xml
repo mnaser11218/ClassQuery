@@ -24,18 +24,18 @@
                                  referencedTableName="tag"
                                  />
 
-        <addForeignKeyConstraint baseColumnNames="user_profile_id"
-                                 baseTableName="question"
-                                 constraintName="fk_question__user_profile_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="user_profile"
-                                 />
-
         <addForeignKeyConstraint baseColumnNames="assignment_id"
                                  baseTableName="question"
                                  constraintName="fk_question__assignment_id"
                                  referencedColumnNames="id"
                                  referencedTableName="assignment"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="user_profile_id"
+                                 baseTableName="question"
+                                 constraintName="fk_question__user_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_profile"
                                  />
     </changeSet>
 </databaseChangeLog>

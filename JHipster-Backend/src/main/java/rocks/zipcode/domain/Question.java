@@ -31,12 +31,15 @@ public class Question implements Serializable {
     @Column(name = "question")
     private String question;
 
+    @Column(name = "liked")
+    private Long liked;
+
     @Column(name = "created_date")
     private LocalDate createdDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "question" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "userProfile", "question" }, allowSetters = true)
     private Set<Answer> answers = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -51,11 +54,11 @@ public class Question implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "questions" }, allowSetters = true)
-    private UserProfile userProfile;
+    private Assignment assignment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "questions" }, allowSetters = true)
-    private Assignment assignment;
+    @JsonIgnoreProperties(value = { "answers", "questions" }, allowSetters = true)
+    private UserProfile userProfile;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -96,6 +99,19 @@ public class Question implements Serializable {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public Long getLiked() {
+        return this.liked;
+    }
+
+    public Question liked(Long liked) {
+        this.setLiked(liked);
+        return this;
+    }
+
+    public void setLiked(Long liked) {
+        this.liked = liked;
     }
 
     public LocalDate getCreatedDate() {
@@ -165,19 +181,6 @@ public class Question implements Serializable {
         return this;
     }
 
-    public UserProfile getUserProfile() {
-        return this.userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
-    }
-
-    public Question userProfile(UserProfile userProfile) {
-        this.setUserProfile(userProfile);
-        return this;
-    }
-
     public Assignment getAssignment() {
         return this.assignment;
     }
@@ -188,6 +191,19 @@ public class Question implements Serializable {
 
     public Question assignment(Assignment assignment) {
         this.setAssignment(assignment);
+        return this;
+    }
+
+    public UserProfile getUserProfile() {
+        return this.userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    public Question userProfile(UserProfile userProfile) {
+        this.setUserProfile(userProfile);
         return this;
     }
 
@@ -217,6 +233,7 @@ public class Question implements Serializable {
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
             ", question='" + getQuestion() + "'" +
+            ", liked=" + getLiked() +
             ", createdDate='" + getCreatedDate() + "'" +
             "}";
     }

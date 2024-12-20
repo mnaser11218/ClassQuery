@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, Row, Col, FormText } from 'reactstrap';
-import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
+import { Button, Col, Row } from 'reactstrap';
+import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { IUserProfile } from 'app/shared/model/user-profile.model';
-import { getEntity, updateEntity, createEntity, reset } from './user-profile.reducer';
+import { createEntity, getEntity, reset, updateEntity } from './user-profile.reducer';
 
 export const UserProfileUpdate = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +39,6 @@ export const UserProfileUpdate = () => {
     }
   }, [updateSuccess]);
 
-  // eslint-disable-next-line complexity
   const saveEntity = values => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
@@ -107,6 +103,13 @@ export const UserProfileUpdate = () => {
                 id="user-profile-emailAddress"
                 name="emailAddress"
                 data-cy="emailAddress"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('zipcodeoverflowApp.userProfile.password')}
+                id="user-profile-password"
+                name="password"
+                data-cy="password"
                 type="text"
               />
               <ValidatedField

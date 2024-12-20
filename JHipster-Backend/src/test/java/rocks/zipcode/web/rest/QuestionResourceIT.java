@@ -48,6 +48,9 @@ class QuestionResourceIT {
     private static final String DEFAULT_QUESTION = "AAAAAAAAAA";
     private static final String UPDATED_QUESTION = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_LIKED = 1L;
+    private static final Long UPDATED_LIKED = 2L;
+
     private static final LocalDate DEFAULT_CREATED_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CREATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
@@ -82,9 +85,8 @@ class QuestionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Question createEntity(EntityManager em) {
-        Question question = new Question().title(DEFAULT_TITLE).question(DEFAULT_QUESTION).createdDate(DEFAULT_CREATED_DATE);
-        return question;
+    public static Question createEntity() {
+        return new Question().title(DEFAULT_TITLE).question(DEFAULT_QUESTION).liked(DEFAULT_LIKED).createdDate(DEFAULT_CREATED_DATE);
     }
 
     /**
@@ -93,14 +95,13 @@ class QuestionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Question createUpdatedEntity(EntityManager em) {
-        Question question = new Question().title(UPDATED_TITLE).question(UPDATED_QUESTION).createdDate(UPDATED_CREATED_DATE);
-        return question;
+    public static Question createUpdatedEntity() {
+        return new Question().title(UPDATED_TITLE).question(UPDATED_QUESTION).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
     }
 
     @BeforeEach
     public void initTest() {
-        question = createEntity(em);
+        question = createEntity();
     }
 
     @AfterEach
@@ -164,6 +165,7 @@ class QuestionResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(question.getId().intValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].question").value(hasItem(DEFAULT_QUESTION)))
+            .andExpect(jsonPath("$.[*].liked").value(hasItem(DEFAULT_LIKED.intValue())))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())));
     }
 
@@ -198,6 +200,7 @@ class QuestionResourceIT {
             .andExpect(jsonPath("$.id").value(question.getId().intValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.question").value(DEFAULT_QUESTION))
+            .andExpect(jsonPath("$.liked").value(DEFAULT_LIKED.intValue()))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()));
     }
 
@@ -220,7 +223,7 @@ class QuestionResourceIT {
         Question updatedQuestion = questionRepository.findById(question.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedQuestion are not directly saved in db
         em.detach(updatedQuestion);
-        updatedQuestion.title(UPDATED_TITLE).question(UPDATED_QUESTION).createdDate(UPDATED_CREATED_DATE);
+        updatedQuestion.title(UPDATED_TITLE).question(UPDATED_QUESTION).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restQuestionMockMvc
             .perform(
@@ -298,7 +301,7 @@ class QuestionResourceIT {
         Question partialUpdatedQuestion = new Question();
         partialUpdatedQuestion.setId(question.getId());
 
-        partialUpdatedQuestion.title(UPDATED_TITLE);
+        partialUpdatedQuestion.title(UPDATED_TITLE).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restQuestionMockMvc
             .perform(
@@ -326,7 +329,7 @@ class QuestionResourceIT {
         Question partialUpdatedQuestion = new Question();
         partialUpdatedQuestion.setId(question.getId());
 
-        partialUpdatedQuestion.title(UPDATED_TITLE).question(UPDATED_QUESTION).createdDate(UPDATED_CREATED_DATE);
+        partialUpdatedQuestion.title(UPDATED_TITLE).question(UPDATED_QUESTION).liked(UPDATED_LIKED).createdDate(UPDATED_CREATED_DATE);
 
         restQuestionMockMvc
             .perform(

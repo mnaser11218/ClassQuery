@@ -10,6 +10,7 @@ application {
 entity UserProfile {
     name String required
     emailAddress String
+    password String
     aboutMe String
     created LocalDate
 }
@@ -24,11 +25,13 @@ entity Assignment {
 entity Question {
     title String
     question String
+    liked Long
     createdDate LocalDate
 }
 
 entity Answer {
     answer String
+    liked Long
     createdDate LocalDate
 }
 
@@ -45,13 +48,15 @@ relationship ManyToMany {
     Question{tags} to Tag{questions}
 }
 relationship OneToMany {
-    UserProfile{questions} to Question{userProfile}
+    UserProfile{answer} to Answer{userProfile}
 }
 relationship OneToMany {
     Assignment{questions} to Question{assignment}
 }
-
 relationship OneToMany {
     Question{answers} to Answer{question}
+}
+relationship OneToMany {
+    UserProfile{questions} to Question{userProfile}
 }
 

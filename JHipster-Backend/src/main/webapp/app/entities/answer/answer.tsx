@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState } from 'react-jhipster';
+import { TextFormat, Translate, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ASC, DESC, SORT } from 'app/shared/util/pagination.constants';
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { ASC, DESC } from 'app/shared/util/pagination.constants';
 import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
@@ -59,9 +59,8 @@ export const Answer = () => {
     const order = sortState.order;
     if (sortFieldName !== fieldName) {
       return faSort;
-    } else {
-      return order === ASC ? faSortUp : faSortDown;
     }
+    return order === ASC ? faSortUp : faSortDown;
   };
 
   return (
@@ -93,9 +92,16 @@ export const Answer = () => {
                   <Translate contentKey="zipcodeoverflowApp.answer.answer">Answer</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('answer')} />
                 </th>
+                <th className="hand" onClick={sort('liked')}>
+                  <Translate contentKey="zipcodeoverflowApp.answer.liked">Liked</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('liked')} />
+                </th>
                 <th className="hand" onClick={sort('createdDate')}>
                   <Translate contentKey="zipcodeoverflowApp.answer.createdDate">Created Date</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
+                </th>
+                <th>
+                  <Translate contentKey="zipcodeoverflowApp.answer.userProfile">User Profile</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   <Translate contentKey="zipcodeoverflowApp.answer.question">Question</Translate> <FontAwesomeIcon icon="sort" />
@@ -112,9 +118,11 @@ export const Answer = () => {
                     </Button>
                   </td>
                   <td>{answer.answer}</td>
+                  <td>{answer.liked}</td>
                   <td>
                     {answer.createdDate ? <TextFormat type="date" value={answer.createdDate} format={APP_LOCAL_DATE_FORMAT} /> : null}
                   </td>
+                  <td>{answer.userProfile ? <Link to={`/user-profile/${answer.userProfile.id}`}>{answer.userProfile.id}</Link> : ''}</td>
                   <td>{answer.question ? <Link to={`/question/${answer.question.id}`}>{answer.question.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">

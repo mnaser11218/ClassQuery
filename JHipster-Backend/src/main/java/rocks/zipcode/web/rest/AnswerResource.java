@@ -25,7 +25,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @Transactional
 public class AnswerResource {
 
-    private static final Logger log = LoggerFactory.getLogger(AnswerResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AnswerResource.class);
 
     private static final String ENTITY_NAME = "answer";
 
@@ -47,7 +47,7 @@ public class AnswerResource {
      */
     @PostMapping("")
     public ResponseEntity<Answer> createAnswer(@RequestBody Answer answer) throws URISyntaxException {
-        log.debug("REST request to save Answer : {}", answer);
+        LOG.debug("REST request to save Answer : {}", answer);
         if (answer.getId() != null) {
             throw new BadRequestAlertException("A new answer cannot already have an ID", ENTITY_NAME, "idexists");
         }
@@ -56,8 +56,6 @@ public class AnswerResource {
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, answer.getId().toString()))
             .body(answer);
     }
-
-
 
     /**
      * {@code PUT  /answers/:id} : Updates an existing answer.
@@ -72,7 +70,7 @@ public class AnswerResource {
     @PutMapping("/{id}")
     public ResponseEntity<Answer> updateAnswer(@PathVariable(value = "id", required = false) final Long id, @RequestBody Answer answer)
         throws URISyntaxException {
-        log.debug("REST request to update Answer : {}, {}", id, answer);
+        LOG.debug("REST request to update Answer : {}, {}", id, answer);
         if (answer.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -106,7 +104,7 @@ public class AnswerResource {
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Answer answer
     ) throws URISyntaxException {
-        log.debug("REST request to partial update Answer partially : {}, {}", id, answer);
+        LOG.debug("REST request to partial update Answer partially : {}, {}", id, answer);
         if (answer.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -123,6 +121,9 @@ public class AnswerResource {
             .map(existingAnswer -> {
                 if (answer.getAnswer() != null) {
                     existingAnswer.setAnswer(answer.getAnswer());
+                }
+                if (answer.getLiked() != null) {
+                    existingAnswer.setLiked(answer.getLiked());
                 }
                 if (answer.getCreatedDate() != null) {
                     existingAnswer.setCreatedDate(answer.getCreatedDate());
@@ -145,28 +146,8 @@ public class AnswerResource {
      */
     @GetMapping("")
     public List<Answer> getAllAnswers() {
-        log.debug("REST request to get all Answers");
+        LOG.debug("REST request to get all Answers");
         return answerRepository.findAll();
-    }
-
-    // get all answers of a specific questions
-    @GetMapping("/question/{id}")
-    public List<Answer> getAllAnswersOfAQuestion(
-        @PathVariable("id") Long id
-    ) {
-
-        log.debug("REST request to get all Answers");
-        return answerRepository.getAnswersByQuestionId(id);
-    }
-
-    // get number of answers for a questionid
-    @GetMapping("/count/{id}")
-    public Long getAnswerCountOfAQuestion(
-        @PathVariable("id") Long id
-    ) {
-
-        log.debug("REST request to get all Answers");
-        return answerRepository.getNumberOfAnswersByQuestionId(id);
     }
 
     /**
@@ -177,7 +158,7 @@ public class AnswerResource {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Answer> getAnswer(@PathVariable("id") Long id) {
-        log.debug("REST request to get Answer : {}", id);
+        LOG.debug("REST request to get Answer : {}", id);
         Optional<Answer> answer = answerRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(answer);
     }
@@ -190,7 +171,7 @@ public class AnswerResource {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAnswer(@PathVariable("id") Long id) {
-        log.debug("REST request to delete Answer : {}", id);
+        LOG.debug("REST request to delete Answer : {}", id);
         answerRepository.deleteById(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

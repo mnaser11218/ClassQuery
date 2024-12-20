@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Button, Row, Col } from 'reactstrap';
-import { Translate, TextFormat } from 'react-jhipster';
+import { Button, Col, Row } from 'reactstrap';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './question.reducer';
@@ -45,6 +45,12 @@ export const QuestionDetail = () => {
           </dt>
           <dd>{questionEntity.question}</dd>
           <dt>
+            <span id="liked">
+              <Translate contentKey="zipcodeoverflowApp.question.liked">Liked</Translate>
+            </span>
+          </dt>
+          <dd>{questionEntity.liked}</dd>
+          <dt>
             <span id="createdDate">
               <Translate contentKey="zipcodeoverflowApp.question.createdDate">Created Date</Translate>
             </span>
@@ -68,13 +74,13 @@ export const QuestionDetail = () => {
               : null}
           </dd>
           <dt>
-            <Translate contentKey="zipcodeoverflowApp.question.userProfile">User Profile</Translate>
-          </dt>
-          <dd>{questionEntity.userProfile ? questionEntity.userProfile.id : ''}</dd>
-          <dt>
             <Translate contentKey="zipcodeoverflowApp.question.assignment">Assignment</Translate>
           </dt>
           <dd>{questionEntity.assignment ? questionEntity.assignment.id : ''}</dd>
+          <dt>
+            <Translate contentKey="zipcodeoverflowApp.question.userProfile">User Profile</Translate>
+          </dt>
+          <dd>{questionEntity.userProfile ? questionEntity.userProfile.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/question" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

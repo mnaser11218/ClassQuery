@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Button, Row, Col } from 'reactstrap';
-import { Translate, TextFormat } from 'react-jhipster';
+import { Button, Col, Row } from 'reactstrap';
+import { TextFormat, Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntity } from './answer.reducer';
@@ -39,6 +39,12 @@ export const AnswerDetail = () => {
           </dt>
           <dd>{answerEntity.answer}</dd>
           <dt>
+            <span id="liked">
+              <Translate contentKey="zipcodeoverflowApp.answer.liked">Liked</Translate>
+            </span>
+          </dt>
+          <dd>{answerEntity.liked}</dd>
+          <dt>
             <span id="createdDate">
               <Translate contentKey="zipcodeoverflowApp.answer.createdDate">Created Date</Translate>
             </span>
@@ -46,6 +52,10 @@ export const AnswerDetail = () => {
           <dd>
             {answerEntity.createdDate ? <TextFormat value={answerEntity.createdDate} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
           </dd>
+          <dt>
+            <Translate contentKey="zipcodeoverflowApp.answer.userProfile">User Profile</Translate>
+          </dt>
+          <dd>{answerEntity.userProfile ? answerEntity.userProfile.id : ''}</dd>
           <dt>
             <Translate contentKey="zipcodeoverflowApp.answer.question">Question</Translate>
           </dt>

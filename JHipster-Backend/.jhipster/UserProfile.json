@@ -14,6 +14,10 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "aboutMe",
       "fieldType": "String"
     },
@@ -24,6 +28,13 @@
   ],
   "name": "UserProfile",
   "relationships": [
+    {
+      "otherEntityName": "answer",
+      "otherEntityRelationshipName": "userProfile",
+      "relationshipName": "answer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
     {
       "otherEntityName": "question",
       "otherEntityRelationshipName": "userProfile",

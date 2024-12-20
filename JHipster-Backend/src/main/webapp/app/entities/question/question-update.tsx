@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, Row, Col, FormText } from 'reactstrap';
-import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
+import { Button, Col, Row } from 'reactstrap';
+import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { ITag } from 'app/shared/model/tag.model';
 import { getEntities as getTags } from 'app/entities/tag/tag.reducer';
-import { IUserProfile } from 'app/shared/model/user-profile.model';
-import { getEntities as getUserProfiles } from 'app/entities/user-profile/user-profile.reducer';
-import { IAssignment } from 'app/shared/model/assignment.model';
 import { getEntities as getAssignments } from 'app/entities/assignment/assignment.reducer';
-import { IQuestion } from 'app/shared/model/question.model';
-import { getEntity, updateEntity, createEntity, reset } from './question.reducer';
+import { getEntities as getUserProfiles } from 'app/entities/user-profile/user-profile.reducer';
+import { createEntity, getEntity, reset, updateEntity } from './question.reducer';
 
 export const QuestionUpdate = () => {
   const dispatch = useAppDispatch();
@@ -26,8 +21,8 @@ export const QuestionUpdate = () => {
   const isNew = id === undefined;
 
   const tags = useAppSelector(state => state.tag.entities);
-  const userProfiles = useAppSelector(state => state.userProfile.entities);
   const assignments = useAppSelector(state => state.assignment.entities);
+  const userProfiles = useAppSelector(state => state.userProfile.entities);
   const questionEntity = useAppSelector(state => state.question.entity);
   const loading = useAppSelector(state => state.question.loading);
   const updating = useAppSelector(state => state.question.updating);
@@ -45,8 +40,8 @@ export const QuestionUpdate = () => {
     }
 
     dispatch(getTags({}));
-    dispatch(getUserProfiles({}));
     dispatch(getAssignments({}));
+    dispatch(getUserProfiles({}));
   }, []);
 
   useEffect(() => {
@@ -55,18 +50,20 @@ export const QuestionUpdate = () => {
     }
   }, [updateSuccess]);
 
-  // eslint-disable-next-line complexity
   const saveEntity = values => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
+    }
+    if (values.liked !== undefined && typeof values.liked !== 'number') {
+      values.liked = Number(values.liked);
     }
 
     const entity = {
       ...questionEntity,
       ...values,
       tags: mapIdList(values.tags),
-      userProfile: userProfiles.find(it => it.id.toString() === values.userProfile?.toString()),
       assignment: assignments.find(it => it.id.toString() === values.assignment?.toString()),
+      userProfile: userProfiles.find(it => it.id.toString() === values.userProfile?.toString()),
     };
 
     if (isNew) {
@@ -82,8 +79,8 @@ export const QuestionUpdate = () => {
       : {
           ...questionEntity,
           tags: questionEntity?.tags?.map(e => e.id.toString()),
-          userProfile: questionEntity?.userProfile?.id,
           assignment: questionEntity?.assignment?.id,
+          userProfile: questionEntity?.userProfile?.id,
         };
 
   return (
@@ -126,6 +123,13 @@ export const QuestionUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('zipcodeoverflowApp.question.liked')}
+                id="question-liked"
+                name="liked"
+                data-cy="liked"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('zipcodeoverflowApp.question.createdDate')}
                 id="question-createdDate"
                 name="createdDate"
@@ -150,22 +154,6 @@ export const QuestionUpdate = () => {
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="question-userProfile"
-                name="userProfile"
-                data-cy="userProfile"
-                label={translate('zipcodeoverflowApp.question.userProfile')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {userProfiles
-                  ? userProfiles.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
-              <ValidatedField
                 id="question-assignment"
                 name="assignment"
                 data-cy="assignment"
@@ -175,6 +163,22 @@ export const QuestionUpdate = () => {
                 <option value="" key="0" />
                 {assignments
                   ? assignments.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="question-userProfile"
+                name="userProfile"
+                data-cy="userProfile"
+                label={translate('zipcodeoverflowApp.question.userProfile')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {userProfiles
+                  ? userProfiles.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

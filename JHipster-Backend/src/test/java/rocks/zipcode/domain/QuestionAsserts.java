@@ -49,6 +49,7 @@ public class QuestionAsserts {
             .as("Verify Question relevant properties")
             .satisfies(e -> assertThat(e.getTitle()).as("check title").isEqualTo(actual.getTitle()))
             .satisfies(e -> assertThat(e.getQuestion()).as("check question").isEqualTo(actual.getQuestion()))
+            .satisfies(e -> assertThat(e.getLiked()).as("check liked").isEqualTo(actual.getLiked()))
             .satisfies(e -> assertThat(e.getCreatedDate()).as("check createdDate").isEqualTo(actual.getCreatedDate()));
     }
 
@@ -62,7 +63,7 @@ public class QuestionAsserts {
         assertThat(expected)
             .as("Verify Question relationships")
             .satisfies(e -> assertThat(e.getTags()).as("check tags").isEqualTo(actual.getTags()))
-            .satisfies(e -> assertThat(e.getUserProfile()).as("check userProfile").isEqualTo(actual.getUserProfile()))
-            .satisfies(e -> assertThat(e.getAssignment()).as("check assignment").isEqualTo(actual.getAssignment()));
+            .satisfies(e -> assertThat(e.getAssignment()).as("check assignment").isEqualTo(actual.getAssignment()))
+            .satisfies(e -> assertThat(e.getUserProfile()).as("check userProfile").isEqualTo(actual.getUserProfile()));
     }
 }

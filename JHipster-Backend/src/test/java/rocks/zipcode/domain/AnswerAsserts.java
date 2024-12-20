@@ -48,6 +48,7 @@ public class AnswerAsserts {
         assertThat(expected)
             .as("Verify Answer relevant properties")
             .satisfies(e -> assertThat(e.getAnswer()).as("check answer").isEqualTo(actual.getAnswer()))
+            .satisfies(e -> assertThat(e.getLiked()).as("check liked").isEqualTo(actual.getLiked()))
             .satisfies(e -> assertThat(e.getCreatedDate()).as("check createdDate").isEqualTo(actual.getCreatedDate()));
     }
 
@@ -60,6 +61,7 @@ public class AnswerAsserts {
     public static void assertAnswerUpdatableRelationshipsEquals(Answer expected, Answer actual) {
         assertThat(expected)
             .as("Verify Answer relationships")
+            .satisfies(e -> assertThat(e.getUserProfile()).as("check userProfile").isEqualTo(actual.getUserProfile()))
             .satisfies(e -> assertThat(e.getQuestion()).as("check question").isEqualTo(actual.getQuestion()));
     }
 }

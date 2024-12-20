@@ -9,12 +9,23 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "liked",
+      "fieldType": "Long"
+    },
+    {
       "fieldName": "createdDate",
       "fieldType": "LocalDate"
     }
   ],
   "name": "Answer",
   "relationships": [
+    {
+      "otherEntityName": "userProfile",
+      "otherEntityRelationshipName": "answer",
+      "relationshipName": "userProfile",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
     {
       "otherEntityName": "question",
       "otherEntityRelationshipName": "answers",

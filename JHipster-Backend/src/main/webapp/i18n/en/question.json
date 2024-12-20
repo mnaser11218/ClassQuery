@@ -20,11 +20,12 @@
       "id": "ID",
       "title": "Title",
       "question": "Question",
+      "liked": "Liked",
       "createdDate": "Created Date",
       "answers": "Answers",
       "tags": "Tags",
-      "userProfile": "User Profile",
-      "assignment": "Assignment"
+      "assignment": "Assignment",
+      "userProfile": "User Profile"
     }
   }
 }

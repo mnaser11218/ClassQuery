@@ -27,7 +27,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @Transactional
 public class AssignmentResource {
 
-    private static final Logger log = LoggerFactory.getLogger(AssignmentResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AssignmentResource.class);
 
     private static final String ENTITY_NAME = "assignment";
 
@@ -49,7 +49,7 @@ public class AssignmentResource {
      */
     @PostMapping("")
     public ResponseEntity<Assignment> createAssignment(@Valid @RequestBody Assignment assignment) throws URISyntaxException {
-        log.debug("REST request to save Assignment : {}", assignment);
+        LOG.debug("REST request to save Assignment : {}", assignment);
         if (assignment.getId() != null) {
             throw new BadRequestAlertException("A new assignment cannot already have an ID", ENTITY_NAME, "idexists");
         }
@@ -74,7 +74,7 @@ public class AssignmentResource {
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Assignment assignment
     ) throws URISyntaxException {
-        log.debug("REST request to update Assignment : {}, {}", id, assignment);
+        LOG.debug("REST request to update Assignment : {}, {}", id, assignment);
         if (assignment.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -108,7 +108,7 @@ public class AssignmentResource {
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Assignment assignment
     ) throws URISyntaxException {
-        log.debug("REST request to partial update Assignment partially : {}, {}", id, assignment);
+        LOG.debug("REST request to partial update Assignment partially : {}, {}", id, assignment);
         if (assignment.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -156,7 +156,7 @@ public class AssignmentResource {
      */
     @GetMapping("")
     public List<Assignment> getAllAssignments() {
-        log.debug("REST request to get all Assignments");
+        LOG.debug("REST request to get all Assignments");
         return assignmentRepository.findAll();
     }
 
@@ -168,7 +168,7 @@ public class AssignmentResource {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Assignment> getAssignment(@PathVariable("id") Long id) {
-        log.debug("REST request to get Assignment : {}", id);
+        LOG.debug("REST request to get Assignment : {}", id);
         Optional<Assignment> assignment = assignmentRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(assignment);
     }
@@ -181,7 +181,7 @@ public class AssignmentResource {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAssignment(@PathVariable("id") Long id) {
-        log.debug("REST request to delete Assignment : {}", id);
+        LOG.debug("REST request to delete Assignment : {}", id);
         assignmentRepository.deleteById(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

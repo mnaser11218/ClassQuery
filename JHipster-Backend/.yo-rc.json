@@ -20,7 +20,7 @@
     "enableTranslation": true,
     "entities": ["UserProfile", "Assignment", "Question", "Answer", "Tag"],
     "feignClient": null,
-    "jhipsterVersion": "8.6.0",
+    "jhipsterVersion": "8.7.3",
     "jwtSecretKey": "NWJiYzk4MTQ1MzBkZmE4YmIxNjNlZTBhNWQ4ZjFhZjc5NDAyMGI0NGJjZDZjM2VmZTMyMWZmN2Y3YmViNTk3ZDk4NjIzYTIwMmRhMzcyMGNmMWVkZDZmZjIyYWUyZGFmZWRlNmIwYjAzOTg0YzUyZDFjODQxOGQyMDRjM2M1ZjQ=",
     "languages": ["en"],
     "lastLiquibaseTimestamp": 1724461301000,

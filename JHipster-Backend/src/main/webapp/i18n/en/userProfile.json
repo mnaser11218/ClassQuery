@@ -20,8 +20,10 @@
       "id": "ID",
       "name": "Name",
       "emailAddress": "Email Address",
+      "password": "Password",
       "aboutMe": "About Me",
       "created": "Created",
+      "answer": "Answer",
       "questions": "Questions"
     }
   }

@@ -40,6 +40,9 @@ class UserProfileResourceIT {
     private static final String DEFAULT_EMAIL_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL_ADDRESS = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PASSWORD = "AAAAAAAAAA";
+    private static final String UPDATED_PASSWORD = "BBBBBBBBBB";
+
     private static final String DEFAULT_ABOUT_ME = "AAAAAAAAAA";
     private static final String UPDATED_ABOUT_ME = "BBBBBBBBBB";
 
@@ -74,13 +77,13 @@ class UserProfileResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static UserProfile createEntity(EntityManager em) {
-        UserProfile userProfile = new UserProfile()
+    public static UserProfile createEntity() {
+        return new UserProfile()
             .name(DEFAULT_NAME)
             .emailAddress(DEFAULT_EMAIL_ADDRESS)
+            .password(DEFAULT_PASSWORD)
             .aboutMe(DEFAULT_ABOUT_ME)
             .created(DEFAULT_CREATED);
-        return userProfile;
     }
 
     /**
@@ -89,18 +92,18 @@ class UserProfileResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static UserProfile createUpdatedEntity(EntityManager em) {
-        UserProfile userProfile = new UserProfile()
+    public static UserProfile createUpdatedEntity() {
+        return new UserProfile()
             .name(UPDATED_NAME)
             .emailAddress(UPDATED_EMAIL_ADDRESS)
+            .password(UPDATED_PASSWORD)
             .aboutMe(UPDATED_ABOUT_ME)
             .created(UPDATED_CREATED);
-        return userProfile;
     }
 
     @BeforeEach
     public void initTest() {
-        userProfile = createEntity(em);
+        userProfile = createEntity();
     }
 
     @AfterEach
@@ -180,6 +183,7 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(userProfile.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].emailAddress").value(hasItem(DEFAULT_EMAIL_ADDRESS)))
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)))
             .andExpect(jsonPath("$.[*].aboutMe").value(hasItem(DEFAULT_ABOUT_ME)))
             .andExpect(jsonPath("$.[*].created").value(hasItem(DEFAULT_CREATED.toString())));
     }
@@ -198,6 +202,7 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.id").value(userProfile.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.emailAddress").value(DEFAULT_EMAIL_ADDRESS))
+            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
             .andExpect(jsonPath("$.aboutMe").value(DEFAULT_ABOUT_ME))
             .andExpect(jsonPath("$.created").value(DEFAULT_CREATED.toString()));
     }
@@ -221,7 +226,12 @@ class UserProfileResourceIT {
         UserProfile updatedUserProfile = userProfileRepository.findById(userProfile.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedUserProfile are not directly saved in db
         em.detach(updatedUserProfile);
-        updatedUserProfile.name(UPDATED_NAME).emailAddress(UPDATED_EMAIL_ADDRESS).aboutMe(UPDATED_ABOUT_ME).created(UPDATED_CREATED);
+        updatedUserProfile
+            .name(UPDATED_NAME)
+            .emailAddress(UPDATED_EMAIL_ADDRESS)
+            .password(UPDATED_PASSWORD)
+            .aboutMe(UPDATED_ABOUT_ME)
+            .created(UPDATED_CREATED);
 
         restUserProfileMockMvc
             .perform(
@@ -301,7 +311,7 @@ class UserProfileResourceIT {
         UserProfile partialUpdatedUserProfile = new UserProfile();
         partialUpdatedUserProfile.setId(userProfile.getId());
 
-        partialUpdatedUserProfile.name(UPDATED_NAME).created(UPDATED_CREATED);
+        partialUpdatedUserProfile.name(UPDATED_NAME).password(UPDATED_PASSWORD).aboutMe(UPDATED_ABOUT_ME).created(UPDATED_CREATED);
 
         restUserProfileMockMvc
             .perform(
@@ -332,7 +342,12 @@ class UserProfileResourceIT {
         UserProfile partialUpdatedUserProfile = new UserProfile();
         partialUpdatedUserProfile.setId(userProfile.getId());
 
-        partialUpdatedUserProfile.name(UPDATED_NAME).emailAddress(UPDATED_EMAIL_ADDRESS).aboutMe(UPDATED_ABOUT_ME).created(UPDATED_CREATED);
+        partialUpdatedUserProfile
+            .name(UPDATED_NAME)
+            .emailAddress(UPDATED_EMAIL_ADDRESS)
+            .password(UPDATED_PASSWORD)
+            .aboutMe(UPDATED_ABOUT_ME)
+            .created(UPDATED_CREATED);
 
         restUserProfileMockMvc
             .perform(

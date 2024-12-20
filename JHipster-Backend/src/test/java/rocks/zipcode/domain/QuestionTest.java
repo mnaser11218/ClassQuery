@@ -69,18 +69,6 @@ class QuestionTest {
     }
 
     @Test
-    void userProfileTest() {
-        Question question = getQuestionRandomSampleGenerator();
-        UserProfile userProfileBack = getUserProfileRandomSampleGenerator();
-
-        question.setUserProfile(userProfileBack);
-        assertThat(question.getUserProfile()).isEqualTo(userProfileBack);
-
-        question.userProfile(null);
-        assertThat(question.getUserProfile()).isNull();
-    }
-
-    @Test
     void assignmentTest() {
         Question question = getQuestionRandomSampleGenerator();
         Assignment assignmentBack = getAssignmentRandomSampleGenerator();
@@ -90,5 +78,17 @@ class QuestionTest {
 
         question.assignment(null);
         assertThat(question.getAssignment()).isNull();
+    }
+
+    @Test
+    void userProfileTest() {
+        Question question = getQuestionRandomSampleGenerator();
+        UserProfile userProfileBack = getUserProfileRandomSampleGenerator();
+
+        question.setUserProfile(userProfileBack);
+        assertThat(question.getUserProfile()).isEqualTo(userProfileBack);
+
+        question.userProfile(null);
+        assertThat(question.getUserProfile()).isNull();
     }
 }

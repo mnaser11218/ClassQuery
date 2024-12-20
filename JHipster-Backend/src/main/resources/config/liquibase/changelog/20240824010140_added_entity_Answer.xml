@@ -17,7 +17,13 @@
             <column name="answer" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="liked" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="created_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_profile_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="question_id" type="bigint">
@@ -45,6 +51,7 @@
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="answer" type="string"/>
+            <column name="liked" type="numeric"/>
             <column name="created_date" type="date"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
