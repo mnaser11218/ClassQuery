@@ -27,4 +27,6 @@ public interface QuestionRepository extends QuestionRepositoryWithBagRelationshi
     default Page<Question> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAll(pageable));
     }
+    @Query(value = "select * from question where assignment_id=?1", nativeQuery = true)
+    List<Question> getQuestionsOfAssignments(Long questionId);
 }

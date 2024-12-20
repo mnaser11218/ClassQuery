@@ -144,10 +144,10 @@ public class AnswerResource {
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of answers in body.
      */
-    @GetMapping("")
-    public List<Answer> getAllAnswers() {
-        LOG.debug("REST request to get all Answers");
-        return answerRepository.findAll();
+    @GetMapping("/question/{id}")
+    public List<Answer> getAllAnswersOfQuestion(@PathVariable("id") Long id) {
+        LOG.debug("REST request to get all Answers based on questionId");
+        return answerRepository.answersOfQuestion(id);
     }
 
     /**
@@ -163,10 +163,16 @@ public class AnswerResource {
         return ResponseUtil.wrapOrNotFound(answer);
     }
 
-    @GetMapping("/question/{id}")
+    @GetMapping("/count/{id}")
     public Long getAnswerNumber(@PathVariable("id") Long id) {
         LOG.debug("REST request to get Answer amount by question id : {}", id);
       return answerRepository.numberOfAnswers(id);
+    }
+
+    @GetMapping("/")
+    public List<Answer> getAllAnswers() {
+        LOG.debug("REST request to get all Answers");
+        return answerRepository.findAll();
     }
 
     /**

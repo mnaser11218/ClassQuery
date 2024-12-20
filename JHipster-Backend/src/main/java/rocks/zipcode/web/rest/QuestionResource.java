@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import rocks.zipcode.domain.Assignment;
 import rocks.zipcode.domain.Question;
 import rocks.zipcode.repository.QuestionRepository;
 import rocks.zipcode.web.rest.errors.BadRequestAlertException;
@@ -171,6 +172,12 @@ public class QuestionResource {
         LOG.debug("REST request to get Question : {}", id);
         Optional<Question> question = questionRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(question);
+    }
+
+    @GetMapping("/assignment/{id}")
+    public List<Question> getAllQuesOfAssignment(@PathVariable("id") Long id){
+        LOG.debug("REST request to get all questions based on Assignment id");
+        return questionRepository.getQuestionsOfAssignments(id);
     }
 
     /**

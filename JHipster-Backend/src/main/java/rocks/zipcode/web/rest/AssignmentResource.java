@@ -160,6 +160,8 @@ public class AssignmentResource {
         return assignmentRepository.findAll();
     }
 
+
+
     /**
      * {@code GET  /assignments/:id} : get the "id" assignment.
      *
