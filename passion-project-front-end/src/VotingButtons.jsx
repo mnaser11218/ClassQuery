@@ -47,13 +47,20 @@ color: #F8F7E5;
 line-height: 1.4rem;
 `
 function VotingButtons(props){
+  const {answerId, questionId} = props;
+  const handleLikeButton = ()=>{
+    console.log("clicked like button")
+  }
+  const handleDislikeButton = ()=>{
+    const variable = (answerId ? answerId : questionId)
+    console.log("clicked dislike button" + variable)
+  }
     return (<div {...props}>
 	{/* &#x20B2; */}
-      <Button> <ArrowUp/> </Button>
-     
+      <Button onClick={handleLikeButton}> <ArrowUp/> </Button>
             <Total> {0}</Total>
             {/* &#x20BC; */}
-       <Button> <ArrowDown/> </Button>
+       <Button onClick={handleDislikeButton}> <ArrowDown/> </Button>
    
 
     </div>)

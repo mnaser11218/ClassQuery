@@ -70,7 +70,7 @@ padding:10px;
 `
 
 function QuestionRow(props){
-const {question, title, createdDate, tags, id} = props;
+const {question, title, createdDate, tags, id, liked} = props;
 // let navigate = useNavigate(); 
 //     const routeChange = ()=> {
 //         let path = `/answerspage`; 
@@ -80,7 +80,7 @@ const {question, title, createdDate, tags, id} = props;
             <>
     <StyledQuestionRow>
        
-    <QuestionStat>0<span>Votes</span></QuestionStat>
+    <QuestionStat>{liked}<span>Votes</span></QuestionStat>
     <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
     <QuestionTitleArea>
         <QuestionLink to={`/answerspage/${id}`} >{title}</QuestionLink>

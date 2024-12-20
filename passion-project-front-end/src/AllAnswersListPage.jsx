@@ -39,7 +39,7 @@ function AllAnswersListPage({...props}){
         return (
          <BodyTag>
 
-         <VotingButtons/>
+         <VotingButtons answerId={answer.id}/>
         
                <div  style={{fontSize: '17px',  "letter-spacing": "1px" }} >
             

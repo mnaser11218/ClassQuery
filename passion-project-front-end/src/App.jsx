@@ -163,10 +163,11 @@ const [user, setUser] = useState(null);
     </div> 
    <RightSideBar/>
     </WholePage>
-    <Footer/>
+    {/* <Footer/> */}
     </Router>
     {/* </UserContext.Provider> */}
     </UserProvider>
+    
     </>
   );
 }
