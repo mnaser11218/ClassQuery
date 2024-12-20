@@ -163,6 +163,12 @@ public class AnswerResource {
         return ResponseUtil.wrapOrNotFound(answer);
     }
 
+    @GetMapping("/question/{id}")
+    public Long getAnswerNumber(@PathVariable("id") Long id) {
+        LOG.debug("REST request to get Answer amount by question id : {}", id);
+      return answerRepository.numberOfAnswers(id);
+    }
+
     /**
      * {@code DELETE  /answers/:id} : delete the "id" answer.
      *
