@@ -26,7 +26,7 @@ padding: 30px 28px;
                 body: JSON.stringify( {
                     name: name,
                     emailAddress: userName,
-                    aboutMe: password,
+                    password: password,
                     created: new Date(),
                     "questions": null
                   })

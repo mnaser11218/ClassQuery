@@ -45,7 +45,7 @@ padding: 30px 28px;
 
     const user = await response.json();
 
-    if (user.aboutMe === password) {
+    if (user.password === password) {
       alert(`You are now logged in, ${user.name}!`);
       setCurrentLoggedInUser(user); 
     //   navigate('/lo');
