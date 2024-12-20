@@ -9,4 +9,7 @@ import rocks.zipcode.domain.UserProfile;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {}
+public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
+    @Query(value="select * from user_profile where email_address= ?1", nativeQuery = true)
+    UserProfile getUserProfileByEmailAddress(String emailAddress);
+}

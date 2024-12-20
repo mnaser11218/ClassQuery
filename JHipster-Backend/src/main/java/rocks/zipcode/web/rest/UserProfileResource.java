@@ -173,6 +173,10 @@ public class UserProfileResource {
         return ResponseUtil.wrapOrNotFound(userProfile);
     }
 
+    @GetMapping("/username/{emailAddress}")
+    public UserProfile getUserProfileByEmailAddress(@PathVariable("emailAddress") String emailAddress){
+        return userProfileRepository.getUserProfileByEmailAddress(emailAddress);
+    }
     /**
      * {@code DELETE  /user-profiles/:id} : delete the "id" userProfile.
      *
