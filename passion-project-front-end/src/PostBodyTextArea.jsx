@@ -22,7 +22,7 @@ function PostBodyTextArea({...props}){
     const {questionId} = props;
     let navigate = useNavigate(); 
         var routeChange = ()=> {
-            let path = `/questionspage`; 
+            let path = `/answerspage/${questionId}`; 
             navigate(path);
         }
 

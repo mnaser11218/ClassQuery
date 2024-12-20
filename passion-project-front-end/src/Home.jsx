@@ -24,9 +24,10 @@ const LinkTag =styled(Link)`
 border-radius: 5px;
 display: inline-block;
 margin:auto;
-font-size: 25px;
-font-weight:bold;
-color:black;
+  font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #34495e;
 text-decoration: none;
 background-color:white;
 padding: 5px;
@@ -55,7 +56,9 @@ function Home(){
   },[])
 return(
     <>
+
     <DivEle>
+    
     {assignments?.map(ele=>{
       return(
       <AssignmentEle style={{"backgroundImage": `url(${ele.description})`,   backgroundRepeat: "no-repeat",

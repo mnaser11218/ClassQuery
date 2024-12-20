@@ -34,7 +34,7 @@ function QuestionsPage(){
         navigate(path);
     }
     useEffect(()=> {
-        fetch(`http://localhost:8080/api/questions?eagerload=true`)
+        fetch(`http://localhost:8080/api/questions`)
         .then(res => {
           console.log("inside fetch method")
           //console.log("res is ", Object.prototype.toString.call(res));
@@ -61,7 +61,7 @@ function QuestionsPage(){
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")
-   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id}/>
+   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} />
 })}
 
         </main>

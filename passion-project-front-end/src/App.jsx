@@ -16,6 +16,7 @@ import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
 import { UserProvider } from './CurrentUser';
 import AssignmentQuestions from './AssignmentQuestions';
+import { Footer } from './Footer';
 
 
 
@@ -162,6 +163,7 @@ const [user, setUser] = useState(null);
     </div> 
    <RightSideBar/>
     </WholePage>
+    <Footer/>
     </Router>
     {/* </UserContext.Provider> */}
     </UserProvider>
