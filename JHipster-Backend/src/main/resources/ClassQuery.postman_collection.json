@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "32b6de58-6c6a-4da1-b443-afad3e56259c",
+		"name": "ClassQuery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17184661",
+		"_collection_link": "https://planetary-water-222454.postman.co/workspace/Api-Workspace~45700440-e72f-456c-83af-42aea7bf6d7f/collection/17184661-32b6de58-6c6a-4da1-b443-afad3e56259c?action=share&source=collection_link&creator=17184661"
+	},
+	"item": [
+		{
+			"name": "getQuestions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTczNDcyMjgzMiwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzM0NjM2NDMyfQ.auXaAahUh8pC62DeYiTyMUTRSSI4udFMOBhQLmFmvJVAgI3uvVsm6-sYjHcGT6depQUu03UyVxusPd_lD5-EhQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostQuestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"title\": \"mySQL databasje\",\n        \"question\": \"what are joins?\",\n        \"createdDate\": \"2024-08-23\",\n        \"answers\": null,\n        \"tags\": [{\n    \"id\" : \"1\"\n  }\n        ],\n        \"userProfile\":{\n            \"id\": 1\n        },\n        \"assignment\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAnswersOfQuestion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers/question/1502",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers",
+						"question",
+						"1502"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAnswers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCountAnswerOfQues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers/count/1508",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers",
+						"count",
+						"1508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserProfileByEmailAddress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/user-profiles/username/mnaser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profiles",
+						"username",
+						"mnaser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserProfiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/user-profiles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUserProfile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"postman\",\n        \"emailAddress\": \"email_postman\",\n        \"aboutMe\": \"password_postman\",\n        \"created\": \"2024-08-23\",\n        \"questions\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user-profiles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAssignments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/assignments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"assignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSpecificAssignment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/assignments/1500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"assignments",
+						"1500"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuestionsOfAssignment",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetAmountOfanswersforquestion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTczNDcyMjgzMiwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzM0NjM2NDMyfQ.auXaAahUh8pC62DeYiTyMUTRSSI4udFMOBhQLmFmvJVAgI3uvVsm6-sYjHcGT6depQUu03UyVxusPd_lD5-EhQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/answers/count/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers",
+						"count",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
