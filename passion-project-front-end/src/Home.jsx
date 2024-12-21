@@ -65,7 +65,7 @@ function Home(){
   const { currentLoggedInUser } = useUser()
   let navigate = useNavigate(); 
   const routeChange = ()=> {
-      let path = ``; 
+      let path = `/addassignment`; 
       navigate(path);
   }
 

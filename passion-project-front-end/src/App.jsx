@@ -17,6 +17,7 @@ import RightSideBar from './RightSideBar';
 import { UserProvider } from './CurrentUser';
 import AssignmentQuestions from './AssignmentQuestions';
 import { Footer } from './Footer';
+import AddAssignment from './AddAssignment';
 
 
 
@@ -145,6 +146,8 @@ const [user, setUser] = useState(null);
       <Routes >
       <Route path="/questionspage" element={ <QuestionsPage/>} />
       <Route path="/assignmentquestion/:id" element={ <AssignmentQuestions/>} />
+      <Route path="/addassignment" element={ <AddAssignment/>} />
+
       <Route path="/login" element={ <LoginPage/>} />
       <Route path="/register" element={ <RegisterPage/>} />
 
