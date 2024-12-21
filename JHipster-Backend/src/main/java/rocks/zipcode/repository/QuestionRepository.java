@@ -29,4 +29,8 @@ public interface QuestionRepository extends QuestionRepositoryWithBagRelationshi
     }
     @Query(value = "select * from question where assignment_id=?1", nativeQuery = true)
     List<Question> getQuestionsOfAssignments(Long questionId);
+
+    @Modifying
+    @Query(value="UPDATE question set liked= ?1 where id= ?2", nativeQuery = true)
+    public void updateLike(Long liked, Long id);
 }

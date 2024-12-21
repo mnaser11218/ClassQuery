@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import rocks.zipcode.domain.Answer;
 import rocks.zipcode.domain.Assignment;
 import rocks.zipcode.domain.Question;
 import rocks.zipcode.repository.QuestionRepository;
@@ -56,6 +57,12 @@ public class QuestionResource {
         return ResponseEntity.created(new URI("/api/questions/" + question.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, question.getId().toString()))
             .body(question);
+    }
+
+    @PutMapping("/like/{id}")
+    public void updateLike(@RequestBody Question question, @PathVariable("id") Long id) throws URISyntaxException {
+        System.out.println("liked is: " + question.getLiked());
+        questionRepository.updateLike(question.getLiked(), id);
     }
 
     /**
