@@ -49,18 +49,12 @@ line-height: 1.4rem;
 `
 function VotingButtons(props){
 
-  const {answerId, questionId} = props;
-  const [answerLikeCount, setAnswerLikeCount] = useState(0);
-  const [questionLikeCount, setQuestionLikeCount] = useState(0);
-  useEffect(()=>{
-    if(answerId != null){
-      getLikeCountForAnswer()
-    } else{
-      getLikeCountForQuestion()  
-    }
-  },[])
+  const {answerId, questionId, likeCount} = props;
+  const [likedCount, setLikedCount] = useState(likeCount)
+  const [liked, setLiked] = useState(false)
+ 
 
-const likeAnswer = (updatedLikedValue) =>{
+const updateAnswerCount = (updatedLikedValue) =>{
   fetch(`http://localhost:8080/api/answers/like/${answerId}`, {
     method: 'PUT',
     headers:{
@@ -71,49 +65,58 @@ const likeAnswer = (updatedLikedValue) =>{
       })
   })
     .then(res => {
-        setAnswerLikeCount(updatedLikedValue)
+      setLikedCount(updatedLikedValue)
+      setLiked(true)
+      
     })
+}
+
+const updateQuestionCount = (updatedQuesCount) =>{
+  fetch(`http://localhost:8080/api/questions/like/${questionId}`, {
+    method: 'PUT',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify( {
+        liked: updatedQuesCount
+      })
+  })
+    .then(res => {
+      setLikedCount(updatedQuesCount)
+      setLiked(true)
+      
+    })
+
+
 }
 
   const handleLikeButton = ()=>{
       if(answerId != null){
-    let updatedLikedValue = answerLikeCount + 1;
-    likeAnswer(updatedLikedValue)
+    let updatedLikedValue = likedCount + 1;
+    updateAnswerCount(updatedLikedValue)
   } else{
-
+      let updatedQuesCount = likedCount + 1;
+      updateQuestionCount(updatedQuesCount)
   }
   }
 
 
 
-
-
-
-
-  const getLikeCountForAnswer = ()=>{
-    fetch(`http://localhost:8080/api/answers/${answerId}`)
-    .then(response=>response.json())
-    .then(data=>setAnswerLikeCount(data.liked ? data.liked : 0))
-
-  }
-  const getLikeCountForQuestion = ()=>{
-    fetch(`http://localhost:8080/api/questions/${questionId}`)
-    .then(response=>response.json())
-    .then(data=>setQuestionLikeCount(data.liked ? data.liked : 0))
-  }
   const handleDislikeButton = ()=>{
     const variable = (answerId ? answerId : questionId)
     if(answerId != null){
-      let updatedLikedValue = answerLikeCount - 1;
-      likeAnswer(updatedLikedValue)
+      let updatedLikedValue = likedCount - 1;
+      updateAnswerCount(updatedLikedValue)
     } else{
-      
+      let updatedQuesCount = likedCount - 1;
+      updateQuestionCount(updatedQuesCount)
     }
   }
     return (<div {...props}>
 	{/* &#x20B2; */}
       <Button onClick={handleLikeButton}> <ArrowUp/> </Button>
-            <Total> {answerId ? answerLikeCount : questionLikeCount}</Total>
+           
+           <Total>{likedCount}</Total>  
             {/* &#x20BC; */}
        <Button onClick={handleDislikeButton}> <ArrowDown/> </Button>
    
