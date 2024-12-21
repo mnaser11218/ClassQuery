@@ -57,6 +57,12 @@ public class AnswerResource {
             .body(answer);
     }
 
+    @PutMapping("/like/{id}")
+    public void updateLike(@RequestBody Answer answer, @PathVariable("id") Long id) throws URISyntaxException {
+        System.out.println("liked is: " + answer.getLiked());
+     answerRepository.updateLike(answer.getLiked(), id);
+    }
+
     /**
      * {@code PUT  /answers/:id} : Updates an existing answer.
      *
@@ -169,7 +175,7 @@ public class AnswerResource {
       return answerRepository.numberOfAnswers(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Answer> getAllAnswers() {
         LOG.debug("REST request to get all Answers");
         return answerRepository.findAll();

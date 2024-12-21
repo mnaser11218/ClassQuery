@@ -15,6 +15,10 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
     @Query(value="select count(*) from answer where question_id= ?1", nativeQuery = true)
     Long numberOfAnswers(Long questionId);
 
-    @Query(value="select * from answer where question_id =?1", nativeQuery = true)
+    @Query(value="select * from answer where question_id= ?1", nativeQuery = true)
     List<Answer> answersOfQuestion(Long questionId);
+    @Modifying
+    @Query(value="UPDATE answer set liked= ?1 where id= ?2", nativeQuery = true)
+    public void updateLike(Long liked, Long id);
+
 }
