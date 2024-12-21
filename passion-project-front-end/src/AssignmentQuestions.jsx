@@ -16,7 +16,7 @@ const HeaderRow = styled.div`
 padding: 30px 20px;
 //background-color: gray;
 display: grid;
-grid-template-columns: 1fr min-content
+grid-template-columns: 1fr max-content
 `
 function AssignmentQuestions() {
     const { currentLoggedInUser } = useUser()
@@ -45,7 +45,7 @@ return(
     <main>
         <HeaderRow>
 <StyledHeader>Assignment Name : {assignmentName}</StyledHeader>
-{ currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
+{ currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "Log in to ask a Question" } 
 </HeaderRow>
 {questions.map(row=> {
 console.log("inside row")

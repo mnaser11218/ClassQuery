@@ -13,7 +13,7 @@ const HeaderRow = styled.div`
 padding: 30px 20px;
 //background-color: gray;
 display: grid;
-grid-template-columns: 1fr min-content
+grid-template-columns: 1fr max-content
 `
 const BlueButton = styled.button`
 //background-color: rgb(27, 117, 208);
@@ -57,7 +57,7 @@ function QuestionsPage(){
         <main>
             <HeaderRow>
 <StyledHeader>All Questions</StyledHeader>
-    { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "" } 
+    { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "Log in to ask a question" } 
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")

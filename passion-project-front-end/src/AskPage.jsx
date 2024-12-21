@@ -84,7 +84,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    { currentLoggedInUser?.name ? <H1HeaderTag>Welcome, {currentLoggedInUser?.name}.</H1HeaderTag> : "Sign in to ask Question" }
+    { currentLoggedInUser?.name ? <H1HeaderTag>Welcome, {currentLoggedInUser?.name}.</H1HeaderTag> : "Log in to ask Question" }
 
     <TitleInput 
     type="text"
