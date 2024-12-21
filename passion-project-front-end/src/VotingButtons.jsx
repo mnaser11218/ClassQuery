@@ -60,24 +60,26 @@ function VotingButtons(props){
     }
   },[])
 
+const likeAnswer = (updatedLikedValue) =>{
+  fetch(`http://localhost:8080/api/answers/like/${answerId}`, {
+    method: 'PUT',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify( {
+        liked: updatedLikedValue
+      })
+  })
+    .then(res => {
+        setAnswerLikeCount(updatedLikedValue)
+    })
+}
 
   const handleLikeButton = ()=>{
       if(answerId != null){
     let updatedLikedValue = answerLikeCount + 1;
-    fetch(`http://localhost:8080/api/answers/like/${answerId}`, {
-      method: 'PUT',
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify( {
-          liked: updatedLikedValue
-        })
-    })
-      .then(res => {
-          setAnswerLikeCount(updatedLikedValue)
-      })
+    likeAnswer(updatedLikedValue)
   } else{
-
 
   }
   }
@@ -101,7 +103,12 @@ function VotingButtons(props){
   }
   const handleDislikeButton = ()=>{
     const variable = (answerId ? answerId : questionId)
-    console.log("clicked dislike button" + variable)
+    if(answerId != null){
+      let updatedLikedValue = answerLikeCount - 1;
+      likeAnswer(updatedLikedValue)
+    } else{
+      
+    }
   }
     return (<div {...props}>
 	{/* &#x20B2; */}
