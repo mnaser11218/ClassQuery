@@ -59,9 +59,35 @@ function VotingButtons(props){
       getLikeCountForQuestion()  
     }
   },[])
+
+
   const handleLikeButton = ()=>{
-    console.log("clicked like button")
+      if(answerId != null){
+    let updatedLikedValue = answerLikeCount + 1;
+    fetch(`http://localhost:8080/api/answers/like/${answerId}`, {
+      method: 'PUT',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( {
+          liked: updatedLikedValue
+        })
+    })
+      .then(res => {
+          setAnswerLikeCount(updatedLikedValue)
+      })
+  } else{
+
+
   }
+  }
+
+
+
+
+
+
+
   const getLikeCountForAnswer = ()=>{
     fetch(`http://localhost:8080/api/answers/${answerId}`)
     .then(response=>response.json())
