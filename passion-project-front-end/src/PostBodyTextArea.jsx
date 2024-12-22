@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import BlueButton from "./styled-components/BlueButton";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "./CurrentUser";
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
@@ -18,6 +19,7 @@ border-radius: 5px;
 color: #fff;
 `
 function PostBodyTextArea({...props}){
+  const { currentLoggedInUser } = useUser()
     const [answer, setAnswer] = useState("");
     const {questionId} = props;
     let navigate = useNavigate(); 
@@ -38,6 +40,9 @@ function PostBodyTextArea({...props}){
                     createdDate: new Date(),
                     question: {
                       id: questionId
+                    },
+                    userProfile:{
+                      id: currentLoggedInUser.id
                     }
                   
               })

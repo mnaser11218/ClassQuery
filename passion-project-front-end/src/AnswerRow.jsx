@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import VotingButtons from './VotingButtons';
 import ReactMarkdown from 'react-markdown';
@@ -15,7 +15,19 @@ margin-top:30px;
 padding-left: 100px;
 `
 function AnswerRow(props) {
-    const {answer} = props;
+    const {answer, userProfileId} = props;
+    const [userprofileName, setUserprofileName]= useState("")
+    useEffect(()=>{
+            getProfileName()
+    },[])
+    const getProfileName=()=>{
+        fetch(`http://localhost:8080/api/user-profiles/${userProfileId}`)
+        .then(res=> res.json())
+        .then(data=> {
+            setUserprofileName(data.name)
+    })
+    }
+  
   return (
     <BodyTag>
            
@@ -27,8 +39,8 @@ function AnswerRow(props) {
                 remarkPlugins={[gfm]} 
                 children={answer.answer}    
                />
-              
-               <p style={{color: "gray", fontSize:"10px" }}>answered By:, {answer.createdDate}</p>
+             
+               <p style={{color: "gray", fontSize:"10px" }}>Answered By:, {userprofileName} {answer.createdDate}</p>
                </div>
             </BodyTag>
   )
