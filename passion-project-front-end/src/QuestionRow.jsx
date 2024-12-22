@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import { Link} from "react-router-dom"
 import GetAmountOfAnswers from './GetAmountOfAnswers';
+import { useEffect, useState } from "react";
 
 
 const QuestionStat = styled.div`
@@ -70,12 +71,22 @@ padding:10px;
 `
 
 function QuestionRow(props){
-const {question, title, createdDate, tags, id, liked} = props;
+const {question, title, createdDate, tags, id, liked, userProfileId} = props;
+const [userProfileName, setUserProfileName] = useState("")
 // let navigate = useNavigate(); 
 //     const routeChange = ()=> {
 //         let path = `/answerspage`; 
 //         navigate(path);
 //     }
+
+const fetchUserProfileName = ()=>{
+        fetch(`http://localhost:8080/api/user-profiles/${userProfileId}`)
+        .then(response=>response.json())
+        .then(data=> setUserProfileName(data.name) )
+      }
+      useEffect(()=>{
+fetchUserProfileName()
+      },[])
     return(
             <>
     <StyledQuestionRow>
@@ -87,7 +98,7 @@ const {question, title, createdDate, tags, id, liked} = props;
         <QuestionTag>{question} </QuestionTag>
 
 
-        <User>Mohammed <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
+        <User>{userProfileName} <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
         {tags!= null && tags.map(tag=> <span className="tag">{tag.tagName}</span>)}
         

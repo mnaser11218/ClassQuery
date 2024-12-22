@@ -33,23 +33,26 @@ function QuestionsPage(){
         let path = `/askpage`; 
         navigate(path);
     }
+    const fetchQuestions = ()=> {
+      fetch(`http://localhost:8080/api/questions`)
+      .then(res => {
+        console.log("inside fetch method")
+        //console.log("res is ", Object.prototype.toString.call(res));
+        return res.json();
+      })
+      .then(data => {
+        console.log("data fetched")
+        console.log(data)
+        setQuestions(data);
+        //arr = data;
+      })
+      .catch(error => {
+        console.log(`Error Fetching data : ${error}`);
+       // document.getElementById('posts').innerHTML = 'Error Loading Data';
+      });
+    }
     useEffect(()=> {
-        fetch(`http://localhost:8080/api/questions`)
-        .then(res => {
-          console.log("inside fetch method")
-          //console.log("res is ", Object.prototype.toString.call(res));
-          return res.json();
-        })
-        .then(data => {
-          console.log("data fetched")
-          console.log(data)
-          setQuestions(data);
-          //arr = data;
-        })
-        .catch(error => {
-          console.log(`Error Fetching data : ${error}`);
-         // document.getElementById('posts').innerHTML = 'Error Loading Data';
-        });
+      fetchQuestions()
     }, [])
  
    // handleQuestions();
@@ -61,7 +64,7 @@ function QuestionsPage(){
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")
-   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} />
+   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile.id}/>
 })}
 
         </main>
