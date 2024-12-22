@@ -7,7 +7,7 @@ import H1HeaderTag from "./styled-components/H1HeaderTag";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import PreviewArea from "./styled-components/PreviewArea";
-import UserLink from "./UserLink";
+import UserLink from "./styled-components/UserLink";
 import WhoAndWhen from "./styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
 import H2HeaderTag from "./styled-components/H2HeaderTag";
