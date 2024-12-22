@@ -19,10 +19,14 @@ padding-left: 100px;
 function AllAnswersListPage({...props}){
     const {questionId} = props;
     const [answers, setAnswers ] = useState([]);
+    const [userProfileName, setUserProfileName] = useState("")
     const getAnswers = ()=>{
         fetch(`http://localhost:8080/api/answers/question/${questionId}`)
         .then(res=> res.json())
         .then(data=> setAnswers(data))
+    }
+    const getProfileName=()=>{
+        
     }
    
     useEffect(()=>{
@@ -47,7 +51,7 @@ function AllAnswersListPage({...props}){
                 children={answer.answer}    
                />
               
-               <p style={{color: "gray", fontSize:"10px" }}>{answer.createdDate}</p>
+               <p style={{color: "gray", fontSize:"10px" }}>answered By: Mohamed, {answer.createdDate}</p>
                </div>
             </BodyTag>
         )
