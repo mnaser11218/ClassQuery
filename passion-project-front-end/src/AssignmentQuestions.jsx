@@ -49,7 +49,7 @@ return(
 </HeaderRow>
 {questions.map(row=> {
 console.log("inside row")
-return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} />
+return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile.id} />
 })}
 
     </main>

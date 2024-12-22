@@ -15,7 +15,6 @@ border-top: 1px solid #777;
 padding-top: 30px;
 margin-top:30px;
 padding-left: 100px;
-
 `
 function AllAnswersListPage({...props}){
     const {questionId} = props;
@@ -46,7 +45,6 @@ function AllAnswersListPage({...props}){
                <ReactMarkdown 
                 remarkPlugins={[gfm]} 
                 children={answer.answer}    
-                
                />
               
                <p style={{color: "gray", fontSize:"10px" }}>{answer.createdDate}</p>
