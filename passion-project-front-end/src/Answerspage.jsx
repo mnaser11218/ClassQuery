@@ -16,22 +16,55 @@ import AllAnswersListPage from "./AllAnswersListPage";
 import { useUser } from "./CurrentUser";
 
 function AnswersPage(){
+  
   const params = useParams();
   const questionId = params.id;
   const [question, setQuestion]= useState("")
+  const [userProfileName, setUserProfileName] =useState("")
   const {currentLoggedInUser} = useUser();
  
+  useEffect(()=>{
+    fetchQuestion();
+  }, [])
+  useEffect(()=>{
+    if(question){
+      fetchUserProfileName()
+    }
+   
+  },[question])
  
-  const fetchQuestion = ()=> {
+  var fetchQuestion = ()=> {
   fetch(`http://localhost:8080/api/questions/${questionId}`)
   .then(res=> res.json())
   .then(data=> {
    setQuestion(data)
+   console.log("the userid is: " +data.userProfile?.id )
  })
+
  }
+
+ var fetchUserProfileName = ()=>{
+  console.log("question is: "  + JSON.stringify(question.userProfile.id))
+  fetch(`http://localhost:8080/api/user-profiles/${question.userProfile.id}`)
+  .then(response=>response.json())
+  .then(data=> {
+    setUserProfileName(data.name)
+    
+   } )
+}
+
+ 
 
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
+`
+
+
+const User = styled.a`
+color: rgb(27, 117, 208);
+font-size: 0.7rem;
+float: right;
+padding: 10px 0;
 `
 const AnswerMeta = styled.div`
 display: grid;
@@ -48,9 +81,7 @@ padding-top: 10px;
 
 
 
-  useEffect(()=>{
-    fetchQuestion();
-  }, [])
+
 
     return(
       
@@ -73,8 +104,8 @@ padding-top: 10px;
             
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
-       <WhoAndWhen> {question.createdDate} <UserLink id={question.userProfile?.id} > { "user Profile Id: " + question.userProfile?.id} </UserLink> </WhoAndWhen>  
-         
+       <WhoAndWhen>  <UserLink id={question.userProfile?.id} >asked { userProfileName}  {question.createdDate} </UserLink> </WhoAndWhen>  
+       {/* <User>{question.userProfile?.id} <WhoAndWhen>asked {question.createdDate}</WhoAndWhen></User> */}
             </AnswerMeta> 
           </div>
 

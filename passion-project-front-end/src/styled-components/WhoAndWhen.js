@@ -4,7 +4,10 @@ display: inline-block;
 color: #aaa;
 font-size: .8rem;
 float: right;
-padding: 10px 100px;
+padding: 40px 250px;
+
+  width: 50%; 
+
 `
 function WhoAndWhen({...props}){
 return <StyledWhoAndWhen {...props}/>
