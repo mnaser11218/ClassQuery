@@ -25,23 +25,26 @@ function AllAnswersListPage({...props}){
         .then(res=> res.json())
         .then(data=> setAnswers(data))
     }
-    const getProfileName=()=>{
-        
+    const getProfileName=(userProfileId)=>{
+        fetch(`http://localhost:8080/api/user-profiles/${userProfileId}`)
+        .then(res=> res.json())
+        .then(data=> setUserProfileName(data.name))
     }
    
     useEffect(()=>{
     getAnswers();
     },[])
-
     return (<>
     <hr/>
    <H2HeaderTag style={{"border-top": "none"}}> {answers.length} Answers:</H2HeaderTag>
 
    {answers.length === 0 ? <p>No answers available.</p> :
     answers.map(answer=> {
+        
         return (
+         
          <BodyTag>
-
+           
          <VotingButtons likeCount={answer.liked ? answer.liked : 0} answerId={answer.id}/>
         
                <div  style={{fontSize: '17px',  "letter-spacing": "1px" }} >
@@ -51,7 +54,7 @@ function AllAnswersListPage({...props}){
                 children={answer.answer}    
                />
               
-               <p style={{color: "gray", fontSize:"10px" }}>answered By: Mohamed, {answer.createdDate}</p>
+               <p style={{color: "gray", fontSize:"10px" }}>answered By: {userProfileName}, {answer.createdDate}</p>
                </div>
             </BodyTag>
         )
