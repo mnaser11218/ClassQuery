@@ -79,7 +79,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question, answer }) => {
     <>
    
         {!showLanguageInput && (
-             <Button onClick={() => setShowLangInput(true)}>Translate {question ? "Question": "Answer"}
+             <Button onClick={() => setShowLangInput(true)}>Translate {question != null ? "Question": "Answer"}
     
           <span id="globe-icon-ai" >
             {globeIcon}

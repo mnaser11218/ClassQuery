@@ -61,7 +61,7 @@ const GPT1RewordQuestion = ({ apiKey, onUpdateInputValue, question, answer }) =>
 
   return (
     <div>
-        <Button onClick={generateText}> Reword {question ? "Question" : "Answer"} 
+        <Button onClick={generateText}> Reword {question != null ? "Question" : "Answer"} 
         <span id="pencil-icon-ai" >{pencilIcon}</span>
         
         </Button>
