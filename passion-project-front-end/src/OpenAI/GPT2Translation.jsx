@@ -17,9 +17,21 @@ cursor: pointer;
    //color: #748D92;
    border: none;
    }
-
 `
-
+const LanguageButton = styled.button`
+background-color: transparent;
+ padding: 7px;
+ color: #F8F7E5;
+ margin-left: 10px;
+border: solid 1px #F8F7E5;
+border-radius: 5px;
+cursor: pointer;
+  &:hover{
+   color: #FF9900;
+   //color: #748D92;
+   border: none;
+   }
+`
 const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
   const [showForm, setShowForm] = useState(false);
   const [language, setLanguage] = useState('');
@@ -55,6 +67,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
         console.log(response.data.choices[0].message.content)
       const gptResponse = response.data.choices[0].message.content
       setLanguage("English")
+      onUpdateInputValue(gptResponse)
     setShowLangInput(false)
     })
     .catch(error => {
@@ -77,16 +90,22 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
      
       <div>
         {showLanguageInput && (
-          <div>
+          <div style={{"margin-top": "22px"}}>
             <input
               type="text"
               value={language}
               onChange={(event) => setLanguage(event.target.value)}
               placeholder="Enter Language (e.g., Spanish, French...)"
+              size="25"
+              maxlength="20"
+              style={{"padding": "7px", "border-radius": "5px"}}
+
             />
-            <button  onClick={generateText}>
+            {/* <button style={{"background-color":"transparent", padding: "5px", color: "#F8F7E5", "margin-left": "10px", border: "solid 1px #F8F7E5" }} onClick={generateText}> */}
+            <LanguageButton onClick={generateText}>
               Submit Language
-            </button>
+              </LanguageButton>
+            {/* </button> */}
           </div>
         )}
       </div>
