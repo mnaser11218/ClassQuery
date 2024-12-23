@@ -126,7 +126,7 @@ return(
       
       <AiButtons>
         <div style={{"margin": "20px",
-"padding": "7px 0px 10px 20px"}}> AI Features:</div>
+"padding": "7px 0px 10px 0px"}}> AI Features:</div>
         
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 

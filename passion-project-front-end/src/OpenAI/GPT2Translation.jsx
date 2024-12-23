@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 
 const Button = styled.button`
-color: white;
+color: #F8F7E5;
 background-color: transparent;
-border: solid 1px white;
+border: solid 1px #F8F7E5;
 border-radius: 5px;
 margin: 20px;
 padding: 7px 0px 10px 20px;
@@ -33,11 +33,6 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
 
   const generateText = () => {
     setShowForm(true);
-    // const mainInputElement = document.getElementById('main-input-element');
-    // const inputText = mainInputElement ? mainInputElement.value : '';
-
-
-
       axios.post('https://api.openai.com/v1/chat/completions',
         {
             "model": "gpt-3.5-turbo",
@@ -59,9 +54,6 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
     .then(response => {
         console.log(response.data.choices[0].message.content)
       const gptResponse = response.data.choices[0].message.content
-    //   .replaceAll("\"", "").trim();
-    //   console.log("gpt response: " + gptResponse); //this logs it to console completed
-      onUpdateInputValue(gptResponse); //update input value in timeline AKa corrects tweet typed
       setLanguage("English")
     setShowLangInput(false)
     })
@@ -72,15 +64,17 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
 
   return (
     <>
-    <Button>Translate Question
-    
+   
         {!showLanguageInput && (
-          <span id="globe-icon-ai" onClick={() => setShowLangInput(true)}>
+             <Button onClick={() => setShowLangInput(true)}>Translate Question
+    
+          <span id="globe-icon-ai" >
             {globeIcon}
           </span>
+          </Button>
         )}
     
-      </Button>
+     
       <div>
         {showLanguageInput && (
           <div>
@@ -90,7 +84,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
               onChange={(event) => setLanguage(event.target.value)}
               placeholder="Enter Language (e.g., Spanish, French...)"
             />
-            <button id="vishnu-button" onClick={generateText}>
+            <button  onClick={generateText}>
               Submit Language
             </button>
           </div>

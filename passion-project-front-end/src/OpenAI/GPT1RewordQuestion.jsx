@@ -3,9 +3,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 
  const Button = styled.button`
- color: white;
+color: #F8F7E5;
 background-color: transparent;
-border: solid 1px white;
+border: solid 1px #F8F7E5;
 border-radius: 5px;
 margin: 20px;
 padding: 7px 0px 10px 20px;
