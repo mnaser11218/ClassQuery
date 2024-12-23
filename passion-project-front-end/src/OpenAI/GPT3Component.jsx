@@ -31,10 +31,10 @@ const GPT3Component = ({ apiKey, onUpdateInputValue, question }) => {
     })
     .then(response => {
         console.log(response.data.choices[0].message.content)
-    //   const gptResponse = response.choices[0].message.content
+      const gptResponse = response.data.choices[0].message.content
     //   .replaceAll("\"", "").trim();
     //   console.log("gpt response: " + gptResponse); //this logs it to console completed
-    //   onUpdateInputValue(gptResponse); //update input value in timeline AKa corrects tweet typed
+      onUpdateInputValue(gptResponse); //update input value in timeline AKa corrects tweet typed
     })
     .catch(error => {
       console.error('Error:', error);
