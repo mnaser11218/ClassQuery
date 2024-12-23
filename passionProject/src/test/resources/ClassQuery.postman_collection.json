@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "32b6de58-6c6a-4da1-b443-afad3e56259c",
+		"name": "ClassQuery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17184661",
+		"_collection_link": "https://planetary-water-222454.postman.co/workspace/Api-Workspace~45700440-e72f-456c-83af-42aea7bf6d7f/collection/17184661-32b6de58-6c6a-4da1-b443-afad3e56259c?action=share&source=collection_link&creator=17184661"
+	},
+	"item": [
+		{
+			"name": "getQuestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostQuestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"title\": \"testing from postman 3\",\n        \"question\": \"what is postman 3\",\n        \"createdDate\": \"2024-08-23\",\n        \"answers\": null,\n        \"tags\": [{\n    \"id\" : 1,\n    \"tagName\" : null,\n    \"tagDescription\" : null,\n    \"createdDate\" : null,\n    \"labName\" : null,\n    \"labTopic\" : null\n  }, {\n    \"id\" : 2,\n    \"tagName\" : null,\n    \"tagDescription\" : null,\n    \"createdDate\" : null,\n    \"labName\" : null,\n    \"labTopic\" : null\n  }\n        ],\n        \"userProfile\": null,\n        \"assignment\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAnswersOfQuestion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers/question/1502",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers",
+						"question",
+						"1502"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAnswers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCountAnswerOfQues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/answers/count/1508",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"answers",
+						"count",
+						"1508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserProfileByEmailAddress",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserProfiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/user-profiles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUserProfile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"postman\",\n        \"emailAddress\": \"email_postman\",\n        \"aboutMe\": \"password_postman\",\n        \"created\": \"2024-08-23\",\n        \"questions\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user-profiles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profiles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

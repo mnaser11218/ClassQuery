@@ -11,6 +11,7 @@ import PreviewArea from "./styled-components/PreviewArea";
 // import SimpleTags from "./SimpleTags";
 import Tags from "./Tags";
 import { useUser } from "./CurrentUser";
+import GPT3Component from "./OpenAI/GPT3Component";
 
 
 
@@ -47,6 +48,10 @@ const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
 //const user= useContext(UserContext);
+// const [inputValue, setInputValue] = useState('');
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY
+
+
 const params = useParams();
 const assignmentId = params?.id;
 
@@ -110,6 +115,7 @@ return(
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
       <Tags setTags={setTags} tags={tags} />
+      <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
  

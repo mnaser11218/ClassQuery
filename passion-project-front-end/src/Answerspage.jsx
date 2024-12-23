@@ -104,7 +104,7 @@ padding-top: 10px;
             
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
-       <WhoAndWhen>  <UserLink id={question.userProfile?.id} >asked { userProfileName}  {question.createdDate} </UserLink> </WhoAndWhen>  
+       <WhoAndWhen>  <User id={question.userProfile?.id} >Asked By: { userProfileName}, {question.createdDate} </User> </WhoAndWhen>  
        {/* <User>{question.userProfile?.id} <WhoAndWhen>asked {question.createdDate}</WhoAndWhen></User> */}
             </AnswerMeta> 
           </div>

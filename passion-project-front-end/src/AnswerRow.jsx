@@ -40,7 +40,7 @@ function AnswerRow(props) {
                 children={answer.answer}    
                />
              
-               <p style={{color: "gray", fontSize:"10px" }}>Answered By:, {userprofileName} {answer.createdDate}</p>
+               <p style={{color: "gray", fontSize:"10px" }}>Answered By: {userprofileName}, {answer.createdDate}</p>
                </div>
             </BodyTag>
   )
