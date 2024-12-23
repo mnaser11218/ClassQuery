@@ -11,7 +11,8 @@ import PreviewArea from "./styled-components/PreviewArea";
 // import SimpleTags from "./SimpleTags";
 import Tags from "./Tags";
 import { useUser } from "./CurrentUser";
-import GPT3Component from "./OpenAI/GPT3Component";
+import GPT3Component from "./OpenAI/GPT3GrammarCheck";
+import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
 
 
 
@@ -116,6 +117,7 @@ return(
       </PreviewArea>
       <Tags setTags={setTags} tags={tags} />
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
+      <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
  
