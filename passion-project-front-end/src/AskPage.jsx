@@ -13,6 +13,7 @@ import Tags from "./Tags";
 import { useUser } from "./CurrentUser";
 import GPT3Component from "./OpenAI/GPT3GrammarCheck";
 import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
+import GPT2Translation from "./OpenAI/GPT2Translation";
 
 
 
@@ -43,6 +44,12 @@ color: #fff;
 
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
+`
+const AiButtons = styled.div`
+  display: flex; 
+  flex-direction: rows; 
+  //align-items: center; 
+
 `
 function AskPage(){
 const [question, setQuestion] = useState("");
@@ -116,8 +123,15 @@ return(
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
       <Tags setTags={setTags} tags={tags} />
+      
+      <AiButtons>
+        <div style={{"margin": "20px",
+"padding": "7px 0px 10px 20px"}}> AI Features:</div>
+        
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
+      <GPT2Translation apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} /> 
+      </AiButtons>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
  
