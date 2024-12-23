@@ -6,6 +6,9 @@ import gfm from 'remark-gfm';
 import BlueButton from "./styled-components/BlueButton";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "./CurrentUser";
+import GPT3Component from "./OpenAI/GPT3GrammarCheck";
+import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
+import GPT2Translation from "./OpenAI/GPT2Translation";
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
@@ -18,10 +21,18 @@ border: 2px solid #F8F7E5;
 border-radius: 5px;
 color: #fff;
 `
+const AiButtons = styled.div`
+  display: flex; 
+  flex-direction: rows; 
+  //align-items: center; 
+
+`
 function PostBodyTextArea({...props}){
   const { currentLoggedInUser } = useUser()
     const [answer, setAnswer] = useState("");
     const {questionId} = props;
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY
+
     let navigate = useNavigate(); 
         var routeChange = ()=> {
             let path = `/answerspage/${questionId}`; 
@@ -65,6 +76,15 @@ function PostBodyTextArea({...props}){
     <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={answer}/>
       </PreviewArea>
+      <AiButtons>
+        <div style={{"margin": "20px",
+"padding": "7px 0px 10px 0px"}}> AI Features:</div>
+        
+      <GPT3Component apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer}/>
+      <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 
+      <GPT2Translation apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 
+      </AiButtons>
+
       <BlueButton onClick={handlePostAnswer}>Post Your Answer</BlueButton>
     </>)
 }

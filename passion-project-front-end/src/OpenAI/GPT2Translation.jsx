@@ -32,7 +32,7 @@ cursor: pointer;
    border: none;
    }
 `
-const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
+const GPT2Translation = ({ apiKey, onUpdateInputValue, question, answer }) => {
   const [showForm, setShowForm] = useState(false);
   const [language, setLanguage] = useState('');
   const [showLanguageInput, setShowLangInput] = useState(false);
@@ -53,7 +53,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
               {
                 "role": "user",
                 
-                "content": `Translate this to ${language}: ${question}`,
+                "content": `Translate this to ${language}: ${question ? question : answer}`,
               }
             ],
               "max_tokens": 1000
@@ -79,7 +79,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question }) => {
     <>
    
         {!showLanguageInput && (
-             <Button onClick={() => setShowLangInput(true)}>Translate Question
+             <Button onClick={() => setShowLangInput(true)}>Translate {question ? "Question": "Answer"}
     
           <span id="globe-icon-ai" >
             {globeIcon}
