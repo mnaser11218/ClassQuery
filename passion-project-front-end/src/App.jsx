@@ -118,6 +118,11 @@ const WholePage = styled.div`
 display: grid;
 grid-template-columns: 250px 1fr 250px;
   height: 100vh;
+   grid-template-rows: auto 1fr;
+    @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Full-width layout for mobile */
+    grid-template-rows: auto 1fr; /* Keep header on top */
+  }
 `
 
 ;
@@ -130,10 +135,11 @@ const [user, setUser] = useState(null);
    <UserProvider>
    {/* <UserContext.Provider value={user}> */}
    <Router>
-   <Header />
   
+ 
 
     <WholePage>
+    <Header />
       <LeftSideBar />
     <div >
       <Reset/>

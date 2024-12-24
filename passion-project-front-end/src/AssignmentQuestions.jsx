@@ -16,7 +16,8 @@ const HeaderRow = styled.div`
 padding: 30px 20px;
 //background-color: gray;
 display: grid;
-grid-template-columns: 1fr max-content
+grid-template-columns: 1fr max-content;
+margin-top: 0px;
 `
 function AssignmentQuestions() {
     const { currentLoggedInUser } = useUser()
@@ -42,7 +43,7 @@ useEffect(()=>{
 
 
 return(
-    <main>
+    <>
         <HeaderRow>
 <StyledHeader>Assignment Name : {assignmentName}</StyledHeader>
  <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
@@ -52,7 +53,7 @@ console.log("inside row")
 return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row?.userProfile?.id} />
 })}
 
-    </main>
+    </>
 )
 
 }

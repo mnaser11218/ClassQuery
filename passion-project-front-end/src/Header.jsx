@@ -6,16 +6,20 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 import { useUser } from "./CurrentUser";
 const StyledHeader = styled.header`
-//border-top: solid 2px #FF9900;
 border-top: solid 2px hsl(27, 89%, 48%);
 grid-column-gap: 20px;
-//background-color: #F8F7E5;
-//background-color: #874F41;
 background-color: #3f3f3f;
 box-shadow: 0px 1px 1px hsl(27, 89%, 48%);
-display: grid;
-grid-template-columns: 250px 1fr 200px;
 border-bottom: 1px solid #777;
+display: grid;
+grid-template-columns: 250px 1fr 250px;
+grid-column: 1 / -1; /* Ensures header spans all columns */
+  width: 100%;
+   @media (max-width: 768px) {
+    padding: 15px 10px; /* Adjust padding for mobile */
+    // background-color: #fff; /* Change background for mobile */
+    // color: black;
+  }
 `;
 
 const ProfileLink = styled(Link)`
@@ -67,20 +71,21 @@ function Header (){
 
     return (
         <StyledHeader>
-            {console.log("the user is:: " + currentLoggedInUser)}
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon style={{"color": "#FF9900"}}icon={faStackOverflow} size="2x"/>
         <span>
     class<b>Query</b>
     </span>
     </LogoLink>
-    
+    <div>
     <form action="" className="search">
   
     <StyledInput type="text" placeholder="Search... " />
     </form>
+    </div>
+    <div>
     {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink to="/register">Register</ProfileLink></div>}
-
+    </div>
    </StyledHeader>
     )
 }

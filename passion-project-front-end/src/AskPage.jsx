@@ -14,6 +14,7 @@ import { useUser } from "./CurrentUser";
 import GPT3Component from "./OpenAI/GPT3GrammarCheck";
 import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
 import GPT2Translation from "./OpenAI/GPT2Translation";
+import GPT4AskChat from "./OpenAI/GPT4AskChat";
 
 
 
@@ -131,6 +132,8 @@ return(
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
       <GPT2Translation apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} /> 
+      {/* <GPT4AskChat apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} />  */}
+
       </AiButtons>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
