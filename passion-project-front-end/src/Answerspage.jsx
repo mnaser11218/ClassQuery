@@ -116,17 +116,14 @@ padding-top: 10px;
           questionId={questionId}
           />
 
-{ currentLoggedInUser?.id ? (
-  <>
+
+
         <H2HeaderTag>Your Answer</H2HeaderTag>
         
          <PostBodyTextArea
          questionId={questionId}
          />
-         </>
-)
-         : "Log in to submit an answer"
-}
+         
       
           </>
         )

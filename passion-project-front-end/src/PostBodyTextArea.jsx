@@ -52,9 +52,9 @@ function PostBodyTextArea({...props}){
                     question: {
                       id: questionId
                     },
-                    userProfile:{
+                    userProfile: currentLoggedInUser?.id ? {
                       id: currentLoggedInUser.id
-                    }
+                    } : null
                   
               })
           }).then(res => res.json())

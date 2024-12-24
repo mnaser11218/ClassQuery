@@ -36,7 +36,7 @@ function AllAnswersListPage({...props}){
     answers.map(answer=> {
         return (
             
-        <AnswerRow answer={answer} userProfileId={answer.userProfile.id}/> 
+        <AnswerRow answer={answer} userProfileId={answer.userProfile?.id}/> 
         )
     })}
    

@@ -16,9 +16,11 @@ padding-left: 100px;
 `
 function AnswerRow(props) {
     const {answer, userProfileId} = props;
-    const [userprofileName, setUserprofileName]= useState("")
+    const [userprofileName, setUserprofileName]= useState("Anonymous User")
     useEffect(()=>{
+      if(userProfileId){
             getProfileName()
+      }
     },[])
     const getProfileName=()=>{
         fetch(`http://localhost:8080/api/user-profiles/${userProfileId}`)
