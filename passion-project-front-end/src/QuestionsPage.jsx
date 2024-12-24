@@ -62,7 +62,7 @@ function QuestionsPage(){
         <main>
             <HeaderRow>
 <StyledHeader>All Questions</StyledHeader>
-    { currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "Log in to ask a question" } 
+    <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> 
 </HeaderRow>
 {questions.map(row=> {
     console.log("inside row")

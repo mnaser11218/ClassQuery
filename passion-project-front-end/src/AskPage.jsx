@@ -84,9 +84,9 @@ const handleSubmitClick = ()=>{
             question: question,
             createdDate: new Date(),
             tags: tagsId,
-            userProfile: {
-              "id": currentLoggedInUser?.id ? currentLoggedInUser?.id : null
-          },  
+            userProfile: currentLoggedInUser?.id ? {
+              "id": currentLoggedInUser?.id
+          } : null,  
           assignment: assignmentId ? {"id": assignmentId} : null
           })
       }).then(res => res.json())
@@ -97,7 +97,7 @@ const handleSubmitClick = ()=>{
 return(
     <>
     <CenterPageDiv>
-    { currentLoggedInUser?.name ? <H1HeaderTag>Welcome, {currentLoggedInUser?.name}.</H1HeaderTag> : "Log in to ask Question" }
+   <H1HeaderTag>Welcome {currentLoggedInUser?.name ?currentLoggedInUser?.name : ""  }.</H1HeaderTag> 
 
     <TitleInput 
     type="text"

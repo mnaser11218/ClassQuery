@@ -85,7 +85,11 @@ const fetchUserProfileName = ()=>{
         .then(data=> setUserProfileName(data.name) )
       }
       useEffect(()=>{
-fetchUserProfileName()
+
+        if(userProfileId){
+                fetchUserProfileName()
+        }
+
       },[])
     return(
             <>
