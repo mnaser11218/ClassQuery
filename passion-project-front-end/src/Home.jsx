@@ -27,12 +27,13 @@ border-radius: 5px;
 display: inline-block;
 margin:auto;
 
-      font-weight: 550;
-      font-size: 1.3rem;
+      font-weight: 600;
+      font-size: 1.5rem;
       color: #34495e;
 text-decoration: none;
 background-color:white;
 padding: 5px;
+margin-bottom: 30px;
 
 `
 
@@ -50,7 +51,7 @@ height: 250px;
 
 const StyledHeader = styled.a`
 color: #F8F7E5;
-font-size: 1.8rem;
+font-size: 2rem;
 font-family: var(--ff-sans);
 cursor: pointer;
 `
@@ -89,7 +90,7 @@ return(
       // Optional: Makes sure the image covers the element
       backgroundPosition: "center"}}>
         <LinkTag to={`/assignmentquestion/${ele.id}`}>
-        Assignment name: {<br></br>} {ele.name}
+        {<br></br>} {ele.name}
         </LinkTag>
          
     

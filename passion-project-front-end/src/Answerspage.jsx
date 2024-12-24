@@ -44,8 +44,8 @@ function AnswersPage(){
  }
 
  var fetchUserProfileName = ()=>{
-  console.log("question is: "  + JSON.stringify(question.userProfile.id))
-  fetch(`http://localhost:8080/api/user-profiles/${question.userProfile.id}`)
+  console.log("question is: "  + JSON.stringify(question.userProfile?.id))
+  fetch(`http://localhost:8080/api/user-profiles/${question.userProfile?.id}`)
   .then(response=>response.json())
   .then(data=> {
     setUserProfileName(data.name)
@@ -104,7 +104,7 @@ padding-top: 10px;
             
             {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
             </div>
-       <WhoAndWhen>  <User id={question.userProfile?.id} >Asked By: { userProfileName}, {question.createdDate} </User> </WhoAndWhen>  
+       <WhoAndWhen>  <User id={question.userProfile?.id} >Asked By: { userProfileName ? userProfileName : "Anonymous User"}, {question.createdDate} </User> </WhoAndWhen>  
        {/* <User>{question.userProfile?.id} <WhoAndWhen>asked {question.createdDate}</WhoAndWhen></User> */}
             </AnswerMeta> 
           </div>

@@ -98,7 +98,7 @@ fetchUserProfileName()
         <QuestionTag>{question} </QuestionTag>
 
 
-        <User>{userProfileName} <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
+        <User>{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
         {tags!= null && tags.map(tag=> <span className="tag">{tag.tagName}</span>)}
         

@@ -85,7 +85,7 @@ const handleSubmitClick = ()=>{
             createdDate: new Date(),
             tags: tagsId,
             userProfile: {
-              "id": currentLoggedInUser?.id
+              "id": currentLoggedInUser?.id ? currentLoggedInUser?.id : null
           },  
           assignment: assignmentId ? {"id": assignmentId} : null
           })
