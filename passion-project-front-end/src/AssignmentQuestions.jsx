@@ -45,11 +45,11 @@ return(
     <main>
         <HeaderRow>
 <StyledHeader>Assignment Name : {assignmentName}</StyledHeader>
-{ currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> : "Log in to ask a Question" } 
+ <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
 {questions.map(row=> {
 console.log("inside row")
-return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile.id} />
+return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row?.userProfile?.id} />
 })}
 
     </main>

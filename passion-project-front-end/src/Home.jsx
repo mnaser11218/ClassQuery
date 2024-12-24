@@ -33,7 +33,7 @@ margin:auto;
 text-decoration: none;
 background-color:white;
 padding: 5px;
-margin-bottom: 30px;
+// margin-bottom: 30px;
 
 `
 
@@ -79,7 +79,7 @@ return(
     <>
         <HeaderRow>
 <StyledHeader> Course Assignments </StyledHeader>
-{ currentLoggedInUser?.id ?   <BlueButton onClick={routeChange}>Add&nbsp;Assignment</BlueButton> : "Log in to add an Assignment" } 
+<BlueButton onClick={routeChange}>Add&nbsp;Assignment</BlueButton>  
 </HeaderRow>
 
     <DivEle>

@@ -33,7 +33,7 @@ export default function AddAssignment() {
                 "name": name,
                 "topic": topic,
                 "courseName": courseName,
-                "description": currentLoggedInUser.name,
+                "description": currentLoggedInUser?.name ?currentLoggedInUser?.name : "Anonymous User" ,
                 "created": new Date(),
                 "questions": null
             })
