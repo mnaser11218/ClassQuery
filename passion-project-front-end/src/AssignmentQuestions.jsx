@@ -45,13 +45,13 @@ useEffect(()=>{
 return(
     <>
         <HeaderRow>
-<StyledHeader>Assignment Name : {assignmentName}</StyledHeader>
+<StyledHeader>Questions for Assignment: {assignmentName}</StyledHeader>
  <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
-{questions.map(row=> {
+{ questions.length >0 ?  questions.map(row=> {
 console.log("inside row")
 return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row?.userProfile?.id} />
-})}
+}) : <div style={{"border": "solid 1px", "padding": "20px"}}>This Assignment Has No Questions, yet.</div>}
 
     </>
 )
