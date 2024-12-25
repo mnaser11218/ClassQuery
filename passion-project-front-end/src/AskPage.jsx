@@ -58,6 +58,7 @@ const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
 const [checked, setChecked] = useState(false)
+const [chatGRT, setChatGPT] =useState("")
 //const user= useContext(UserContext);
 // const [inputValue, setInputValue] = useState('');
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY
@@ -70,31 +71,38 @@ const { currentLoggedInUser } = useUser()
 
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
-        var routeChange = ()=> {
-            let path = `/`; 
-            navigate(path);
-        }
+  let routeChange = ()=> {
+      let path = `/`; 
+      navigate(path);
+    }
+
+const postQuestion = () => {
+  const tagsId = tags.map(tag=> ({id:tag.value}))
+  fetch('http://localhost:8080/api/questions', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( {
+          title: topic,
+          question: question,
+          createdDate: new Date(),
+          tags: tagsId,
+          userProfile: currentLoggedInUser?.id ? {
+            "id": currentLoggedInUser?.id
+        } : null,  
+        assignment: assignmentId ? {"id": assignmentId} : null
+        })
+    }).then(res => res.json())
+      .then(res => console.log(res));
+    routeChange()
+}
+
+
 const handleSubmitClick = ()=>{
-    const tagsId = tags.map(tag=> ({id:tag.value}))
-    fetch('http://localhost:8080/api/questions', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( {
-            title: topic,
-            question: question,
-            createdDate: new Date(),
-            tags: tagsId,
-            userProfile: currentLoggedInUser?.id ? {
-              "id": currentLoggedInUser?.id
-          } : null,  
-          assignment: assignmentId ? {"id": assignmentId} : null
-          })
-      }).then(res => res.json())
-        .then(res => console.log(res));
-      routeChange()
+
+postQuestion()
 }
 
 return(
@@ -142,7 +150,7 @@ return(
       <AskChat onChecked={setChecked} />
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
- 
+        
 
     </>
 )
