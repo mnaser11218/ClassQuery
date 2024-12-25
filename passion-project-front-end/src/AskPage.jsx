@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useRef, useState, useContext} from "react";
+import {useRef, useState, useContext, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import BlueButton from "./styled-components/BlueButton";
@@ -16,6 +16,7 @@ import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
 import GPT2Translation from "./OpenAI/GPT2Translation";
 import GPT4AskChat from "./OpenAI/GPT4AskChat";
 import AskChat from "./OpenAI/AskChat";
+import axios from "axios";
 
 
 
@@ -55,10 +56,11 @@ const AiButtons = styled.div`
 
 function AskPage(){
 const [question, setQuestion] = useState("");
+const [newQuesId, setNewQuesId] = useState('')
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
 const [checked, setChecked] = useState(false)
-const [chatGRT, setChatGPT] =useState("")
+const [chatGPTAnswer, setChatGPTAnswer] =useState("")
 //const user= useContext(UserContext);
 // const [inputValue, setInputValue] = useState('');
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY
@@ -76,7 +78,14 @@ const { currentLoggedInUser } = useUser()
       navigate(path);
     }
 
-const postQuestion = () => {
+    useEffect(() => {
+      if (chatGPTAnswer) {
+          console.log("State updated and ready to be used:", chatGPTAnswer + "ques id is: " + newQuesId);
+       postAnswer()
+      }
+  }, [chatGPTAnswer]);
+
+var postQuestion = () => {
   const tagsId = tags.map(tag=> ({id:tag.value}))
   fetch('http://localhost:8080/api/questions', {
       method: 'POST',
@@ -95,14 +104,70 @@ const postQuestion = () => {
         assignment: assignmentId ? {"id": assignmentId} : null
         })
     }).then(res => res.json())
-      .then(res => console.log(res));
-    routeChange()
+      .then(res => {
+        setNewQuesId(()=>res.id)
+        if(checked){
+          sendChatGPT()
+        }
+      });
+   
+}
+
+var sendChatGPT = ()=>{
+  axios.post('https://api.openai.com/v1/chat/completions',
+    {
+        "model": "gpt-3.5-turbo",
+       
+       "messages": [
+          {
+            "role": "user",
+            
+            "content": `Answer this question in a concise way: ${question}`
+          }
+        ],
+          "max_tokens": 1000
+      }, {
+  headers: {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => {
+  const gptResponse = response.data.choices[0].message.content
+  setChatGPTAnswer(prevState => gptResponse);  
+console.log("this is the response from chatgpt : " + chatGPTAnswer  + "\n question id is: "  + newQuesId )
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+}
+var postAnswer = ()=>{
+    fetch('http://localhost:8080/api/answers', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( {
+                answer: chatGPTAnswer,
+                createdDate: new Date(),
+                question: {
+                  id: newQuesId
+                },
+                userProfile: {
+                  id: 1
+                } 
+              
+          })
+      }).then(res => res.json())
+        .then(res => console.log(res));
 }
 
 
 const handleSubmitClick = ()=>{
-
-postQuestion()
+  postQuestion()
+ 
+  //routeChange()
 }
 
 return(
