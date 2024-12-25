@@ -63,6 +63,11 @@ padding: 10px 10px;
 margin-top: 10px;
 border-radius: 5px;
 border: 1px solid #777;
+ @media (max-width: 768px) {
+    width: 40vh;
+    grid-template-columns: 1fr; /* Full-width layout for mobile */
+    grid-template-rows: auto 1fr; /* Keep header on top */
+  }
 
 `
 function Header (){
