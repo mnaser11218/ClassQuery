@@ -57,6 +57,7 @@ function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
+const [checked, setChecked] = useState(false)
 //const user= useContext(UserContext);
 // const [inputValue, setInputValue] = useState('');
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY
@@ -138,7 +139,7 @@ return(
       {/* <GPT4AskChat apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} />  */}
 
       </AiButtons>
-      <AskChat/>
+      <AskChat onChecked={setChecked} />
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
  
