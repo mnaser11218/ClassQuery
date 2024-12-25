@@ -76,9 +76,10 @@ function PostBodyTextArea({...props}){
     <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={answer}/>
       </PreviewArea>
-      <AiButtons>
-        <div style={{"margin": "20px",
+      <div style={{"margin": "15px 0px 5px 0px",
 "padding": "7px 0px 10px 0px"}}> AI Features:</div>
+      <AiButtons>
+        
         
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 

@@ -10,7 +10,6 @@ const SidebarBody = styled.div`
 //border-right: 1px solid #777;
 border-right: 1px solid #F8F7E5;
 height: 100%;
-border: solid blue 1px;
 
 `
 

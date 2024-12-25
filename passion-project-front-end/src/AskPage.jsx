@@ -15,6 +15,7 @@ import GPT3Component from "./OpenAI/GPT3GrammarCheck";
 import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
 import GPT2Translation from "./OpenAI/GPT2Translation";
 import GPT4AskChat from "./OpenAI/GPT4AskChat";
+import AskChat from "./OpenAI/AskChat";
 
 
 
@@ -50,8 +51,8 @@ const AiButtons = styled.div`
   display: flex; 
   flex-direction: rows; 
   //align-items: center; 
-
 `
+
 function AskPage(){
 const [question, setQuestion] = useState("");
 const [topic, setTopic] = useState("");
@@ -124,10 +125,12 @@ return(
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
       </PreviewArea>
       <Tags setTags={setTags} tags={tags} />
-      
+      {/* <img src={require("./OpenAI/chaticon.png")} style={{ width: 50 }} alt="" />  */}
+      <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px"}}>  AI Features:</div>
       <AiButtons>
-        <div style={{"margin": "20px",
-"padding": "7px 0px 10px 0px"}}> AI Features:</div>
+        
+      
         
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
@@ -135,6 +138,7 @@ return(
       {/* <GPT4AskChat apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} />  */}
 
       </AiButtons>
+      <AskChat/>
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
  
