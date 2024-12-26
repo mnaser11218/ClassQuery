@@ -83,7 +83,7 @@ const AskChatAQues = ({ apiKey, onUpdateInputValue }) => {
               <span id="globe-icon-ai" >
               <img src={require("./chaticon.png")} style={{ width: 50, height: 50,    position: "relative", 
       top: "20px" }} alt="" /> </span>
-             <Button onClick={() => setShowQuestionInput(true)}>Ask ChatGPT A Question? </Button>
+             <Button onClick={() => setShowQuestionInput(true)}>Ask AI a Question? </Button>
           </>
         )}
     

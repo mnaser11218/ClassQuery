@@ -91,7 +91,7 @@ return(
     {assignments?.map(ele=>{
       return(
       <AssignmentEle>
-        <LinkTag to={`/assignmentquestion/${ele.id}`}>
+        <LinkTag to={`/tagquestions/${ele.id}`}>
         <span className="tag">{ele.tagName}</span>
         </LinkTag>
 

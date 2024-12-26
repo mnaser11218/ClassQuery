@@ -19,6 +19,8 @@ import AssignmentQuestions from './Components/AssignmentQuestions';
 import { Footer } from './Components/Footer';
 import AddAssignment from './Components/AddAssignment';
 import ShowTags from './Components/ShowTags';
+import TagQuestions from './Components/TagQuestions';
+import AddTag from './Components/AddTag';
 
 
 
@@ -117,7 +119,7 @@ background: none;}
 `
 const WholePage = styled.div`
 display: grid;
-grid-template-columns: 250px 1fr 250px;
+grid-template-columns: 250px 1fr 150px;
   height: 100vh;
    grid-template-rows: auto 1fr;
     @media (max-width: 768px) {
@@ -157,7 +159,8 @@ const [user, setUser] = useState(null);
       <Route path="/assignmentquestion/:id" element={ <AssignmentQuestions/>} />
       <Route path="/addassignment" element={ <AddAssignment/>} />
       <Route path="/tags" element={<ShowTags/>}/>
-
+      <Route path="/tagquestions/:id" element={<TagQuestions />}/> 
+      <Route path="/addtag" element={<AddTag  />}/> 
       <Route path="/login" element={ <LoginPage/>} />
       <Route path="/register" element={ <RegisterPage/>} />
 
