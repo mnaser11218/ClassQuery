@@ -17,6 +17,7 @@ import GPT2Translation from "./OpenAI/GPT2Translation";
 import GPT4AskChat from "./OpenAI/GPT4AskChat";
 import AskChat from "./OpenAI/AskChat";
 import axios from "axios";
+import AskChatAQues from "./OpenAI/AskChatAQues";
 
 
 
@@ -61,6 +62,7 @@ const [topic, setTopic] = useState("");
 const [tags, setTags] = useState([]); // State to hold the tags
 const [checked, setChecked] = useState(false)
 const [chatGPTAnswer, setChatGPTAnswer] =useState("")
+const [askChat, setAskChat] = useState("")
 //const user= useContext(UserContext);
 // const [inputValue, setInputValue] = useState('');
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY
@@ -214,6 +216,15 @@ return(
 
       </AiButtons>
       <AskChat onChecked={setChecked} />
+
+
+      <AskChatAQues  apiKey={apiKey} onUpdateInputValue={setAskChat} question={askChat} /> 
+     { askChat ? <PreviewArea>
+      <ReactMarkdown remarkPlugins={[gfm]} children={askChat}/>
+      </PreviewArea>  : " "} 
+
+
+
       <BlueButton onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
         

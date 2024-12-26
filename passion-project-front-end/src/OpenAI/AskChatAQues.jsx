@@ -97,7 +97,7 @@ const AskChatAQues = ({ apiKey, onUpdateInputValue }) => {
               onChange={(event) => setQuestion(event.target.value)}
               placeholder="Enter your question..."
               size="25"
-              maxlength="20"
+              maxlength="50"
               style={{"padding": "7px", "border-radius": "5px"}}
 
             />
