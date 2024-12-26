@@ -32,10 +32,10 @@ cursor: pointer;
    border: none;
    }
 `
-const AskChatAQues = ({ apiKey, onUpdateInputValue, question, answer }) => {
+const AskChatAQues = ({ apiKey, onUpdateInputValue }) => {
   const [showForm, setShowForm] = useState(false);
-  const [language, setLanguage] = useState('');
-  const [showLanguageInput, setShowLangInput] = useState(false);
+  const [question, setQuestion] = useState('');
+  const [showQuestionInput, setShowQuestionInput] = useState(false);
 
   const globeIcon = (
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="15" fill="currentColor" className="bi bi-globe2" viewBox="0 0 16 16">
@@ -53,7 +53,7 @@ const AskChatAQues = ({ apiKey, onUpdateInputValue, question, answer }) => {
               {
                 "role": "user",
                 
-                "content": `Answer this question in a concise way: ${question}`,
+                "content": `Answer this question: ${question}`,
               }
             ],
               "max_tokens": 1000
@@ -66,9 +66,9 @@ const AskChatAQues = ({ apiKey, onUpdateInputValue, question, answer }) => {
     .then(response => {
         console.log(response.data.choices[0].message.content)
       const gptResponse = response.data.choices[0].message.content
-      setLanguage("English")
+      setQuestion("")
       onUpdateInputValue(gptResponse)
-    setShowLangInput(false)
+      setShowQuestionInput(false)
     })
     .catch(error => {
       console.error('Error:', error);
@@ -78,23 +78,23 @@ const AskChatAQues = ({ apiKey, onUpdateInputValue, question, answer }) => {
   return (
     <>
    
-        {!showLanguageInput && (
+        {!showQuestionInput && (
             <>
               <span id="globe-icon-ai" >
-              <img src={require("./chaticon.png")} style={{ width: 50, height: 50,    position: "relative",  // Enable positioning
+              <img src={require("./chaticon.png")} style={{ width: 50, height: 50,    position: "relative", 
       top: "20px" }} alt="" /> </span>
-             <Button onClick={() => setShowLangInput(true)}>Ask ChatGPT A Question? </Button>
+             <Button onClick={() => setShowQuestionInput(true)}>Ask ChatGPT A Question? </Button>
           </>
         )}
     
      
       <div>
-        {showLanguageInput && (
-          <div style={{"margin-top": "22px"}}>
+        {showQuestionInput && (
+          <div style={{"margin-top": "22px", "margin-bottom": "40px"}}>
             <input
               type="text"
-              value={language}
-              onChange={(event) => setLanguage(event.target.value)}
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
               placeholder="Enter your question..."
               size="25"
               maxlength="20"
