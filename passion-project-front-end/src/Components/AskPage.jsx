@@ -2,22 +2,22 @@ import styled from "styled-components";
 import {useRef, useState, useContext, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import BlueButton from "./styled-components/BlueButton";
+import BlueButton from "../styled-components/BlueButton";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import H1HeaderTag from "./styled-components/H1HeaderTag";
-import PreviewArea from "./styled-components/PreviewArea";
+import H1HeaderTag from "../styled-components/H1HeaderTag";
+import PreviewArea from "../styled-components/PreviewArea";
 // import UserContext from "./UserContext";
 // import SimpleTags from "./SimpleTags";
 import Tags from "./Tags";
-import { useUser } from "./CurrentUser";
-import GPT3Component from "./OpenAI/GPT3GrammarCheck";
-import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
-import GPT2Translation from "./OpenAI/GPT2Translation";
-import GPT4AskChat from "./OpenAI/GPT4AskChat";
-import AskChat from "./OpenAI/AskChat";
+import { useUser } from "../CurrentUser";
+import GPT3Component from "../OpenAI/GPT3GrammarCheck";
+import GPT1RewordQuestion from "../OpenAI/GPT1RewordQuestion";
+import GPT2Translation from "../OpenAI/GPT2Translation";
+import GPT4AskChat from "../OpenAI/GPT4AskChat";
+import AskChat from "../OpenAI/AskChat";
 import axios from "axios";
-import AskChatAQues from "./OpenAI/AskChatAQues";
+import AskChatAQues from "../OpenAI/AskChatAQues";
 
 
 
@@ -169,8 +169,6 @@ var postAnswer = ()=>{
 
 const handleSubmitClick = ()=>{
   postQuestion()
- 
-  
 }
 
 return(
@@ -190,13 +188,6 @@ return(
         placeholder="Enter Question here" 
         onChange={e=>setQuestion(e.target.value)}
     />
-    
-    {/* <select className="custom-select" size="3">
-  <option selected>Open this select menu</option>
-  <option value="1">Java</option>
-  <option value="2">MySql</option>
-  <option value="3">React</option>
-</select> */}
 
       <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>

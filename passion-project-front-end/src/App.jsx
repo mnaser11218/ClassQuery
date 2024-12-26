@@ -1,23 +1,23 @@
 import { createContext, useState } from 'react';
 import { Reset } from 'styled-reset'
 import styled, {createGlobalStyle} from 'styled-components';
-import Header from './Header';
-import QuestionsPage from './QuestionsPage';
-import Home from './Home';
-import AnswersPage from './Answerspage';
+import Header from './Components/Header';
+import QuestionsPage from './Components/QuestionsPage';
+import Home from './Components/Home';
+import AnswersPage from './Components/Answerspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AskPage from './AskPage';
-import LoginPage from './LoginPage';
+import AskPage from './Components/AskPage';
+import LoginPage from './Components/LoginPage';
 import UserContext from './UserContext';
 import Profile from './Profile';
-import RegisterPage from './RegisterPage';
+import RegisterPage from './Components/RegisterPage';
 import LoggedInUser from './LoggedInUser';
-import LeftSideBar from './LeftSideBar';
-import RightSideBar from './RightSideBar';
+import LeftSideBar from './Components/LeftSideBar';
+import RightSideBar from './Components/RightSideBar';
 import { UserProvider } from './CurrentUser';
-import AssignmentQuestions from './AssignmentQuestions';
-import { Footer } from './Footer';
-import AddAssignment from './AddAssignment';
+import AssignmentQuestions from './Components/AssignmentQuestions';
+import { Footer } from './Components/Footer';
+import AddAssignment from './Components/AddAssignment';
 
 
 

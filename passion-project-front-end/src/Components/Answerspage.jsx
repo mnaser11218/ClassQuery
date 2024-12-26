@@ -3,17 +3,17 @@ import styled from "styled-components"
 import {Link, useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
 import QuestionRow from "./QuestionRow";
-import H1HeaderTag from "./styled-components/H1HeaderTag";
+import H1HeaderTag from "../styled-components/H1HeaderTag";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import PreviewArea from "./styled-components/PreviewArea";
-import UserLink from "./styled-components/UserLink";
-import WhoAndWhen from "./styled-components/WhoAndWhen";
+import PreviewArea from "../styled-components/PreviewArea";
+import UserLink from "../styled-components/UserLink";
+import WhoAndWhen from "../styled-components/WhoAndWhen";
 import VotingButtons from "./VotingButtons";
-import H2HeaderTag from "./styled-components/H2HeaderTag";
+import H2HeaderTag from "../styled-components/H2HeaderTag";
 import PostBodyTextArea from "./PostBodyTextArea";
 import AllAnswersListPage from "./AllAnswersListPage";
-import { useUser } from "./CurrentUser";
+import { useUser } from "../CurrentUser";
 
 function AnswersPage(){
   

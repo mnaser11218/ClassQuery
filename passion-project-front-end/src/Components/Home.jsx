@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "./CurrentUser";
-import BlueButton from "./styled-components/BlueButton";
+import { useUser } from "../CurrentUser";
+import BlueButton from "../styled-components/BlueButton";
 const H1home = styled.div`
 color:black;
 font-size: 5rem;

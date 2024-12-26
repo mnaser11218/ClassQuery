@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow} from '@fortawesome/fontawesome-free-brands'
 import {Link} from "react-router-dom"
 import { useContext } from "react";
-import UserContext from "./UserContext";
-import { useUser } from "./CurrentUser";
+import UserContext from "../UserContext";
+import { useUser } from "../CurrentUser";
 const StyledHeader = styled.header`
 border-top: solid 2px hsl(27, 89%, 48%);
 grid-column-gap: 20px;

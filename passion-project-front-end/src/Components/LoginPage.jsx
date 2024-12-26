@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { Component } from "react";
-import H1HeaderTag from "./styled-components/H1HeaderTag";
-import StyledInput from "./styled-components/StyledInput";
-import BlueButton from "./styled-components/BlueButton";
+import H1HeaderTag from "../styled-components/H1HeaderTag";
+import StyledInput from "../styled-components/StyledInput";
+import BlueButton from "../styled-components/BlueButton";
 import axios from 'axios'
-import ErrorBox from "./styled-components/ErrorBox";
+import ErrorBox from "../styled-components/ErrorBox";
 import {useRef, useEffect, useState } from 'react';
-import LoggedInUser from "./LoggedInUser";
-import { useUser } from "./CurrentUser";
+import LoggedInUser from "../LoggedInUser";
+import { useUser } from "../CurrentUser";
 import { useNavigate } from "react-router-dom";
 const CenterPageDiv = styled.div`
 padding: 30px 28px;

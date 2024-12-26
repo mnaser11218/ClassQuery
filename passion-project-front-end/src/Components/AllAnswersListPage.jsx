@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
-import H1HeaderTag from "./styled-components/H1HeaderTag";
-import H2HeaderTag from "./styled-components/H2HeaderTag";
+import H1HeaderTag from "../styled-components/H1HeaderTag";
+import H2HeaderTag from "../styled-components/H2HeaderTag";
 import AnswerRow from "./AnswerRow";
 
 const BodyTag = styled.div`

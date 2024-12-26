@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useUser } from './CurrentUser';
+import { useUser } from '../CurrentUser';
 import { useParams, useNavigate } from 'react-router-dom';
 import QuestionRow from './QuestionRow';
-import BlueButton from './styled-components/BlueButton';
+import BlueButton from '../styled-components/BlueButton';
 import styled from 'styled-components';
 
 const StyledHeader = styled.a`

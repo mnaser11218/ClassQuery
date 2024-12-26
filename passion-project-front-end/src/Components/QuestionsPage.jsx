@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
-import { useUser } from './CurrentUser';
+import { useUser } from '../CurrentUser';
 const StyledHeader = styled.a`
 color: #F8F7E5;
 font-size: 1.8rem;

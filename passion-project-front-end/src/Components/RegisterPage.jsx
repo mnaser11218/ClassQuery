@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Component, useState } from "react";
-import H1HeaderTag from "./styled-components/H1HeaderTag";
-import StyledInput from "./styled-components/StyledInput";
-import BlueButton from "./styled-components/BlueButton";
+import H1HeaderTag from "../styled-components/H1HeaderTag";
+import StyledInput from "../styled-components/StyledInput";
+import BlueButton from "../styled-components/BlueButton";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 const CenterPageDiv = styled.div`

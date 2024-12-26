@@ -1,16 +1,16 @@
 import styled from "styled-components"
 import { useState } from "react";
-import PreviewArea from "./styled-components/PreviewArea";
+import PreviewArea from "../styled-components/PreviewArea";
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import BlueButton from "./styled-components/BlueButton";
+import BlueButton from "../styled-components/BlueButton";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "./CurrentUser";
-import GPT3Component from "./OpenAI/GPT3GrammarCheck";
-import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
-import GPT2Translation from "./OpenAI/GPT2Translation";
+import { useUser } from "../CurrentUser";
+import GPT3Component from "../OpenAI/GPT3GrammarCheck";
+import GPT1RewordQuestion from "../OpenAI/GPT1RewordQuestion";
+import GPT2Translation from "../OpenAI/GPT2Translation";
 // import AskChat from "./OpenAI/AskChat";
-import AskChatAQues from "./OpenAI/AskChatAQues";
+import AskChatAQues from "../OpenAI/AskChatAQues";
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
