@@ -104,7 +104,7 @@ background: none;}
 .tag{
     display: inline-block;
     margin-right: 3px;
-    border: solid #777;
+    border: solid 2px #777;
     padding: 7px;
     margin: 7px;
     border-radius: 5px;

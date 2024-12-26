@@ -5,6 +5,7 @@ import BlueButton from '../styled-components/BlueButton'
 import styled from 'styled-components'
 import { useUser } from '../CurrentUser'
 import { useNavigate } from 'react-router-dom'
+import TagDescription from '../OpenAI/TagDescription'
 
 const CenterPageDiv = styled.div`
 padding: 30px 28px;
@@ -14,6 +15,7 @@ export default function AddTag() {
     const [topic, setTopic] = useState("")
     const [tagDescription, setTagDescription] = useState("")
     const {currentLoggedInUser} = useUser();
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY
     const navigate = useNavigate()
     const routeChange = ()=>{
         let path = `/tags`
@@ -62,10 +64,10 @@ export default function AddTag() {
  
     onChange={e=>setTagDescription(e.target.value)}
     />
-      {/* <StyledInput placeholder="Assignment Description" type="courseDescription" value={courseDescription} 
     
-    onChange={e=>setCourseDescription(e.target.value)}
-    /> */}
+    {  name ?    <>  <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px"}}>  AI Features:</div><TagDescription apiKey={apiKey} onUpdateInputValue={setTagDescription} tagName={name}/>  </> : ""} 
+
     <BlueButton onClick={handleAddTag}>Save Tag</BlueButton>
     </CenterPageDiv>
 
