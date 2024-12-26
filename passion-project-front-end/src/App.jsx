@@ -18,6 +18,7 @@ import { UserProvider } from './CurrentUser';
 import AssignmentQuestions from './Components/AssignmentQuestions';
 import { Footer } from './Components/Footer';
 import AddAssignment from './Components/AddAssignment';
+import ShowTags from './Components/ShowTags';
 
 
 
@@ -155,6 +156,7 @@ const [user, setUser] = useState(null);
       <Route path="/questionspage" element={ <QuestionsPage/>} />
       <Route path="/assignmentquestion/:id" element={ <AssignmentQuestions/>} />
       <Route path="/addassignment" element={ <AddAssignment/>} />
+      <Route path="/tags" element={<ShowTags/>}/>
 
       <Route path="/login" element={ <LoginPage/>} />
       <Route path="/register" element={ <RegisterPage/>} />

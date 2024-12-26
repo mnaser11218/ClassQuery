@@ -4,6 +4,8 @@ import { FaHome } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { MdOutlineAssignment } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { LiaTagsSolid } from "react-icons/lia";
+
 
 
 const SidebarBody = styled.div`
@@ -35,6 +37,10 @@ function LeftSideBar(){
 
                     <Text to="/">
                     <li><MdOutlineAssignment /> <span>Assignments</span></li>
+                    </Text>
+
+                    <Text to="/tags">
+                    <li><LiaTagsSolid /> <span>Tags</span></li>
                     </Text>
 
                 </ol>
