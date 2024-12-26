@@ -74,7 +74,7 @@ const { currentLoggedInUser } = useUser()
   const handleQuestionChange = event => setQuestion(event.target.value)
   let navigate = useNavigate(); 
   let routeChange = ()=> {
-      let path = `/`; 
+      let path = `/questionspage`; 
       navigate(path);
     }
 
@@ -82,6 +82,7 @@ const { currentLoggedInUser } = useUser()
       if (chatGPTAnswer) {
           console.log("State updated and ready to be used:", chatGPTAnswer + "ques id is: " + newQuesId);
        postAnswer()
+       routeChange()
       }
   }, [chatGPTAnswer]);
 
@@ -167,7 +168,7 @@ var postAnswer = ()=>{
 const handleSubmitClick = ()=>{
   postQuestion()
  
-  //routeChange()
+  
 }
 
 return(

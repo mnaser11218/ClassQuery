@@ -9,6 +9,8 @@ import { useUser } from "./CurrentUser";
 import GPT3Component from "./OpenAI/GPT3GrammarCheck";
 import GPT1RewordQuestion from "./OpenAI/GPT1RewordQuestion";
 import GPT2Translation from "./OpenAI/GPT2Translation";
+// import AskChat from "./OpenAI/AskChat";
+import AskChatAQues from "./OpenAI/AskChatAQues";
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
@@ -30,8 +32,10 @@ const AiButtons = styled.div`
 function PostBodyTextArea({...props}){
   const { currentLoggedInUser } = useUser()
     const [answer, setAnswer] = useState("");
+    const [question, setQuestion] = useState("")
     const {questionId} = props;
     const apiKey = process.env.REACT_APP_OPENAI_API_KEY
+
 
     let navigate = useNavigate(); 
         var routeChange = ()=> {
@@ -86,6 +90,12 @@ function PostBodyTextArea({...props}){
       <GPT2Translation apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 
       </AiButtons>
 
+
+
+      <AskChatAQues  apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} /> 
+     { question ? <PreviewArea>
+      <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
+      </PreviewArea>  : " "} 
       <BlueButton onClick={handlePostAnswer}>Post Your Answer</BlueButton>
     </>)
 }
