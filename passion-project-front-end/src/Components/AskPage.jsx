@@ -169,6 +169,10 @@ var postAnswer = ()=>{
 
 const handleSubmitClick = ()=>{
   postQuestion()
+  // if(chatGPTAnswer == ""){
+  // routeChange()
+  // }
+
 }
 
 return(

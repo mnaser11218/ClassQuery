@@ -104,12 +104,12 @@ background: none;}
 .tag{
     display: inline-block;
     margin-right: 3px;
-    border: solid 2px #777;
+    border: solid 2px #F8F7E5;
     padding: 7px;
     margin: 7px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     &:hover{
     color: #FF9900;
     //color: #748D92;

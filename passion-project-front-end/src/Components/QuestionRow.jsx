@@ -104,7 +104,7 @@ const fetchUserProfileName = ()=>{
 
         <User>{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
-        {tags!= null && tags.map(tag=> <span className="tag">{tag.tagName}</span>)}
+        {tags!= null && tags.map(tag=> <Link to={`/tagquestions/${tag.id}`}> <span className="tag">{tag.tagName}</span> </Link>)}
         
         {/* <Tag>Spring</Tag>
         <Tag>MySql</Tag>
