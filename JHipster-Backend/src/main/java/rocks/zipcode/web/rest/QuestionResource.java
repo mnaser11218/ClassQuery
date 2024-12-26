@@ -65,6 +65,8 @@ public class QuestionResource {
         questionRepository.updateLike(question.getLiked(), id);
     }
 
+
+
     /**
      * {@code PUT  /questions/:id} : Updates an existing question.
      *
@@ -167,6 +169,14 @@ public class QuestionResource {
             return questionRepository.findAll();
         }
     }
+
+    @GetMapping("/tags/{id}")
+    public List<Question> getAllQuesByTagId(@PathVariable(value = "id", required = false) final Long id) {
+        LOG.debug("REST request to get all Questions by tag Id");
+            return questionRepository.getQuestionsByTagId(id);
+    }
+
+
 
     /**
      * {@code GET  /questions/:id} : get the "id" question.

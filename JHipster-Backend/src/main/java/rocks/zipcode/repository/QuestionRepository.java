@@ -33,4 +33,9 @@ public interface QuestionRepository extends QuestionRepositoryWithBagRelationshi
     @Modifying
     @Query(value="UPDATE question set liked= ?1 where id= ?2", nativeQuery = true)
     public void updateLike(Long liked, Long id);
+
+    @Query(value="select question.* from question \n" +
+        "join REL_QUESTION__TAGS on REL_QUESTION__TAGS.question_id = question.id\n" +
+        "where tags_id=?1", nativeQuery = true)
+    List<Question>getQuestionsByTagId(Long id);
 }
