@@ -111,6 +111,8 @@ var postQuestion = () => {
         setNewQuesId(()=>res.id)
         if(checked){
           sendChatGPT()
+        }else{
+          routeChange()
         }
       });
    
