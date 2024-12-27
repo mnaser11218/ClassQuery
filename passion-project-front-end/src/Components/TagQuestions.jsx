@@ -38,7 +38,7 @@ useEffect(()=>{
     fetch("http://localhost:8080/api/tags/"+tagId)
     .then(res=> res.json())
     .then(data=> setTagName(data.tagName))
-}, [])
+}, [tagId])
  
 
 
