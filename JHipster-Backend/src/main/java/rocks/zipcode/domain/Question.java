@@ -42,7 +42,7 @@ public class Question implements Serializable {
     @JsonIgnoreProperties(value = { "userProfile", "question" }, allowSetters = true)
     private Set<Answer> answers = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "rel_question__tags",
         joinColumns = @JoinColumn(name = "question_id"),
