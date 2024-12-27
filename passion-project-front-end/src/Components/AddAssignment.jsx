@@ -53,13 +53,13 @@ export default function AddAssignment() {
     <CenterPageDiv>
     <H1HeaderTag>Add Assignment </H1HeaderTag>
     
-    <StyledInput placeholder="Assignment name" type="name" value={name}
+    <StyledInput placeholder="Assignment name" type="name" value={name} maxLength="50"
     onChange={e=>setName(e.target.value)}
     />
-    <StyledInput placeholder="Topic" type="topic" value={topic}
+    <StyledInput placeholder="Topic" type="topic" value={topic} maxLength="50"
     onChange={e=>setTopic(e.target.value)}
     />
-    <StyledInput placeholder="Course Name" type="courseName" value={courseName} 
+    <StyledInput placeholder="Course Description" type="courseName" value={courseName}  maxLength="150"
  
     onChange={e=>setCourseName(e.target.value)}
     />

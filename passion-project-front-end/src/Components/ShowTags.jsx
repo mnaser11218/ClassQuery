@@ -11,14 +11,10 @@ border: solid 2px white;
 `
 
 const DivEle = styled.div`
-// color: black;
-  display: grid;
+ display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 15px;
   padding: 10px;
-
-  // overflow: auto;
-   //height: 1000px; 
 `
 const Description = styled.p`
 font-size: 15px;
@@ -48,7 +44,7 @@ border: solid 2px gray;
   padding: 10px 0;
   font-size: 30px;
 width: 100%;
-height: 200px;
+height: 250px;
  border-radius: 10px;
   //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `

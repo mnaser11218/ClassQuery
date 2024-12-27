@@ -11,42 +11,33 @@ border: solid 2px white;
 `
 
 const DivEle = styled.div`
-color: black;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
   padding: 10px;
-
-  // overflow: auto;
-   //height: 1000px;
- 
 `
 const LinkTag =styled(Link)`
 
 border-radius: 5px;
 display: inline-block;
 margin:auto;
-
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #34495e;
+color:  #F8F7E5;
+font-weight: 400;
 text-decoration: none;
-background-color:white;
 padding: 5px;
-// margin-bottom: 30px;
+`
+const Description = styled.p`
+font-size: 15px;
+padding: 10px;
 
 `
-
 const AssignmentEle = styled.div`
 border: solid 2px gray;
- background-color: white;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+padding: 10px 0;
+font-size: 30px;
 width: 100%;
 height: 250px;
- border-radius: 10px;
-  //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
+border-radius: 10px;
 `
 
 const StyledHeader = styled.a`
@@ -57,7 +48,6 @@ cursor: pointer;
 `
 const HeaderRow = styled.div`
 padding: 30px 20px;
-//background-color: gray;
 display: grid;
 grid-template-columns: 1fr max-content
 `
@@ -87,10 +77,11 @@ return(
     {assignments?.map(ele=>{
       return(
       <AssignmentEle >
+     
         <LinkTag to={`/assignmentquestion/${ele.id}`}>
-        {<br></br>} {ele.name}
-        </LinkTag>
-         
+        <span className="tag">{ele.name}</span> 
+         </LinkTag>
+        <Description>{ele.courseName}</Description>
     
       </AssignmentEle>
 
