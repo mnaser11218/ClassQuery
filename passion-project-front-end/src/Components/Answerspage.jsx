@@ -102,7 +102,7 @@ padding-top: 10px;
           <AnswerMeta>
             <div>
             
-            {question.tags.map(tag=> <span className="tag">{tag.tagName}</span>)} 
+            {question.tags.map(tag=> <Link to={`/tagquestions/${tag.id}`}><span className="tag">{tag.tagName} </span></Link> )} 
             </div>
        <WhoAndWhen>  <User id={question.userProfile?.id} >Asked By: { userProfileName ? userProfileName : "Anonymous User"}, {question.createdDate} </User> </WhoAndWhen>  
        {/* <User>{question.userProfile?.id} <WhoAndWhen>asked {question.createdDate}</WhoAndWhen></User> */}
