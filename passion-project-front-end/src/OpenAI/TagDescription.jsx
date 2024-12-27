@@ -65,7 +65,7 @@ const TagDescription = ({ apiKey, onUpdateInputValue, tagName }) => {
         <span id="globe-icon-ai" >
               <img src={require("./chaticon.png")} style={{ width: 50, height: 50,    position: "relative", 
       top: "20px" }} alt="" /> </span>
-        <Button onClick={generateText}> Generate Description with AI
+        <Button onClick={generateText}> Generate Tag Description with AI
         
         </Button>
       

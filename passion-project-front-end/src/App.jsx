@@ -103,8 +103,9 @@ background: none;}
 
 .tag{
     display: inline-block;
+    letter-spacing: 1px;
     margin-right: 3px;
-    border: solid 2px #F8F7E5;
+    border: solid 1px #F8F7E5;
     padding: 7px;
     margin: 7px;
     border-radius: 5px;

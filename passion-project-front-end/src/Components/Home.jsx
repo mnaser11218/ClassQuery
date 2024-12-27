@@ -86,9 +86,7 @@ return(
     
     {assignments?.map(ele=>{
       return(
-      <AssignmentEle style={{"backgroundImage": `url(https://www.shutterstock.com/image-illustration/assignment-technical-squares-600nw-702799699.jpg)`,   backgroundRepeat: "no-repeat",
-      // Optional: Makes sure the image covers the element
-      backgroundPosition: "center"}}>
+      <AssignmentEle >
         <LinkTag to={`/assignmentquestion/${ele.id}`}>
         {<br></br>} {ele.name}
         </LinkTag>

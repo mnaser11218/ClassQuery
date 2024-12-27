@@ -54,13 +54,13 @@ export default function AddTag() {
     <CenterPageDiv>
     <H1HeaderTag>Add Tag </H1HeaderTag>
     
-    <StyledInput placeholder="Tag name" type="name" value={name}
+    <StyledInput placeholder="Tag name" type="text" value={name} maxlength="150"
     onChange={e=>setName(e.target.value)}
     />
-    <StyledInput placeholder="Tag Topic" type="topic" value={topic}
+    <StyledInput placeholder="Tag Topic" type="topic" value={topic} maxlength="150"
     onChange={e=>setTopic(e.target.value)}
     />
-    <StyledInput placeholder="Tag Description" type="description" value={tagDescription} 
+    <StyledInput placeholder="Tag Description" type="description" value={tagDescription} maxlength="150"
  
     onChange={e=>setTagDescription(e.target.value)}
     />
