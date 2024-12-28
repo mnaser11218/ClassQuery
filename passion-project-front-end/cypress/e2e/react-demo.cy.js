@@ -60,8 +60,8 @@ describe('template spec', ()=>{
 
     it('test header', ()=>{
        cy.get('[div-cypress="header"]').then(header=>{
-
-       })
+        cy.wrap(header).get('[div-cypress="login-button"]').click()
+       }) 
     })
     
 })

@@ -89,7 +89,7 @@ function Header (){
     </form>
     </div>
     <div>
-    {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink to="/register">Register</ProfileLink></div>}
+    {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink  div-cypress="login-button" to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink div-cypress="register-button" to="/register">Register</ProfileLink></div>}
     </div>
    </StyledHeader>
     )
