@@ -71,7 +71,8 @@ return(
 <StyledHeader> Course Assignments </StyledHeader>
 <BlueButton onClick={routeChange}>Add&nbsp;Assignment</BlueButton>  
 </HeaderRow>
-
+<div style={{margin: "30px"}}>
+An assignment is a task assigned by a teacher in a course, where students can ask and answer questions related to the material.</div>
     <DivEle>
     
     {assignments?.map(ele=>{

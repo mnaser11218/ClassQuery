@@ -19,6 +19,7 @@ const BlueButton = styled.button`
 //background-color: rgb(27, 117, 208);
 background-color: #f9af42;
 color: white;
+font-size: 1.0rem;
 padding: 15px;
 border-radius: 5px;
 border: 0;

@@ -48,6 +48,7 @@ return(
 <StyledHeader>Questions for Assignment: {assignmentName}</StyledHeader>
  <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton>
 </HeaderRow>
+
 <div style={{"margin": "15px", "margin-left": "25px"}}>{questions.length} Questions</div>
 { questions.length >0 ?  questions.map(row=> {
 console.log("inside row")

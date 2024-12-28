@@ -11,10 +11,14 @@ border: solid 2px white;
 `
 
 const DivEle = styled.div`
- display: grid;
+// color: black;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
+  grid-gap: 10px;
   padding: 10px;
+
+  // overflow: auto;
+   //height: 1000px; 
 `
 const Description = styled.p`
 font-size: 15px;
@@ -81,6 +85,8 @@ return(
 <StyledHeader> Tags </StyledHeader>
 <BlueButton onClick={routeChange}>Add&nbsp;Tag</BlueButton>  
 </HeaderRow>
+<div style={{margin: "30px"}}>
+A tag is a keyword or label that groups your question with other related questions. Using appropriate tags helps others find and respond to your question more easily.</div>
 
     <DivEle>
     
