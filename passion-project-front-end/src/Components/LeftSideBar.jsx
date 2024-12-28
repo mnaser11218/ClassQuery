@@ -23,7 +23,7 @@ color: color: var(--theme-link-color, var(--theme-secondary-400));
 
 
 function LeftSideBar(){
-    return (<SidebarBody >
+    return (<SidebarBody className="left-side-bar" >
         <div style={{"padding": "20px 5px" }}>
             <nav>
                 <ol>

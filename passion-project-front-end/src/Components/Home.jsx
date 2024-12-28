@@ -73,7 +73,7 @@ return(
 </HeaderRow>
 <div style={{margin: "30px"}}>
 An assignment is a task assigned by a teacher in a course, where students can ask and answer questions related to the material.</div>
-    <DivEle>
+    <DivEle div-cypress="assignment">
     
     {assignments?.map(ele=>{
       return(
