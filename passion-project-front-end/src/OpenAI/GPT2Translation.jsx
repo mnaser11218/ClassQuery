@@ -44,7 +44,11 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question, answer }) => {
   );
 
   const generateText = () => {
+    if(!question && !answer){
+      alert("Form input cannot be empty for an AI response.")
+    } else{
     setShowForm(true);
+    
       axios.post('https://api.openai.com/v1/chat/completions',
         {
             "model": "gpt-3.5-turbo",
@@ -73,6 +77,7 @@ const GPT2Translation = ({ apiKey, onUpdateInputValue, question, answer }) => {
     .catch(error => {
       console.error('Error:', error);
     });
+  }
   };
 
   return (

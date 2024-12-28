@@ -26,9 +26,9 @@ const GPT3Component = ({ apiKey, onUpdateInputValue, question, answer }) => {
 </svg>
 
   const generateText = () => {
-    // const mainInputElement = document.getElementById('main-input-element');
-    // const inputText = mainInputElement ? mainInputElement.value : '';
-
+    if(!question && !answer){
+      alert("Form input cannot be empty for an AI response.")
+    }else{
     axios.post('https://api.openai.com/v1/chat/completions',
         {
             "model": "gpt-3.5-turbo",
@@ -57,6 +57,7 @@ const GPT3Component = ({ apiKey, onUpdateInputValue, question, answer }) => {
     .catch(error => {
       console.error('Error:', error);
     });
+  }
   };
 
   return (
