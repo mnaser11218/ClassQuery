@@ -16,6 +16,7 @@ const DivEle = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   padding: 10px;
+  overflow: hidden;
 
   // overflow: auto;
    //height: 1000px; 
@@ -49,6 +50,7 @@ border: solid 2px gray;
   font-size: 30px;
 width: 100%;
 height: 250px;
+  overflow: hidden;
  border-radius: 10px;
   //background-image: url("https://st3.depositphotos.com/7865540/12756/i/450/depositphotos_127563976-stock-photo-notepad-with-text-in-frame.jpg")
 `
