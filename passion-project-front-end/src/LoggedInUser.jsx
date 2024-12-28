@@ -24,7 +24,7 @@ function LoggedInUser(){
     }
     
 
-    return (<H1HeaderTag> Welcome
+    return (<H1HeaderTag> { !currentLoggedInUser ?  "Welcome" : "Welcome, " + currentLoggedInUser.name }
     <hr></hr>
   { !currentLoggedInUser ?  <BlueButton onClick={handleLoggedIn}> Log In</BlueButton>  :  <BlueButton onClick={handleLogOut}>Log Out</BlueButton> }
     </H1HeaderTag>) 
