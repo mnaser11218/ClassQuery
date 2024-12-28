@@ -75,7 +75,7 @@ function Header (){
    const { currentLoggedInUser } = useUser();
 
     return (
-        <StyledHeader>
+        <StyledHeader div-cypress="header">
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon style={{"color": "#FF9900"}}icon={faStackOverflow} size="2x"/>
         <span>

@@ -1,13 +1,11 @@
 /* eslint-disable no-undef */
 describe('template spec', ()=>{
     beforeEach(()=>{
-        it('passes', ()=>{
+  
             cy.visit('localhost:3000/')
-        })
     })
 
     it('left nav bar', ()=>{
-        cy.visit('localhost:3000/')
         // cy.get('.left-side-bar > :nth-child(1)').should('contain', 'Home')
                 // cy.get('.left-side-bar nav').eq(1).should('contain', 'Question')
             // testing the left side bar has proper list 
@@ -58,6 +56,12 @@ describe('template spec', ()=>{
         //     cy.wrap(assignment).contains("for")
         // })
 
+    })
+
+    it('test header', ()=>{
+       cy.get('[div-cypress="header"]').then(header=>{
+
+       })
     })
     
 })

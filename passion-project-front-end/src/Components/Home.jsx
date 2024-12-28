@@ -14,6 +14,7 @@ const DivEle = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
+   overflow: hidden;
   padding: 10px;
 `
 const LinkTag =styled(Link)`
@@ -38,6 +39,7 @@ font-size: 30px;
 width: 100%;
 height: 250px;
 border-radius: 10px;
+ overflow: hidden;
 `
 
 const StyledHeader = styled.a`
