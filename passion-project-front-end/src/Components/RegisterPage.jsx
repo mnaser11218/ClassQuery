@@ -42,17 +42,17 @@ padding: 30px 28px;
         <>
         <CenterPageDiv>
         <H1HeaderTag>Register </H1HeaderTag>
-        <StyledInput placeholder="name" type="name" value={name}
+        <StyledInput div-cypress="name-input" placeholder="name" type="name" value={name}
         onChange={e=>setName(e.target.value)}
         />
-        <StyledInput placeholder="email" type="email" value={userName}
+        <StyledInput div-cypress="email-input" placeholder="email" type="email" value={userName}
         onChange={e=>setUserName(e.target.value)}
         />
-        <StyledInput placeholder="password" type="password" value={password} 
+        <StyledInput div-cypress="password-input" placeholder="password" type="password" value={password} 
         autocomplete={'new-password'}
         onChange={e=>setPassword(e.target.value)}
         />
-        <BlueButton onClick={handleRegister}>Register</BlueButton>
+        <BlueButton div-cypress="button-submit-register" onClick={handleRegister}>Register</BlueButton>
         </CenterPageDiv>
     
         

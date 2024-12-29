@@ -32,7 +32,7 @@ function LeftSideBar(){
                     </Text> 
 
                     <Text to="/questionspage">
-                    <li> <GoSearch /> <span>Question</span></li>
+                    <li> <GoSearch /> <span>Questions</span></li>
                     </Text>
 
                     <Text to="/">

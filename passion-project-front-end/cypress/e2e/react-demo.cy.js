@@ -58,10 +58,24 @@ describe('template spec', ()=>{
 
     })
 
-    it('test header', ()=>{
-       cy.get('[div-cypress="header"]').then(header=>{
-        cy.wrap(header).get('[div-cypress="login-button"]').click()
-       }) 
+    it('test register and login', ()=>{
+     
+    
+
+        cy.get('[div-cypress="register-button"]').click()
+        cy.url().should('include', '/register')
+        cy.get('[div-cypress="name-input"]').type('cypress')
+
+        cy.get('[div-cypress="email-input"]').type('cypress@gmail.com')
+        cy.get('[div-cypress="password-input"]').type('cypress')
+        cy.get('[div-cypress="button-submit-register"]').click()
+
+        cy.url().should('include', '/login')
+        cy.get('[div-cypress="login-input"]').type('cypress@gmail.com')
+        cy.get('[div-cypress="login-password-input"]').type('cypress')
+        
+        
+        // cy.url().should('include', '/login')
     })
     
 })
