@@ -8,7 +8,7 @@ border:0;
 border-radius: 5px;
 padding:7px 20px;
 text-decoration: none;
-font-size: 1.0rem;
+font-size: 0.8rem;
 cursor: pointer;
 `
 export default BlueButton;

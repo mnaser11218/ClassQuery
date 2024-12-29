@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import QuestionRow from "./QuestionRow"
 import { useUser } from '../CurrentUser';
+import BlueButton from '../styled-components/BlueButton';
 const StyledHeader = styled.a`
 color: #F8F7E5;
 font-size: 1.8rem;
@@ -15,16 +16,16 @@ padding: 30px 20px;
 display: grid;
 grid-template-columns: 1fr max-content
 `
-const BlueButton = styled.button`
-//background-color: rgb(27, 117, 208);
-background-color: #f9af42;
-color: white;
-font-size: 1.0rem;
-padding: 15px;
-border-radius: 5px;
-border: 0;
-cursor: pointer;
-`  
+// const BlueButton = styled.button`
+// //background-color: rgb(27, 117, 208);
+// background-color: #f9af42;
+// color: white;
+// font-size: 0.8rem;
+// padding: 7px 20px;
+// border-radius: 5px;
+// border: 0;
+// cursor: pointer;
+// `  
 
 function QuestionsPage(){   
   const { currentLoggedInUser } = useUser()
