@@ -42,5 +42,6 @@ describe('<LoginPage />', () => {
   cy.getBySel("login-password-input").type('mo')
   cy.getBySel("submit-login-button").click()
   cy.wait("@login")
+  cy.getBySel("h1-header-name").should("contain", "Welcome, Mohammed")
   })
 })
