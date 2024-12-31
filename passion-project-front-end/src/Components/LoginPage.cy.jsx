@@ -38,9 +38,9 @@ describe('<LoginPage />', () => {
        </BrowserRouter>
   
   )
-  cy.get('[div-cypress="login-input"]').type('mo')
-  cy.get('[div-cypress="login-password-input"]').type('mo')
-  cy.get('[data-test="submit-login-button"]').click()
+  cy.getBySel("login-input").type('mo')
+  cy.getBySel("login-password-input").type('mo')
+  cy.getBySel("submit-login-button").click()
   cy.wait("@login")
   })
 })

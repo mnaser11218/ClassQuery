@@ -70,7 +70,7 @@ padding: 30px 28px;
        { error && <ErrorBox>This is an incorrect login</ErrorBox>}
         <H1HeaderTag>Login </H1HeaderTag>
         <StyledInput 
-        div-cypress="login-input"
+        data-test="login-input"
         autoComplete="off"
         required
          placeholder="email"
@@ -79,7 +79,7 @@ padding: 30px 28px;
         onChange={e=>setUserName(e.target.value)}
         />
         <StyledInput 
-        div-cypress="login-password-input"
+        data-test="login-password-input"
         autoComplete="off"
         required
         placeholder="password" 

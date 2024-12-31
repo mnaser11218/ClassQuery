@@ -21,6 +21,8 @@ import { mount } from 'cypress/react18'
 import styled from 'styled-components'
 import 'styled-components'
 Cypress.Commands.add('mount', mount)
+Cypress.Commands.add("getBySel", (selector, ...args)=> {
+    return cy.get(`[data-test=${selector}]`, ...args)
+})
 
-// Example use:
 // cy.mount(<MyComponent />)
