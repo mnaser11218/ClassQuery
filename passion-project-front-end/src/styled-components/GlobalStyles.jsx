@@ -78,7 +78,7 @@ background: none;}
 
 .tag{
     display: inline-block;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-right: 3px;
     border: solid 1px #F8F7E5;
     padding: 7px;
@@ -86,6 +86,7 @@ background: none;}
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.8rem;
+    font-family:var(--ff-sans);
     &:hover{
     color: #FF9900;
     //color: #748D92;

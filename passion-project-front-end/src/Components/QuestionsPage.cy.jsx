@@ -25,5 +25,6 @@ describe('<QuestionsPage />', () => {
   
   
   )
+  cy.get('div').contains('All Questions')
   })
 })
