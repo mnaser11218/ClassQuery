@@ -28,7 +28,7 @@ describe('<Header />', () => {
      </BrowserRouter>
     )
 
-    cy.get('div').should('exist'); // Or another element to check
+    cy.get('input').should("have.attr", "placeholder","Search..."); // Or another element to check
 
   })
 })

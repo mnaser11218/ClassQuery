@@ -14,8 +14,9 @@ const GlobalStyles = createGlobalStyle`
    //background: rgb(29, 29, 29);
     //color: black;
     font-family: Roboto, arial, sans-serif;
+    // font-family:var(--ff-sans);
     font-size: 17px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     line-height: 1.5;
   }
    
@@ -74,7 +75,8 @@ width: 100%;
 box-sizing: border-box: 
 margin-bottom: 20px;
 color: #fff;
-background: none;}
+background: none;
+}
 
 .tag{
     display: inline-block;
@@ -92,7 +94,7 @@ background: none;}
     //color: #748D92;
     border: none;
     }
-}
+} 
 `
 
 export default GlobalStyles;

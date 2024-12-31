@@ -60,7 +60,7 @@ padding: 30px 28px;
   }
     
     return (
-        <>
+        <div>
         
             {success ? (
                 <LoggedInUser/>
@@ -87,11 +87,11 @@ padding: 30px 28px;
         value={password} 
         onChange={e=>setPassword(e.target.value)}
         />
-        <BlueButton onClick={handleLogin}>Login</BlueButton>
+        <BlueButton data-test='submit-login-button' onClick={handleLogin}>Login</BlueButton>
         </CenterPageDiv>
     
  }
-        </>
+        </div>
     )
 
 

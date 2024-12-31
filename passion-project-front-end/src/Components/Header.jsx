@@ -85,7 +85,7 @@ function Header (){
     <div>
     <form action="" className="search">
   
-    <StyledInput type="text" placeholder="Search... " />
+    <StyledInput type="text" placeholder="Search..." />
     </form>
     </div>
     <div>
