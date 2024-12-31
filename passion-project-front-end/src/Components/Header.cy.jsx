@@ -6,6 +6,7 @@ import { mount } from '@cypress/react';
 import { UserProvider } from '../CurrentUser';
 import { BrowserRouter } from 'react-router-dom'; // If you're using react-router
 import GlobalStyles from '../styled-components/GlobalStyles';
+import WholePage from '../styled-components/WholePageDivStyle';
 
 describe('<Header />', () => {
   it('renders', () => {
@@ -18,10 +19,12 @@ describe('<Header />', () => {
     // });
     mount(
       <BrowserRouter>
+    <WholePage>
       <GlobalStyles/>
       <UserProvider>
     <Header />
      </UserProvider>
+     </WholePage>
      </BrowserRouter>
     )
 
