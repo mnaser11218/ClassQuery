@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { mount } from '@cypress/react';
 import { UserProvider } from '../CurrentUser';
 import { BrowserRouter } from 'react-router-dom'; // If you're using react-router
+import GlobalStyles from '../styled-components/GlobalStyles';
 
 describe('<Header />', () => {
   it('renders', () => {
@@ -17,6 +18,7 @@ describe('<Header />', () => {
     // });
     mount(
       <BrowserRouter>
+      <GlobalStyles/>
       <UserProvider>
     <Header />
      </UserProvider>

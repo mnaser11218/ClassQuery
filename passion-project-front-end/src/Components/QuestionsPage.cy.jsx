@@ -5,6 +5,7 @@ import 'styled-components'; // Ensure styled-components is imported
 import { mount } from '@cypress/react';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from '../CurrentUser';
+import GlobalStyles from '../styled-components/GlobalStyles';
 
 describe('<QuestionsPage />', () => {
   it('renders', () => {
@@ -14,8 +15,9 @@ describe('<QuestionsPage />', () => {
     cy.mount(
     
     
-   
+  
     <BrowserRouter>
+     <GlobalStyles/>
     <UserProvider>
     <QuestionsPage />
    </UserProvider>

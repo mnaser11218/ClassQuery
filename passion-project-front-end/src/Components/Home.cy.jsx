@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import Home from './Home'
+import GlobalStyles from '../styled-components/GlobalStyles';
 
 describe('<Home />', () => {
   it('renders', () => {
@@ -10,6 +12,11 @@ describe('<Home />', () => {
       }
     });
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<Home />)
+    cy.mount(
+      <>
+      <GlobalStyles/>
+    <Home />
+    </>
+    )
   })
 })
