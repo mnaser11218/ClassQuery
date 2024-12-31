@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import { mount } from '@cypress/react'; // Import the mount function from @cypress/react
+
+Cypress.Commands.add('mount', mount); // Register the mount function as a custom Cypress command

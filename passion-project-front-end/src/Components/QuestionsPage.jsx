@@ -16,16 +16,7 @@ padding: 30px 20px;
 display: grid;
 grid-template-columns: 1fr max-content
 `
-// const BlueButton = styled.button`
-// //background-color: rgb(27, 117, 208);
-// background-color: #f9af42;
-// color: white;
-// font-size: 0.8rem;
-// padding: 7px 20px;
-// border-radius: 5px;
-// border: 0;
-// cursor: pointer;
-// `  
+
 
 function QuestionsPage(){   
   const { currentLoggedInUser } = useUser()
@@ -61,7 +52,7 @@ function QuestionsPage(){
  
    // handleQuestions();
     return(
-        <main>
+        <main div-cypress="questions-page">
             <HeaderRow>
 <StyledHeader>All Questions</StyledHeader>
     <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> 

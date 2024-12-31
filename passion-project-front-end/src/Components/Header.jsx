@@ -78,7 +78,7 @@ function Header (){
         <StyledHeader div-cypress="header">
         <LogoLink href="/questionspage" className="logo">
         <FontAwesomeIcon style={{"color": "#FF9900"}}icon={faStackOverflow} size="2x"/>
-        <span>
+        <span >
     class<b>Query</b>
     </span>
     </LogoLink>
@@ -89,6 +89,7 @@ function Header (){
     </form>
     </div>
     <div>
+     
     {currentLoggedInUser ? <ProfileLink to="/profile" className="profile" onClick={()=> console.log("called username")}>{currentLoggedInUser.name}</ProfileLink>  : <div><ProfileLink  div-cypress="login-button" to="/login" className="profile" onClick={()=> console.log("called login")}>Login</ProfileLink>   <ProfileLink div-cypress="register-button" to="/register">Register</ProfileLink></div>}
     </div>
    </StyledHeader>
