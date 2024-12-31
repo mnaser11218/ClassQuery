@@ -7,7 +7,7 @@ import WholePage from '../styled-components/WholePageDivStyle'
 import { BrowserRouter } from 'react-router-dom'
 
 describe('<LoginPage />', () => {
-  it('renders', () => {
+  it.only('renders', () => {
     cy.intercept("GET", "/api/user-profiles/username/mo", {
       statusCode: 200,
       body: {
@@ -43,5 +43,14 @@ describe('<LoginPage />', () => {
   cy.getBySel("submit-login-button").click()
   cy.wait("@login")
   cy.getBySel("h1-header-name").should("contain", "Welcome, Mohammed")
+  cy.getBySel("logout-button").click()
+  cy.getBySel("h1-header-name").should("contain", "Welcome")
+  })
+
+
+  it("Should not login unregistered users", ()=>{
+
+
+
   })
 })

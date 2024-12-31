@@ -26,7 +26,7 @@ function LoggedInUser(){
 
     return (<H1HeaderTag data-test="h1-header-name"> { !currentLoggedInUser ?  "Welcome" : "Welcome, " + currentLoggedInUser.name }
     <hr></hr>
-  { !currentLoggedInUser ?  <BlueButton onClick={handleLoggedIn}> Log In</BlueButton>  :  <BlueButton onClick={handleLogOut}>Log Out</BlueButton> }
+  { !currentLoggedInUser ?  <BlueButton onClick={handleLoggedIn}> Log In</BlueButton>  :  <BlueButton data-test="logout-button" onClick={handleLogOut}>Log Out</BlueButton> }
     </H1HeaderTag>) 
 }
 export default LoggedInUser;
