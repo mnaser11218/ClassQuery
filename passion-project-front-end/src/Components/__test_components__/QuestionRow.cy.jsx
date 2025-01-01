@@ -88,20 +88,12 @@ describe('<QuestionRow />', () => {
   cy.getBySel("questionRow-title").click()
   cy.url().should('contain',`/answerspage/${row.id}`)
 
+  cy.getBySel("questionRow-tag").click()
+  cy.url().should('contain', `tagquestions/${row.tags[0].id}`)
+
   })
 })
 
-
-// data-test="questionRow-votes">{liked}<span>Votes</span></QuestionStat>
-//     <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
-//     <QuestionTitleArea>
-//         <QuestionLink data-test="questionRow-title" to={`/answerspage/${id}`} >{title}</QuestionLink>
-//         <QuestionTag data-test="questionRow-question">{question} </QuestionTag>
-
-
-//         <User data-test="userProfileName-questionrow">{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
-
-//         {tags!= null && tags.map(tag=> <Link data-test="questionRow-tag" to={`/tagquestions/${tag.id}`}> <span className="tag">{tag.tagName}</span> </Link>)}
         
 
 
