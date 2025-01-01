@@ -9,27 +9,7 @@ import { UserProvider } from '../../CurrentUser'
 describe('<QuestionRow />', () => {
   it('renders', () => {
     // see: https://on.cypress.io/mounting-react
-    // cy.intercept("POST", "/api/user-profiles/username/mo", {
-    //   statusCode: 200,
-    //   body: {
-    //       "id" : 1500,
-    //       "name" : "Mohammed ",
-    //       "emailAddress" : "mo",
-    //       "password" : "mo",
-    //       "aboutMe" : null,
-    //       "created" : "2024-12-21",
-    //       "answers" : null,
-    //       "questions" : null
-        
-    //   }
-    // }).as("postQuestion")
-
-    // cy.intercept('POST', '/api/users', {
-    //   statusCode: 201,
-    //   body: { name: 'John Doe', email: 'john@example.com' },
-    // }).as('createUser');
-
-    const questionData = {
+    const row = {
       id: 1500,
       title: "ffgsdf",
       question: "sdfg",
@@ -52,13 +32,35 @@ describe('<QuestionRow />', () => {
       userProfile: {
           id: 1
       }
-  }
+    }
+
+    cy.intercept('GET', `/api/user-profiles/${row.userProfile.id}`, {
+      statusCode: 201,
+      body:  {
+        "id": 1,
+        "name": "Cypress Tester",
+        "emailAddress": "ChatGPT",
+        "password": "ChatGPT",
+        "aboutMe": "ChatGPT",
+        "created": "2024-08-23",
+        "answers": null,
+        "questions": null
+    },
+    }).as('getUserProfile');
+
+
+    const questionId = 1;  // Ensure this is a valid ID
+    cy.intercept('GET', `/api/answers/count/*`, {
+      statusCode: 200,
+      body: 5,
+    });
+   
     cy.mount(
       <BrowserRouter>
       <WholePage>
         <GlobalStyles/>
         <UserProvider>
-        <QuestionRow props={questionData} />
+        <QuestionRow  question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile?.id} />
        </UserProvider>
        </WholePage>
        </BrowserRouter>
@@ -68,3 +70,4 @@ describe('<QuestionRow />', () => {
   )
   })
 })
+
