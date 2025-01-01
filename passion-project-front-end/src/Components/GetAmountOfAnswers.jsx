@@ -14,6 +14,6 @@ function GetAmountOfAnswers({...props}){
     },[])
 
 const {questionId} = props;
-return (<div>{answerCount}</div>)
+return (<div data-test="answerCount">{answerCount}</div>)
 }
 export default GetAmountOfAnswers;

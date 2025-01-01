@@ -53,7 +53,7 @@ describe('<QuestionRow />', () => {
     cy.intercept('GET', `/api/answers/count/${row.id}`, {
       statusCode: 200,
       body: 5,
-    });
+    }).as("getAnswerCount")
    
     cy.mount(
       <BrowserRouter>
@@ -69,6 +69,10 @@ describe('<QuestionRow />', () => {
 
   // tests results 
 
+  // test answers count is correct
+  cy.wait("@getAnswerCount").then(answerCount=>{
+    cy.wrap(answerCount).getBySel("answerCount").contains("5")
+  })
 
   })
 })
