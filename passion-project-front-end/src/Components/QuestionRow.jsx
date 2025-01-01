@@ -95,16 +95,16 @@ const fetchUserProfileName = ()=>{
             <>
     <StyledQuestionRow>
        
-    <QuestionStat>{liked}<span>Votes</span></QuestionStat>
+    <QuestionStat data-test="questionRow-votes">{liked}<span>Votes</span></QuestionStat>
     <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
     <QuestionTitleArea>
-        <QuestionLink to={`/answerspage/${id}`} >{title}</QuestionLink>
-        <QuestionTag>{question} </QuestionTag>
+        <QuestionLink data-test="questionRow-title" to={`/answerspage/${id}`} >{title}</QuestionLink>
+        <QuestionTag data-test="questionRow-question">{question} </QuestionTag>
 
 
         <User data-test="userProfileName-questionrow">{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
-        {tags!= null && tags.map(tag=> <Link to={`/tagquestions/${tag.id}`}> <span className="tag">{tag.tagName}</span> </Link>)}
+        {tags!= null && tags.map(tag=> <Link data-test="questionRow-tag" to={`/tagquestions/${tag.id}`}> <span className="tag">{tag.tagName}</span> </Link>)}
         
         {/* <Tag>Spring</Tag>
         <Tag>MySql</Tag>
