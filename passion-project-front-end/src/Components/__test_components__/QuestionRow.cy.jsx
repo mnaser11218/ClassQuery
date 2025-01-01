@@ -49,8 +49,8 @@ describe('<QuestionRow />', () => {
     }).as('getUserProfile');
 
 
-    const questionId = 1;  // Ensure this is a valid ID
-    cy.intercept('GET', `/api/answers/count/*`, {
+  
+    cy.intercept('GET', `/api/answers/count/${row.id}`, {
       statusCode: 200,
       body: 5,
     });
@@ -64,10 +64,12 @@ describe('<QuestionRow />', () => {
        </UserProvider>
        </WholePage>
        </BrowserRouter>
-   
-  
-  
   )
+
+
+  // tests results 
+
+
   })
 })
 
