@@ -72,6 +72,10 @@ describe('<QuestionRow />', () => {
   // test answers count is correct
   cy.wait("@getAnswerCount").then(answerCount=>{
     cy.wrap(answerCount).getBySel("answerCount").contains("5")
+   // cy.url().should('contain', '/questionspage')
+  })
+  cy.wait("@getUserProfile").then(userProfile=>{
+    cy.wrap(userProfile).getBySel("userProfileName-questionrow").should('contain', "Cypress Tester")
   })
 
   })

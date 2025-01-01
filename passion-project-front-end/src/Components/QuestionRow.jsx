@@ -93,7 +93,7 @@ const fetchUserProfileName = ()=>{
       },[])
     return(
             <>
-    <StyledQuestionRow data-testid="child-component">
+    <StyledQuestionRow>
        
     <QuestionStat>{liked}<span>Votes</span></QuestionStat>
     <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
@@ -102,7 +102,7 @@ const fetchUserProfileName = ()=>{
         <QuestionTag>{question} </QuestionTag>
 
 
-        <User>{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
+        <User data-test="userProfileName-questionrow">{userProfileName ? userProfileName : "Anonymous User" } <WhoAndWhen>asked {createdDate}</WhoAndWhen></User>
 
         {tags!= null && tags.map(tag=> <Link to={`/tagquestions/${tag.id}`}> <span className="tag">{tag.tagName}</span> </Link>)}
         
