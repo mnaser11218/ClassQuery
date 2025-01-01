@@ -9,13 +9,35 @@ import GlobalStyles from '../../styled-components/GlobalStyles';
 
 describe('<QuestionsPage />', () => {
   it('renders', () => {
-      // see: https://on.cypress.io/mounting-react
-   
-    // see: https://on.cypress.io/mounting-react
+    cy.intercept("GET", "/api/questions", {
+      body: 
+        [{
+          "id": 1500,
+          "title": "From Cypress",
+          "question": "sdfg",
+          "liked": 53,
+          "createdDate": null,
+          "answers": null,
+          "tags": [
+              {
+                  "id": 1,
+                  "tagName": "co-producer scramble",
+                  "tagDescription": "lest",
+                  "createdDate": "2024-08-23",
+                  "labName": "failing pish",
+                  "labTopic": "sprinkles manage"
+              }
+          ],
+          "assignment": {
+              "id": 1
+          },
+          "userProfile": {
+              "id": 1
+          }
+      }]
+    })
+
     cy.mount(
-    
-    
-  
     <BrowserRouter>
      <GlobalStyles/>
     <UserProvider>
