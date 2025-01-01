@@ -8,7 +8,21 @@ import { BrowserRouter } from 'react-router-dom'
 
 describe('<RegisterPage />', () => {
   it('renders', () => {
-    // see: https://on.cypress.io/mounting-react
+ 
+    cy.intercept("POST", "/api/user-profiles", {
+      statusCode: 200,
+      body: {
+          "name" : "Mohammed ",
+          "emailAddress" : "mo",
+          "password" : "mo",
+          "aboutMe" : null,
+          "created" : "2024-12-21",
+          "answers" : null,
+          "questions" : null
+        
+      }
+    }).as("register")
+
     cy.mount(
       <BrowserRouter>
       <WholePage>
