@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React from 'react'
-import RightSideBar from './RightSideBar'
+import RightSideBar from '../RightSideBar'
 
 describe('<RightSideBar />', () => {
   it('renders', () => {

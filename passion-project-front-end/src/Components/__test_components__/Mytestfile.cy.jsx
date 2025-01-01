@@ -1,7 +1,7 @@
 import React from 'react'
-import Mytestfile from './Mytestfile'
+import Mytestfile from '../Mytestfile'
 import { mount } from 'cypress/react18'
-import { UserProvider } from '../CurrentUser'
+import { UserProvider } from '../../CurrentUser'
 
 describe('<Mytestfile />', () => {
   it('renders', () => {

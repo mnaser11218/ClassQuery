@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import LoginPage from './LoginPage'
-import { UserProvider } from '../CurrentUser'
-import GlobalStyles from '../styled-components/GlobalStyles'
-import WholePage from '../styled-components/WholePageDivStyle'
+import LoginPage from '../LoginPage'
+import { UserProvider } from '../../CurrentUser'
+import GlobalStyles from '../../styled-components/GlobalStyles'
+import WholePage from '../../styled-components/WholePageDivStyle'
 import { BrowserRouter } from 'react-router-dom'
 
 describe('<LoginPage />', () => {

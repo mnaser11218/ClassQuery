@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import QuestionsPage from './QuestionsPage'
+import QuestionsPage from '../QuestionsPage'
 import 'styled-components'; // Ensure styled-components is imported
 import { mount } from '@cypress/react';
 import { BrowserRouter } from 'react-router-dom';
-import { UserProvider } from '../CurrentUser';
-import GlobalStyles from '../styled-components/GlobalStyles';
+import { UserProvider } from '../../CurrentUser';
+import GlobalStyles from '../../styled-components/GlobalStyles';
 
 describe('<QuestionsPage />', () => {
   it('renders', () => {

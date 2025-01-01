@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import Home from './Home'
-import GlobalStyles from '../styled-components/GlobalStyles';
+import Home from '../Home'
+import GlobalStyles from '../../styled-components/GlobalStyles';
 
 describe('<Home />', () => {
   it('renders', () => {

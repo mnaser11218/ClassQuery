@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import Header from './Header'
+import Header from '../Header'
 import styled from 'styled-components'
 import { mount } from '@cypress/react';
-import { UserProvider } from '../CurrentUser';
+import { UserProvider } from '../../CurrentUser';
 import { BrowserRouter } from 'react-router-dom'; // If you're using react-router
-import GlobalStyles from '../styled-components/GlobalStyles';
-import WholePage from '../styled-components/WholePageDivStyle';
+import GlobalStyles from '../../styled-components/GlobalStyles';
+import WholePage from '../../styled-components/WholePageDivStyle';
 
 describe('<Header />', () => {
   it('renders', () => {
