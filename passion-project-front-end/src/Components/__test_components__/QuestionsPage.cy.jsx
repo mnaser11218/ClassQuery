@@ -9,6 +9,28 @@ import GlobalStyles from '../../styled-components/GlobalStyles';
 
 describe('<QuestionsPage />', () => {
   it('renders', () => {
+
+
+    cy.intercept('GET', `/api/user-profiles/*`, {
+      statusCode: 201,
+      body:  {
+        "id": 1,
+        "name": "Cypress Tester",
+        "emailAddress": "ChatGPT",
+        "password": "ChatGPT",
+        "aboutMe": "ChatGPT",
+        "created": "2024-08-23",
+        "answers": null,
+        "questions": null
+    },
+    }).as('getUserProfile');
+
+
+  
+    cy.intercept('GET', `/api/answers/count/*`, {
+      statusCode: 200,
+      body: 5,
+    }).as("getAnswerCount")
     cy.intercept("GET", "/api/questions", {
       body: 
         [{
@@ -34,7 +56,22 @@ describe('<QuestionsPage />', () => {
           "userProfile": {
               "id": 1
           }
-      }]
+      },
+      {
+        "id": 1501,
+        "title": "what is postman?",
+        "question": "Why do we use postman?",
+        "liked": 7,
+        "createdDate": "2024-12-21",
+        "answers": null,
+        "tags": [],
+        "assignment": {
+            "id": 1500
+        },
+        "userProfile": {
+            "id": 1500
+        }
+    }]
     })
 
     cy.mount(
@@ -47,6 +84,11 @@ describe('<QuestionsPage />', () => {
   
   
   )
-  cy.get('div').contains('All Questions')
+  cy.getBySel("question-row").then(row=>{
+    cy.wrap(row).eq(0).should('contain', 'From Cypress')
+    cy.wrap(row).eq(1).should('contain', 'what is postman')
+    cy.wrap(row).eq(1).should('exist')
+    cy.wrap(row).eq(2).should('not.exist')
+  })
   })
 })

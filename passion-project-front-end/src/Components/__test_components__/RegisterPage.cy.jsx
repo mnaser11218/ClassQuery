@@ -32,8 +32,7 @@ describe('<RegisterPage />', () => {
        </UserProvider>
        </WholePage>
        </BrowserRouter>
-    
-  
   )
+  
   })
 })

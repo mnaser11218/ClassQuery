@@ -93,7 +93,7 @@ const fetchUserProfileName = ()=>{
       },[])
     return(
             <>
-    <StyledQuestionRow>
+    <StyledQuestionRow  data-test="question-row">
        
     <QuestionStat data-test="questionRow-votes">{liked}<span>Votes</span></QuestionStat>
     <QuestionStat> <GetAmountOfAnswers questionId={id} /> <span>Answers</span></QuestionStat>
