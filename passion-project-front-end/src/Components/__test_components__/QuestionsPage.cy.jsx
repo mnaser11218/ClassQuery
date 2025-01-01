@@ -72,7 +72,7 @@ describe('<QuestionsPage />', () => {
             "id": 1500
         }
     }]
-    })
+    }).as("getquestions")
 
     cy.mount(
     <BrowserRouter>
@@ -84,10 +84,21 @@ describe('<QuestionsPage />', () => {
   
   
   )
-  cy.getBySel("question-row").then(row=>{
+  cy.wait("@getquestions").getBySel("question-row").then(row=>{
+    // test the first question: 
     cy.wrap(row).eq(0).should('contain', 'From Cypress')
+    cy.wrap(row).eq(0).contains("From Cypress").click()
+    cy.url().should("contain", "/answerspage/1500")
+
+    // test the second question:
+
+
     cy.wrap(row).eq(1).should('contain', 'what is postman')
     cy.wrap(row).eq(1).should('exist')
+    cy.wrap(row).eq(1).contains("what is postman").click()
+    cy.url().should("contain", "/answerspage/1501")
+
+    // test there are only 2 questions
     cy.wrap(row).eq(2).should('not.exist')
   })
   })
