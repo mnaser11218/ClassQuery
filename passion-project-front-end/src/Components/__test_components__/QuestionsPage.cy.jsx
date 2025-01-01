@@ -101,5 +101,8 @@ describe('<QuestionsPage />', () => {
     // test there are only 2 questions
     cy.wrap(row).eq(2).should('not.exist')
   })
+
+  cy.getBySel("ask-question-button").click()
+  cy.url().should("contain", "/askpage")
   })
 })

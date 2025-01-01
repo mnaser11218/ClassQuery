@@ -55,12 +55,12 @@ function QuestionsPage(){
         <main div-cypress="questions-page">
             <HeaderRow>
 <StyledHeader>All Questions</StyledHeader>
-    <BlueButton onClick={routeChange}>Ask&nbsp;Question</BlueButton> 
+    <BlueButton data-test="ask-question-button" onClick={routeChange}>Ask&nbsp;Question</BlueButton> 
 </HeaderRow>
 <div style={{"margin": "15px", "margin-left": "25px"}}>{questions.length} Questions</div>
 {questions.map(row=> {
     console.log("inside row")
-   return <QuestionRow question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile?.id}/>
+   return <QuestionRow data-test="questionrow-component" question={row.question} title={row.title} createdDate={row.createdDate} tags={row.tags} id={row.id} liked={row.liked ? row.liked: 0} userProfileId={row.userProfile?.id}/>
 })}
 
         </main>
