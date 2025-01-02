@@ -44,7 +44,15 @@ describe('<Home />', () => {
    
     </>
     )
+    // test header
     cy.getBySel("assignment-header").should("contain", "Course Assignments")
+
+    // test add assignmnet button 
+    cy.getBySel("add-assignment-button").click()
+    cy.url().should("contain", "/addassignment")
+
+
+    // test assignments rendered on page
     cy.wait("@getAssignments").getBySel("assignment").then(assignments=>{
       // testing first assignment in home page: 
       cy.wrap(assignments).getBySel("assignment-name").eq(0).should("have.text", "although")
@@ -52,29 +60,15 @@ describe('<Home />', () => {
        // test clicking on title should route to correct assignment endpoint: 
       cy.wrap(assignments).getBySel("assignment-name").eq(0).click()
       cy.url().should("contain", "/assignmentquestion/1")
-     
-     
-
-
 
 
       // testing second assignment in home page
       cy.wrap(assignments).getBySel("assignment-name").eq(1).should("have.text", "for")
       cy.wrap(assignments).getBySel("assignment-name").eq(1).click()
       cy.url().should("contain", "/assignmentquestion/2")
-
-
+      // test that only two assignments render on page
+      cy.wrap(assignments).eq(2).should('not.exist')
 
     })
   })
 })
-
-
-{/* <AssignmentEle data-test="assignment"  >
-     
-<LinkTag   data-test="assignment-id" to={`/assignmentquestion/${ele.id}`}>
-<span  data-test="assignment-name"  className="tag">{ele.name}</span> 
- </LinkTag>
-<Description  data-test="assignment-description" >{ele.courseName}</Description>
-
-</AssignmentEle> */}
