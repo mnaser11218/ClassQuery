@@ -90,7 +90,6 @@ describe('<QuestionRow />', () => {
 
   cy.getBySel("questionRow-tag").click()
   cy.url().should('contain', `tagquestions/${row.tags[0].id}`)
-
   })
 })
 

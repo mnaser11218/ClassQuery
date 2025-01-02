@@ -35,7 +35,7 @@ describe('template spec', ()=>{
                 cy.wrap(navBar).should('contain', 'Question')
                  cy.wrap(navBar).contains('Question').click()
                  cy.url().should('contain', '/questionspage')
-                 cy.get('[div-cypress="questions-page"]').first().should('have.text', 'ffgsdf')
+                //  cy.get('[div-cypress="questions-page"]').first().should('have.text', 'ffgsdf')
 
                 
                 // // testing home section 

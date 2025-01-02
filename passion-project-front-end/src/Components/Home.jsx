@@ -70,7 +70,7 @@ function Home(){
 return(
     <>
         <HeaderRow>
-<StyledHeader> Course Assignments </StyledHeader>
+<StyledHeader data-test="assignment-header"> Course Assignments </StyledHeader>
 <BlueButton onClick={routeChange}>Add&nbsp;Assignment</BlueButton>  
 </HeaderRow>
 <div style={{margin: "30px"}}>
@@ -79,12 +79,12 @@ An assignment is a task assigned by a teacher in a course, where students can as
     
     {assignments?.map(ele=>{
       return(
-      <AssignmentEle >
+      <AssignmentEle data-test="assignment"  >
      
-        <LinkTag to={`/assignmentquestion/${ele.id}`}>
-        <span className="tag">{ele.name}</span> 
+        <LinkTag   data-test="assignment-id" to={`/assignmentquestion/${ele.id}`}>
+        <span  data-test="assignment-name"  className="tag">{ele.name}</span> 
          </LinkTag>
-        <Description>{ele.courseName}</Description>
+        <Description  data-test="assignment-description" >{ele.courseName}</Description>
     
       </AssignmentEle>
 
