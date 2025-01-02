@@ -84,22 +84,22 @@ function ShowTags(){
 return(
     <>
         <HeaderRow>
-<StyledHeader> Tags </StyledHeader>
-<BlueButton onClick={routeChange}>Add&nbsp;Tag</BlueButton>  
+<StyledHeader data-test="tags-header"> Tags </StyledHeader>
+<BlueButton data-test="tags-addtag-button" onClick={routeChange}>Add&nbsp;Tag</BlueButton>  
 </HeaderRow>
-<div style={{margin: "30px"}}>
+<div  data-test="tags-header-description" style={{margin: "30px"}}>
 A tag is a keyword or label that groups your question with other related questions. Using appropriate tags helps others find and respond to your question more easily.</div>
 
     <DivEle>
     
     {assignments?.map(ele=>{
       return(
-      <AssignmentEle>
-        <LinkTag to={`/tagquestions/${ele.id}`}>
+      <AssignmentEle data-test="tags-individual-tag" >
+        <LinkTag data-test="tags-individual-tag-name" to={`/tagquestions/${ele.id}`}>
         <span className="tag">{ele.tagName}</span>
         </LinkTag>
 
-        <Description>{ele.tagDescription}</Description>
+        <Description data-test="tags-individual-tag-description">{ele.tagDescription}</Description>
          
     
       </AssignmentEle>
