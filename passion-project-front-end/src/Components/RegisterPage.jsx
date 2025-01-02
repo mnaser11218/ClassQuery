@@ -40,19 +40,19 @@ padding: 30px 28px;
 
     return (
         <>
-        <CenterPageDiv>
-        <H1HeaderTag>Register </H1HeaderTag>
-        <StyledInput div-cypress="name-input" placeholder="name" type="name" value={name}
+        <CenterPageDiv data-test="register-page">
+        <H1HeaderTag data-test="register-page-header">Register </H1HeaderTag>
+        <StyledInput data-test="register-page-input-name" div-cypress="name-input" placeholder="name" type="name" value={name}
         onChange={e=>setName(e.target.value)}
         />
-        <StyledInput div-cypress="email-input" placeholder="email" type="email" value={userName}
+        <StyledInput data-test="register-page-input-email"  div-cypress="email-input" placeholder="email" type="email" value={userName}
         onChange={e=>setUserName(e.target.value)}
         />
-        <StyledInput div-cypress="password-input" placeholder="password" type="password" value={password} 
+        <StyledInput data-test="register-page-password-email"  div-cypress="password-input" placeholder="password" type="password" value={password} 
         autocomplete={'new-password'}
         onChange={e=>setPassword(e.target.value)}
         />
-        <BlueButton div-cypress="button-submit-register" onClick={handleRegister}>Register</BlueButton>
+        <BlueButton data-test="register-page-submit-button"  div-cypress="button-submit-register" onClick={handleRegister}>Register</BlueButton>
         </CenterPageDiv>
     
         
