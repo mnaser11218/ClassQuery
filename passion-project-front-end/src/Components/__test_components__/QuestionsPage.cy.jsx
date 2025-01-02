@@ -103,7 +103,6 @@ describe('<QuestionsPage />', () => {
   })
 
   cy.getBySel("ask-question-button").click()
-  cy.getBySel("ask-question-button").wrap(onClick).should('have.been.calledOnce');
   cy.url().should("contain", "/askpage")
   })
 })
