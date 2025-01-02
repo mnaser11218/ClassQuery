@@ -3,8 +3,8 @@ import React from 'react';
 import '../App.css'
 export const Footer = () => {
   return (
-    <footer data-test="footer" className="footer">
-      <Container>
+    <footer  data-test="footer" className="footer">
+      <Container >
         <Row className="align-items-center">
           {/* <MailchimpForm /> */}
           <Col size={12} sm={6}>

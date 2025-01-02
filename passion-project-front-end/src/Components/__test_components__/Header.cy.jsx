@@ -28,7 +28,15 @@ describe('<Header />', () => {
      </BrowserRouter>
     )
 
-    cy.get('input').should("have.attr", "placeholder","Search..."); // Or another element to check
+    cy.get('input').should("have.attr", "placeholder","Search..."); 
+    // test login button
+    cy.getBySel("login-button").should("have.text", "Login")
+    cy.getBySel("login-button").click()
+    cy.url().should("contain", "/login")
 
+    //test register button
+    cy.getBySel("register-button").should("have.text", "Register")
+    cy.getBySel("register-button").click()
+    cy.url().should("contain", "/register")
   })
 })
