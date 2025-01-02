@@ -80,6 +80,9 @@ describe('<ShowTags />', () => {
     cy.wrap(tag).getBySel("tags-individual-tag-description").eq(2).should("contain", "Cypress description 3")
     cy.wrap(tag).getBySel("tags-individual-tag-name").eq(2).click()
     cy.url().should("contain", "/tagquestions/3")
+
+    // ensure there are no additional tags
+    cy.wrap(tag).getBySel("tags-individual-tag-name").eq(3).should("not.exist")
   })
 
   })
