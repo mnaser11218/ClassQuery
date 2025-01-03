@@ -89,12 +89,27 @@ background: none;
     cursor: pointer;
     font-size: 0.8rem;
     font-family:var(--ff-sans);
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInSlideUp 2s ease-out forwards;
+
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+} 
     &:hover{
     color: #FF9900;
     //color: #748D92;
     border: none;
     }
-} 
 `
 
 export default GlobalStyles;

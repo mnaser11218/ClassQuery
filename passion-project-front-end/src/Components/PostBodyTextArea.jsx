@@ -81,9 +81,12 @@ function PostBodyTextArea({...props}){
            placeholder="Enter Answer here" 
            onChange={e=>setAnswer(e.target.value)}
     />
+    {answer ? 
     <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={answer}/>
-      </PreviewArea>
+      </PreviewArea> : 
+      ""
+}
       <div style={{"margin": "15px 0px 5px 0px",
 "padding": "7px 0px 10px 0px"}}> AI Features:</div>
       <AiButtons>

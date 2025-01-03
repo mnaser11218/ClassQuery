@@ -6,7 +6,7 @@ font-family: arial;
 margin: 10px;
   font-size: 2rem;
   font-weight: bold;
-  color: #3498db;
+//   color: #3498db;
   opacity: 0;
   transform: translateY(50px);
   animation: fadeInSlideUp 2s ease-out forwards;
