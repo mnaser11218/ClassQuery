@@ -92,7 +92,7 @@ padding-top: 10px;
       {
         question && (
           <>
-          <H1HeaderTag style={{"border-bottom": "1px solid #777", "padding-bottom": "30px", "margin-bottom": "30px"}}>{question.title}</H1HeaderTag>
+          <H1HeaderTag style={{"border-bottom": "1px solid #777", "padding-bottom": "30px", "margin-bottom": "30px", color:" #F8F7E5"}}>{question.title}</H1HeaderTag>
           <BodyTag>
             
         <VotingButtons likeCount={question.liked ? question.liked : 0} questionId={questionId}/>

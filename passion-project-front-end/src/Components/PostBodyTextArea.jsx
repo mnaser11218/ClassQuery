@@ -62,9 +62,13 @@ function PostBodyTextArea({...props}){
                   
               })
           }).then(res => res.json())
-            .then(res => console.log(res));
-            setAnswer("");
-            routeChange()
+            .then(res => {
+              console.log(res)
+              setAnswer("");
+              routeChange()
+    });
+           
+           
     }
 
     return (
