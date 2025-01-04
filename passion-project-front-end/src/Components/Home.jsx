@@ -40,6 +40,21 @@ width: 100%;
 height: 250px;
 border-radius: 10px;
  overflow: hidden;
+
+   opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInSlideUp 2s ease-out forwards;
+
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 
 const StyledHeader = styled.a`

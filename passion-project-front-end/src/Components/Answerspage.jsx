@@ -14,44 +14,7 @@ import H2HeaderTag from "../styled-components/H2HeaderTag";
 import PostBodyTextArea from "./PostBodyTextArea";
 import AllAnswersListPage from "./AllAnswersListPage";
 import { useUser } from "../CurrentUser";
-
-function AnswersPage(){
-  
-  const params = useParams();
-  const questionId = params.id;
-  const [question, setQuestion]= useState("")
-  const [userProfileName, setUserProfileName] =useState("")
-  const {currentLoggedInUser} = useUser();
- 
-  useEffect(()=>{
-    fetchQuestion();
-  }, [])
-  useEffect(()=>{
-    if(question){
-      fetchUserProfileName()
-    }
-   
-  },[question])
- 
-  var fetchQuestion = ()=> {
-  fetch(`http://localhost:8080/api/questions/${questionId}`)
-  .then(res=> res.json())
-  .then(data=> {
-   setQuestion(data)
-   console.log("the userid is: " +data.userProfile?.id )
- })
-
- }
-
- var fetchUserProfileName = ()=>{
-  console.log("question is: "  + JSON.stringify(question.userProfile?.id))
-  fetch(`http://localhost:8080/api/user-profiles/${question.userProfile?.id}`)
-  .then(response=>response.json())
-  .then(data=> {
-    setUserProfileName(data.name)
-    
-   } )
-}
+import "../App.css"
 
  
 
@@ -80,6 +43,67 @@ padding-top: 10px;
 `
 
 
+function AnswersPage(){
+  
+  const params = useParams();
+  const questionId = params.id;
+  const [question, setQuestion]= useState("")
+  const [userProfileName, setUserProfileName] =useState("")
+  const [displayedText, setDisplayedText] = useState(' ');
+  const fullText = "Hello, welcome to the typewriter effect in React!";
+  const {currentLoggedInUser} = useUser();
+ 
+  useEffect(()=>{
+    fetchQuestion();   
+  }, [])
+
+
+  useEffect(()=>{
+    if(question){
+      fetchUserProfileName()
+    }
+   
+  },[question])
+
+  useEffect(() => {
+    let index = 0;
+    
+    // Clear previous typing effect on re-render or when the component is reset
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => prev + fullText[index]);  // Append one character at a time
+      index++;
+
+      // Stop typing when we reach the end of the text
+      if (index === fullText.length) {
+        clearInterval(interval);
+      }
+    }, 100);  // Typing speed in milliseconds
+
+    // Cleanup the interval when the component unmounts or re-renders
+    return () => clearInterval(interval);
+  }, [question]);  
+
+  var fetchQuestion = ()=> {
+  fetch(`http://localhost:8080/api/questions/${questionId}`)
+  .then(res=> res.json())
+  .then(data=> {
+   setQuestion(data)
+  // animateQues()
+   console.log("the userid is: " +data.userProfile?.id )
+ })
+
+ }
+
+ var fetchUserProfileName = ()=>{
+  console.log("question is: "  + JSON.stringify(question.userProfile?.id))
+  fetch(`http://localhost:8080/api/user-profiles/${question.userProfile?.id}`)
+  .then(response=>response.json())
+  .then(data=> {
+    setUserProfileName(data.name)
+   })
+}
+
+
 
 
 
@@ -97,8 +121,8 @@ padding-top: 10px;
             
         <VotingButtons likeCount={question.liked ? question.liked : 0} questionId={questionId}/>
           <div style={{fontSize: '17px'}} >
-           
-          <ReactMarkdown remarkPlugins={[gfm]} children={question.question} />
+           <div  className="typewriter-text">{displayedText}</div>
+          <ReactMarkdown  remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>
             

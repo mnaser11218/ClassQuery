@@ -45,6 +45,21 @@ grid-template-columns:  100px 100px 1fr;
 //border-top: solid 1px #777;
 // border-top: solid 1px #F8F7E5;
 border-top: solid 1px #F8F7E5;
+
+   opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInSlideUp 2s ease-out forwards;
+
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 const WhoAndWhen = styled.div`
 display: inline-block;
