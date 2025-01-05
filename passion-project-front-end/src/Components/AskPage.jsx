@@ -18,7 +18,10 @@ import GPT4AskChat from "../OpenAI/GPT4AskChat";
 import AskChat from "../OpenAI/AskChat";
 import axios from "axios";
 import AskChatAQues from "../OpenAI/AskChatAQues";
-
+import Animation from "./Animation_Components/Animation";
+import Lottie from "lottie-react";
+import ai from '.././assets/ai2.json'
+import ai3 from '.././assets/ai3.json'
 
 
 const TitleInput = styled.input`
@@ -200,8 +203,10 @@ return(
       </PreviewArea>
       <Tags setTags={setTags} tags={tags} />
       {/* <img src={require("./OpenAI/chaticon.png")} style={{ width: 50 }} alt="" />  */}
-      <div style={{"margin": "15px 0px 5px 0px",
-"padding": "7px 0px 10px 0px"}}>  AI Features:</div>
+      {/* <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px"}}>AI Features  </div> */}
+ <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px", height: "7%", width:"7%"}}><Lottie animationData={ai3} /> </div>
       <AiButtons>
         
       
@@ -221,7 +226,7 @@ return(
       </PreviewArea>  : " "} 
 
 
-
+      {/* <Animation></Animation> */}
       <BlueButton  onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
         

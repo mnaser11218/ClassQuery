@@ -11,6 +11,9 @@ import GPT1RewordQuestion from "../OpenAI/GPT1RewordQuestion";
 import GPT2Translation from "../OpenAI/GPT2Translation";
 // import AskChat from "./OpenAI/AskChat";
 import AskChatAQues from "../OpenAI/AskChatAQues";
+import Lottie from "lottie-react";
+import ai3 from '.././assets/ai3.json'
+
 const PostBodyText = styled.textarea`
 background:none;
 display:block;
@@ -65,6 +68,7 @@ function PostBodyTextArea({...props}){
             .then(res => {
               console.log(res)
               setAnswer("");
+
               routeChange()
     });
            
@@ -87,8 +91,10 @@ function PostBodyTextArea({...props}){
       </PreviewArea> : 
       ""
 }
-      <div style={{"margin": "15px 0px 5px 0px",
-"padding": "7px 0px 10px 0px"}}> AI Features:</div>
+      {/* <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px"}}> AI Features:</div> */}
+ <div style={{"margin": "15px 0px 5px 0px",
+"padding": "7px 0px 10px 0px", height: "7%", width:"7%"}}><Lottie animationData={ai3} /> </div>
       <AiButtons>
         
         
