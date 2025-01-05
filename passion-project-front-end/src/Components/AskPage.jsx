@@ -20,7 +20,6 @@ import axios from "axios";
 import AskChatAQues from "../OpenAI/AskChatAQues";
 import Animation from "./Animation_Components/Animation";
 import Lottie from "lottie-react";
-import ai from '.././assets/ai2.json'
 import ai3 from '.././assets/ai3.json'
 
 
@@ -198,9 +197,10 @@ return(
         onChange={e=>setQuestion(e.target.value)}
     />
 
-      <PreviewArea>
+     { question ?  <PreviewArea>
       <ReactMarkdown remarkPlugins={[gfm]} children={question}/>
-      </PreviewArea>
+      </PreviewArea> : ""
+}
       <Tags setTags={setTags} tags={tags} />
       {/* <img src={require("./OpenAI/chaticon.png")} style={{ width: 50 }} alt="" />  */}
       {/* <div style={{"margin": "15px 0px 5px 0px",
