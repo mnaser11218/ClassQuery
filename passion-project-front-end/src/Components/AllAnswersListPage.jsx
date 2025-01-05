@@ -27,7 +27,7 @@ function AllAnswersListPage({...props}){
    
     useEffect(()=>{
     getAnswers();
-    },[])
+    },[answers])
     return (<>
     <hr/>
    <H2HeaderTag style={{"border-top": "none"}}> {answers.length} Answers:</H2HeaderTag>
