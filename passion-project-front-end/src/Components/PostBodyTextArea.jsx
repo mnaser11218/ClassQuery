@@ -42,7 +42,7 @@ function PostBodyTextArea({...props}){
 
     let navigate = useNavigate(); 
         var routeChange = ()=> {
-            let path = `/answerspage/${questionId}`; 
+            let path = `/questionspage`; 
             navigate(path);
         }
 
@@ -96,8 +96,6 @@ function PostBodyTextArea({...props}){
  <div style={{"margin": "15px 0px 5px 0px",
 "padding": "7px 0px 10px 0px", height: "7%", width:"7%"}}><Lottie animationData={ai3} /> </div>
       <AiButtons>
-        
-        
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 
       <GPT2Translation apiKey={apiKey} onUpdateInputValue={setAnswer} answer={answer} /> 
