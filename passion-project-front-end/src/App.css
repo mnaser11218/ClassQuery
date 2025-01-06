@@ -78,6 +78,21 @@
     margin-top: 20px;
   }
   
+  .typewriter-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3498db;
+    white-space: nowrap;
+    border-right: 3px solid black;
+    padding-right: 5px;
+    animation: blinkCaret 0.75s step-end infinite;
+  }
+  
+  @keyframes blinkCaret {
+    50% {
+      border-color: transparent;
+    }
+  }
 
 
 

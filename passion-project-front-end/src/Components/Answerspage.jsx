@@ -50,27 +50,29 @@ function AnswersPage(){
   const [question, setQuestion]= useState("")
   const [userProfileName, setUserProfileName] =useState("")
   const {currentLoggedInUser} = useUser();
+
  
   useEffect(()=>{
     fetchQuestion();   
+   
   }, [])
 
 
   useEffect(()=>{
     if(question){
       fetchUserProfileName()
+     
+
     }
    
   },[question])
 
  
-
   var fetchQuestion = ()=> {
   fetch(`http://localhost:8080/api/questions/${questionId}`)
   .then(res=> res.json())
   .then(data=> {
    setQuestion(data)
-  // animateQues()
    console.log("the userid is: " +data.userProfile?.id )
  })
 
@@ -103,7 +105,7 @@ function AnswersPage(){
             
         <VotingButtons likeCount={question.liked ? question.liked : 0} questionId={questionId}/>
           <div style={{fontSize: '17px'}} >
-           {/* <div  className="typewriter-text">{displayedText}</div> */}
+     
           <ReactMarkdown  remarkPlugins={[gfm]} children={question.question} />
           <AnswerMeta>
             <div>

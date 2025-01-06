@@ -208,9 +208,6 @@ return(
  <div style={{"margin": "15px 0px 5px 0px",
 "padding": "7px 0px 10px 0px", height: "7%", width:"7%"}}><Lottie animationData={ai3} /> </div>
       <AiButtons>
-        
-      
-        
       <GPT3Component apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/>
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
       <GPT2Translation apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} /> 
