@@ -80,11 +80,13 @@ function AnswersPage(){
 
  var fetchUserProfileName = ()=>{
   console.log("question is: "  + JSON.stringify(question.userProfile?.id))
+  if(question.userProfile?.id !== "undefined" ){
   fetch(`http://localhost:8080/api/user-profiles/${question.userProfile?.id}`)
   .then(response=>response.json())
   .then(data=> {
     setUserProfileName(data.name)
    })
+  }
 }
 
 
