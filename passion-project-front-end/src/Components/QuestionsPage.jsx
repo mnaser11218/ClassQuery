@@ -30,7 +30,6 @@ function QuestionsPage(){
       fetch(`http://localhost:8080/api/questions`)
       .then(res => {
         console.log("inside fetch method")
-        //console.log("res is ", Object.prototype.toString.call(res));
         return res.json();
       })
       .then(data => {
@@ -41,7 +40,6 @@ function QuestionsPage(){
       })
       .catch(error => {
         console.log(`Error Fetching data : ${error}`);
-       // document.getElementById('posts').innerHTML = 'Error Loading Data';
       });
     }
 

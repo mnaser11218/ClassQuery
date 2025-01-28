@@ -212,7 +212,6 @@ return(
       <GPT1RewordQuestion apiKey={apiKey} onUpdateInputValue={setQuestion} question={question}/> 
       <GPT2Translation apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} /> 
       {/* <GPT4AskChat apiKey={apiKey} onUpdateInputValue={setQuestion} question={question} />  */}
-
       </AiButtons>
       <AskChat onChecked={setChecked} />
 
