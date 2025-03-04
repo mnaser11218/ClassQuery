@@ -65,8 +65,6 @@ const [tags, setTags] = useState([]); // State to hold the tags
 const [checked, setChecked] = useState(false)
 const [chatGPTAnswer, setChatGPTAnswer] =useState("")
 const [askChat, setAskChat] = useState("")
-//const user= useContext(UserContext);
-// const [inputValue, setInputValue] = useState('');
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY
 
 
@@ -173,10 +171,6 @@ var postAnswer = ()=>{
 
 const handleSubmitClick = ()=>{
   postQuestion()
-  // if(chatGPTAnswer == ""){
-  // routeChange()
-  // }
-
 }
 
 return(
@@ -202,9 +196,7 @@ return(
       </PreviewArea> : ""
 }
       <Tags setTags={setTags} tags={tags} />
-      {/* <img src={require("./OpenAI/chaticon.png")} style={{ width: 50 }} alt="" />  */}
-      {/* <div style={{"margin": "15px 0px 5px 0px",
-"padding": "7px 0px 10px 0px"}}>AI Features  </div> */}
+  
  <div style={{"margin": "15px 0px 5px 0px",
 "padding": "7px 0px 10px 0px", height: "7%", width:"7%"}}><Lottie animationData={ai3} /> </div>
       <AiButtons>
@@ -222,7 +214,6 @@ return(
       </PreviewArea>  : " "} 
 
 
-      {/* <Animation></Animation> */}
       <BlueButton  onClick={handleSubmitClick} >Submit</BlueButton>
     </CenterPageDiv>
         
